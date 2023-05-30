@@ -1,7 +1,7 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from 'next/image';
+import styles from './page.module.css';
 
-export default function Home() {
+const Home = () => {
   return (
     <main className={styles.main}>
       <div className={styles.description}>
@@ -29,6 +29,8 @@ export default function Home() {
       </div>
 
       <div className={styles.center}>
+        <h1 style={{ marginRight: '8px' }}>Welcome to</h1>
+
         <Image
           className={styles.logo}
           src="/next.svg"
@@ -91,5 +93,7 @@ export default function Home() {
         </a>
       </div>
     </main>
-  )
-}
+  );
+};
+
+export default Home;
