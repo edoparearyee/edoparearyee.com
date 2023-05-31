@@ -1,0 +1,3 @@
+@function spacer($value: 1, $spacer: $spacer-interval) {
+  @return $spacer * $value;
+}
