@@ -1,0 +1,45 @@
+@use "sass:list";
+@import "../../styles/shared";
+
+.type {
+  font-weight: $font-weight-regular;
+  line-height: $line-height-base;
+  margin-bottom: rem(16px);
+  margin-top: 0;
+}
+
+.type--appearance-h1,
+.type--appearance-h2,
+.type--appearance-h3,
+.type--appearance-h4,
+.type--appearance-h5,
+.type--appearance-h6 {
+  display: block;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-headings;
+  margin-bottom: $margin-bottom-headings;
+}
+
+.type--appearance-monospace-1,
+.type--appearance-monospace-2 {
+  font-family: $font-family-monospace;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-body;
+  margin-bottom: $margin-bottom-body;
+}
+
+@each $breakpoint, $sizes in $font-sizes {
+  @each $name, $value in $sizes {
+    @include breakpoint($breakpoint) {
+      @each $weight-name, $weight in $font-weights {
+        .type--appearance-#{$name}-#{$weight-name} {
+          font-weight: $weight;
+        }
+      }
+
+      .type--appearance-#{$name} {
+        font-size: $value;
+      }
+    }
+  }
+}
