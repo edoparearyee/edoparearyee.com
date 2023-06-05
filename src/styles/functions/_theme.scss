@@ -1,0 +1,9 @@
+@use "sass:map";
+
+@function theme-color($key: primary, $sub-key: base) {
+  $value: map.get($theme, $key);
+  @if type-of($value) == "map" {
+    @return map.get($value, $sub-key);
+  }
+  @return $value;
+}
