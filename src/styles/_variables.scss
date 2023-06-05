@@ -1,0 +1,173 @@
+@use "sass:math";
+@import "./functions";
+
+// Colors
+
+$black: #000;
+$white: #fff;
+
+$grey-light: #edf0f2;
+$grey-dark: #343434;
+
+$body-bg: $white;
+$body-color: $black;
+
+// Typography
+
+$font-size-base: 16px;
+$line-height-base: 1.5;
+
+$font-size-h1--sm: rem(32px);
+$font-size-h2--sm: rem(24px);
+$font-size-h3--sm: rem(20px);
+$font-size-h4--sm: rem(18px);
+$font-size-h5--sm: rem(14px);
+$font-size-h6--sm: rem(12px);
+$font-size-body--sm: rem(16px);
+$font-size-small--sm: rem(14px);
+$font-size-xsmall--sm: rem(12px);
+
+$font-size-h1--lg: rem(64px);
+$font-size-h2--lg: rem(32px);
+$font-size-h3--lg: rem(24px);
+$font-size-h4--lg: rem(20px);
+$font-size-h5--lg: rem(18px);
+$font-size-h6--lg: rem(16px);
+$font-size-body--lg: rem(18px);
+$font-size-small--lg: rem(14px);
+$font-size-xsmall--lg: rem(12px);
+
+/* prettier-ignore */
+$font-sizes: (
+  sm: (
+    h1: $font-size-h1--sm,
+    h2: $font-size-h2--sm,
+    h3: $font-size-h3--sm,
+    h4: $font-size-h4--sm,
+    h5: $font-size-h5--sm,
+    h6: $font-size-h6--sm,
+    body: $font-size-body--sm,
+    small: $font-size-small--sm,
+    x-small: $font-size-xsmall--sm,
+    monospace-1: $font-size-h1--sm,
+    monospace-2: $font-size-h4--sm,
+  ),
+  lg: (
+    h1: $font-size-h1--lg,
+    h2: $font-size-h2--lg,
+    h3: $font-size-h3--lg,
+    h4: $font-size-h4--lg,
+    h5: $font-size-h5--lg,
+    h6: $font-size-h6--lg,
+    body: $font-size-body--lg,
+    small: $font-size-small--lg,
+    x-small: $font-size-xsmall--lg,
+    monospace-1: $font-size-h1--lg,
+    monospace-2: $font-size-h4--lg,
+  ),
+);
+
+// Line height
+
+$line-height-base: 1.4;
+
+$line-height-headings: 1.1;
+$line-height-display: 1.1;
+$line-height-body: $line-height-base;
+$line-height-button: 1.4;
+
+// Font weight
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+$font-weights: (
+  light: $font-weight-light,
+  regular: $font-weight-regular,
+  medium: $font-weight-medium,
+  bold: $font-weight-bold,
+);
+
+$font-family-base: "Clear Sans", sans-serif;
+$font-family-headings: "Clear Sans", sans-serif;
+$font-family-monospace: "Ubuntu Mono", monospace;
+
+$font-path: "/assets/fonts";
+
+// Spacers
+
+$spacer-interval: rem(4px) !default;
+
+$spacer-0: spacer(0);
+$spacer-1: spacer(1);
+$spacer-2: spacer(2);
+$spacer-3: spacer(3);
+$spacer-4: spacer(4);
+$spacer-5: spacer(5);
+$spacer-6: spacer(6);
+$spacer-7: spacer(7);
+$spacer-8: spacer(8);
+$spacer-10: spacer(10);
+$spacer-12: spacer(12);
+$spacer-16: spacer(16);
+$spacer-20: spacer(20);
+$spacer-24: spacer(24);
+$spacer-32: spacer(32);
+$spacer-40: spacer(40);
+$spacer-48: spacer(48);
+
+$spacers: (
+  0: $spacer-0,
+  1: $spacer-1,
+  2: $spacer-2,
+  3: $spacer-3,
+  4: $spacer-4,
+  5: $spacer-5,
+  6: $spacer-6,
+  7: $spacer-7,
+  8: $spacer-8,
+  10: $spacer-10,
+  12: $spacer-12,
+  16: $spacer-16,
+  20: $spacer-20,
+  24: $spacer-24,
+  32: $spacer-32,
+  40: $spacer-40,
+  48: $spacer-48,
+);
+
+// Margins
+
+$margin-bottom-headings: $spacer-4;
+$margin-bottom-display: $spacer-8;
+$margin-bottom-body: $spacer-4;
+
+// Grid breakpoints
+
+$grid-breakpoints: (
+  sm: 320px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1200px,
+);
+
+// Grid
+
+$grid-container-max-width: 1440px + (120px * 2);
+
+$grid-gutter-width: 16px;
+$grid-container-padding-sm: 20px - math.div($grid-gutter-width, 2);
+$grid-container-padding-lg: 120px - math.div($grid-gutter-width, 2);
+
+// Transitions
+
+$transition-base: all 0.2s ease-in-out;
+$transition-fade: opacity 0.15s linear;
+
+// Z-indexes
+
+$z-index-header: 1000;
+$z-index-popover: 1040;
+$z-index-modal: 1050;

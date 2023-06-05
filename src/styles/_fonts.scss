@@ -1,0 +1,62 @@
+@font-face {
+  font-family: "Clear Sans";
+  font-style: normal;
+  font-weight: $font-weight-light;
+  src: url("#{$font-path}/ClearSans-Light/ClearSans-Light.woff2")
+      format("woff2"),
+    url("#{$font-path}/ClearSans-Light/ClearSans-Light.woff") format("woff"),
+    url("#{$font-path}/ClearSans-Light/ClearSans-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Clear Sans";
+  font-style: normal;
+  font-weight: $font-weight-regular;
+  src: url("#{$font-path}/ClearSans-Regular/ClearSans-Regular.woff2")
+      format("woff2"),
+    url("#{$font-path}/ClearSans-Regular/ClearSans-Regular.woff") format("woff"),
+    url("#{$font-path}/ClearSans-Regular/ClearSans-Regular.ttf")
+      format("truetype");
+}
+
+@font-face {
+  font-family: "Clear Sans";
+  font-style: normal;
+  font-weight: $font-weight-medium;
+  src: url("#{$font-path}/ClearSans-Medium/ClearSans-Medium.woff2")
+      format("woff2"),
+    url("#{$font-path}/ClearSans-Medium/ClearSans-Medium.woff") format("woff"),
+    url("#{$font-path}/ClearSans-Medium/ClearSans-Medium.ttf")
+      format("truetype");
+}
+
+@font-face {
+  font-family: "Clear Sans";
+  font-style: normal;
+  font-weight: $font-weight-bold;
+  src: url("#{$font-path}/ClearSans-Bold/ClearSans-Bold.woff2") format("woff2"),
+    url("#{$font-path}/ClearSans-Bold/ClearSans-Bold.woff") format("woff"),
+    url("#{$font-path}/ClearSans-Bold/ClearSans-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu Mono";
+  font-style: normal;
+  font-weight: $font-weight-regular;
+  src: url("#{$font-path}/UbuntuMono-Regular/UbuntuMono-Regular.woff2")
+      format("woff2"),
+    url("#{$font-path}/UbuntuMono-Regular/UbuntuMono-Regular.woff")
+      format("woff"),
+    url("#{$font-path}/UbuntuMono-Regular/UbuntuMono-Regular.ttf")
+      format("truetype");
+}
+
+@font-face {
+  font-family: "Ubuntu Mono";
+  font-style: normal;
+  font-weight: $font-weight-bold;
+  src: url("#{$font-path}/UbuntuMono-Bold/UbuntuMono-Bold.woff2")
+      format("woff2"),
+    url("#{$font-path}/UbuntuMono-Bold/UbuntuMono-Bold.woff") format("woff"),
+    url("#{$font-path}/UbuntuMono-Bold/UbuntuMono-Bold.ttf") format("truetype");
+}

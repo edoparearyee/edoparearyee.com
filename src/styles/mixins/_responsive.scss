@@ -1,0 +1,11 @@
+@use "sass:map";
+
+@mixin breakpoint($breakpoint: "sm") {
+  @if $breakpoint == "sm" {
+    @content;
+  } @else {
+    @media (min-width: map.get($grid-breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
