@@ -1,0 +1,12 @@
+@use "sass:color";
+
+@function text-color-contrast(
+  $background-color,
+  $light: $white,
+  $dark: $black
+) {
+  @if color.lightness($background-color) > 61% {
+    @return $dark;
+  }
+  @return $light;
+}

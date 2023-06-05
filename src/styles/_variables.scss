@@ -6,11 +6,87 @@
 $black: #000;
 $white: #fff;
 
-$grey-light: #edf0f2;
-$grey-dark: #343434;
+$grey-900: #101823;
+$grey-800: #1a2531;
+$grey-700: #2e3948;
+$grey-600: #3f4c59;
+$grey-500: #5e6775;
+$grey-400: #8f99a6;
+$grey-300: #cacfd6;
+$grey-200: #e0e4e8;
+$grey-100: #f1f2f5;
+$grey-50: #f8f9fa;
+
+$primary-800: #111;
+$primary-500: #222;
+$primary-100: #333;
+
+$secondary-800: #4d1d8a;
+$secondary-500: #7c37d5;
+$secondary-100: #decdf5;
+
+$warning-800: #933200;
+$warning-500: #ff8d00;
+$warning-100: #fff0bd;
+
+$success-800: #005c2c;
+$success-500: #00c050;
+$success-100: #cffde3;
+
+$destructive-800: #9d0014;
+$destructive-500: #ff2536;
+$destructive-100: #ffdcdd;
+
+$blur-hex: #d9d9d9;
+$blur: rgba($blur-hex, 0.2);
+$shadow: rgba($blur-hex, 0.2);
 
 $body-bg: $white;
 $body-color: $black;
+
+$debug-color: $primary-100;
+
+// Theme
+
+$theme: () !default;
+
+$theme: (
+  primary: (
+    light: $primary-100,
+    base: $primary-500,
+    dark: $primary-800,
+  ),
+  secondary: (
+    light: $secondary-100,
+    base: $secondary-500,
+    dark: $secondary-800,
+  ),
+  success: (
+    light: $success-100,
+    base: $success-500,
+    dark: $success-800,
+  ),
+  warning: (
+    light: $warning-100,
+    base: $warning-500,
+    dark: $warning-800,
+  ),
+  destructive: (
+    light: $destructive-100,
+    base: $destructive-500,
+    dark: $destructive-800,
+  ),
+  default: (
+    light: $white,
+    dark: $black,
+  ),
+  effects: (
+    blur: $blur,
+    shadow: $shadow,
+  ),
+  background-color: $white,
+  color: $grey-900,
+);
 
 // Typography
 
@@ -36,6 +112,10 @@ $font-size-h6--lg: rem(16px);
 $font-size-body--lg: rem(18px);
 $font-size-small--lg: rem(14px);
 $font-size-xsmall--lg: rem(12px);
+
+$font-size-button-large: rem(18px);
+$font-size-button-medium: rem(14px);
+$font-size-button-small: rem(14px);
 
 /* prettier-ignore */
 $font-sizes: (
@@ -83,6 +163,8 @@ $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-bold: 700;
 
+$font-weight-button: $font-weight-bold;
+
 $font-weights: (
   light: $font-weight-light,
   regular: $font-weight-regular,
@@ -90,9 +172,11 @@ $font-weights: (
   bold: $font-weight-bold,
 );
 
-$font-family-base: "Clear Sans", sans-serif;
-$font-family-headings: "Clear Sans", sans-serif;
+$font-family-sans-serif: "Clear Sans", sans-serif;
 $font-family-monospace: "Ubuntu Mono", monospace;
+$font-family-base: $font-family-sans-serif;
+$font-family-headings: $font-family-sans-serif;
+$font-family-button: $font-family-sans-serif;
 
 $font-path: "/assets/fonts";
 
