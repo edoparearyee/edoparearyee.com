@@ -1,0 +1,14 @@
+@use "sass:map";
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.grid-container {
+  margin: 0 auto;
+  max-width: $grid-container-max-width;
+  padding: 0 $grid-container-padding-sm;
+  width: 100%;
+
+  @include breakpoint("lg") {
+    padding: 0 $grid-container-padding-lg;
+  }
+}
