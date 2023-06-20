@@ -1,36 +1,83 @@
+'use client';
+
+import { setConfiguration, Col, Container, Row } from 'react-grid-system';
+import {} from 'react-grid-system';
+
 import Type from '@/components/Type/Type';
+import Button from '@/components/Button/Button';
+import GridContainer from '@/components/GridContainer/GridContainer';
+import gridConfig from '@/components/GridContainer/gridConfig';
+
 import styles from './page.module.scss';
-import Image from '@/components/Image/Image';
+
+setConfiguration(gridConfig);
 
 const Home = () => {
   return (
     <main className={styles.main}>
-      <Type renderAs="h1" appearance="h1">
-        Welcome to Next.js!
-      </Type>
-      <Type renderAs="p" appearance="monospace-2">
-        {'<AboutMe />'}
-      </Type>
-      <Image
-        sources={[
-          {
-            breakpoint: 1024,
-            '1x': 'https://picsum.photos/id/195/1024/576',
-            '2x': 'https://picsum.photos/id/195/2048/1152',
-          },
-          {
-            breakpoint: 768,
-            '1x': 'https://picsum.photos/id/195/768/1365',
-            '2x': 'https://picsum.photos/id/195/1536/2730',
-          },
-          {
-            breakpoint: 375,
-            '1x': 'https://picsum.photos/id/195/375/666',
-            '2x': 'https://picsum.photos/id/195/750/1332',
-          },
-        ]}
-        alt=""
-      />
+      <GridContainer>
+        <Container fluid>
+          <Row>
+            <Col>
+              <Type renderAs="h1" appearance="h1">
+                Edward Opare-Aryee
+              </Type>
+              <Type renderAs="p" appearance="monospace-2">
+                Technical Lead | Technical Architect | Lead Full Stack Developer
+              </Type>
+            </Col>
+          </Row>
+        </Container>
+      </GridContainer>
+
+      <div className={styles['home__navigation']}>
+        <GridContainer>
+          <Container fluid>
+            <Row>
+              <Col xs={6}>
+                <Button
+                  className={styles['home__navigation-link']}
+                  renderAs="a"
+                  href="#"
+                  fullWidth
+                >
+                  About Me
+                </Button>
+              </Col>
+              <Col xs={6}>
+                <Button
+                  className={styles['home__navigation-link']}
+                  renderAs="a"
+                  href="#"
+                  fullWidth
+                >
+                  Work
+                </Button>
+              </Col>
+              <Col xs={6}>
+                <Button
+                  className={styles['home__navigation-link']}
+                  renderAs="a"
+                  href="#"
+                  fullWidth
+                >
+                  Skills
+                </Button>
+              </Col>
+              <Col xs={6}>
+                <Button
+                  className={styles['home__navigation-link']}
+                  renderAs="a"
+                  href="#"
+                  fullWidth
+                >
+                  Experience
+                </Button>
+              </Col>
+            </Row>
+          </Container>
+        </GridContainer>
+      </div>
     </main>
   );
 };

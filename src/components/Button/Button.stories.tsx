@@ -31,8 +31,8 @@ const defaultArgs: ButtonProps = {
   size: 'medium',
   renderAs: 'button',
   children: 'Click here',
-  external: false,
-  href: 'https://www.example.com',
+  // external: false,
+  // href: 'https://www.example.com',
 };
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args

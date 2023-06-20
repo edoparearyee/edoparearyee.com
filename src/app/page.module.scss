@@ -1,3 +1,9 @@
-.main {
-  text-align: center;
+@import "../styles/shared";
+
+.home__navigation-link {
+  margin-bottom: rem(16px);
+
+  @include breakpoint("lg") {
+    margin-bottom: rem(25px);
+  }
 }
