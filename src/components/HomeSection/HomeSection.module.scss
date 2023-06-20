@@ -1,0 +1,61 @@
+@import "../../styles/shared";
+
+.home {
+  align-items: center;
+  background-color: $grey-200;
+  padding-top: 15%;
+}
+
+.home__section--inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 400px;
+
+  @media (height >= rem(800px)) {
+    min-height: 500px;
+  }
+
+  @media (height >= rem(900px)) {
+    min-height: 600px;
+  }
+}
+
+.home__header {
+  align-items: flex-end;
+  display: flex;
+}
+
+.home__title {
+  margin-bottom: 0;
+}
+
+.home__navigation {
+  align-items: center;
+  display: flex;
+  flex-basis: 60%;
+  flex-grow: 10;
+  min-height: 60%;
+}
+
+.home__navigation-link {
+  margin-bottom: rem(16px);
+}
+
+.home__social {
+  align-items: flex-end;
+  display: flex;
+  flex-grow: 1;
+}
+
+.home__social-link {
+  display: inline-flex;
+
+  &:not(:last-child) {
+    margin-right: rem(6px);
+  }
+}
+
+.home__social-icon {
+  height: 32px;
+}

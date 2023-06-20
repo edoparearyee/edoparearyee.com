@@ -103,7 +103,7 @@ $font-size-body--sm: rem(16px);
 $font-size-small--sm: rem(14px);
 $font-size-xsmall--sm: rem(12px);
 
-$font-size-h1--lg: rem(64px);
+$font-size-h1--lg: rem(78px);
 $font-size-h2--lg: rem(32px);
 $font-size-h3--lg: rem(24px);
 $font-size-h4--lg: rem(20px);
@@ -235,6 +235,7 @@ $grid-breakpoints: (
   md: 768px,
   lg: 1024px,
   xl: 1200px,
+  xxl: 1440px,
 );
 
 // Grid

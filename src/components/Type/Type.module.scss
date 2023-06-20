@@ -28,6 +28,10 @@
   margin-bottom: $margin-bottom-body;
 }
 
+.type--appearance-visually-hidden {
+  @include visually-hidden();
+}
+
 @each $breakpoint, $sizes in $font-sizes {
   @each $name, $value in $sizes {
     @include breakpoint($breakpoint) {
