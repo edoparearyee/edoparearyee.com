@@ -14,23 +14,22 @@ type TypeAppearance =
   | 'small'
   | 'x-small'
   | 'monospace-1'
-  | 'monospace-2';
+  | 'monospace-2'
+  | 'visually-hidden';
 
-type TagName = keyof HTMLElementTagNameMap;
+type TagName = keyof JSX.IntrinsicElements;
 
 export type TypeProps = {
   appearance?: TypeAppearance;
   renderAs?: TagName;
-} & React.HTMLAttributes<HTMLElement>;
+} & React.HTMLAttributes<HTMLOrSVGElement>;
 
 const Type: React.FC<TypeProps> = ({
   className,
-  renderAs = 'p',
+  renderAs: Element = 'p',
   appearance = 'body',
-  children,
   ...props
 }) => {
-  const Element = renderAs;
   return (
     <Element
       className={classNames(
@@ -39,9 +38,7 @@ const Type: React.FC<TypeProps> = ({
         className,
       )}
       {...props}
-    >
-      {children}
-    </Element>
+    ></Element>
   );
 };
 

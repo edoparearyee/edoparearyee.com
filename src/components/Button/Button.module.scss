@@ -19,3 +19,7 @@
 @include button-size(small, $font-size-button-small, rem(8px), rem(6px));
 @include button-size(medium, $font-size-button-medium, rem(16px), rem(10px));
 @include button-size(large, $font-size-button-large, rem(24px), rem(11px));
+
+.button--full-width {
+  width: 100%;
+}
