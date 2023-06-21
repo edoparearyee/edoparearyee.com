@@ -46,6 +46,8 @@ const HomeSection: React.FC<HomeSectionProps> = () => (
               <Button
                 className={styles['home__navigation-link']}
                 renderAs="a"
+                appearance="outline"
+                color="secondary"
                 href="#"
                 fullWidth
               >
@@ -56,6 +58,8 @@ const HomeSection: React.FC<HomeSectionProps> = () => (
               <Button
                 className={styles['home__navigation-link']}
                 renderAs="a"
+                appearance="outline"
+                color="secondary"
                 href="#"
                 fullWidth
               >
@@ -68,6 +72,8 @@ const HomeSection: React.FC<HomeSectionProps> = () => (
               <Button
                 className={styles['home__navigation-link']}
                 renderAs="a"
+                appearance="outline"
+                color="secondary"
                 href="#"
                 fullWidth
               >
@@ -78,6 +84,8 @@ const HomeSection: React.FC<HomeSectionProps> = () => (
               <Button
                 className={styles['home__navigation-link']}
                 renderAs="a"
+                appearance="outline"
+                color="secondary"
                 href="#"
                 fullWidth
               >
