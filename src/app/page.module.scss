@@ -1,1 +1,7 @@
 @import "../styles/shared";
+
+.main {
+  height: 100vh;
+  overflow: auto;
+  scroll-snap-type: y proximity;
+}
