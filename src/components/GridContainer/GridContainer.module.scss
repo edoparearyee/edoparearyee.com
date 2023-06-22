@@ -8,7 +8,7 @@
   padding: 0 $grid-container-padding-sm;
   width: 100%;
 
-  @include breakpoint("lg") {
+  @include breakpoint(lg) {
     padding: 0 $grid-container-padding-lg;
   }
 }

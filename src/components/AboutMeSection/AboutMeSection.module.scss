@@ -1,0 +1,23 @@
+@import "../../styles/shared";
+
+.about-me {
+  background-color: $grey-300;
+  padding-bottom: rem(100px);
+  padding-top: rem(100px);
+}
+
+.about-me__article {
+  margin-bottom: rem(64px);
+
+  @include breakpoint(md) {
+    margin-bottom: 0;
+  }
+}
+
+.about-me__col {
+  @include breakpoint(md) {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
