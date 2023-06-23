@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 
 import Image from './Image';
 
-test('component loads button', async () => {
+test('component loads image', async () => {
   render(
     <Image
       sources={[
