@@ -1,4 +1,5 @@
 import React, { PropsWithChildren } from 'react';
+import classNames from 'classnames';
 
 import Image from '../Image/Image';
 import Type from '../Type/Type';
@@ -11,16 +12,23 @@ type CardProps = PropsWithChildren<{
   imageAlt: string;
   title: string;
   blurb: string;
+  className?: string;
 }>;
 
-const Card: React.FC<CardProps> = ({ image, imageAlt, title, blurb }) => (
-  <div className={styles.card}>
+const Card: React.FC<CardProps> = ({
+  image,
+  imageAlt,
+  title,
+  blurb,
+  className,
+}) => (
+  <div className={classNames(styles.card, className)}>
     <Image sources={image} alt={imageAlt} className={styles.card__image} />
     <div className={styles.card__body}>
       <Type renderAs="h3" appearance="h3">
         {title}
       </Type>
-      <Type>{blurb}</Type>
+      <Type className={styles.card__blurb}>{blurb}</Type>
     </div>
   </div>
 );

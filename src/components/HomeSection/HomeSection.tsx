@@ -63,7 +63,7 @@ const HomeSection: React.FC<HomeSectionProps> = () => (
                 href="#"
                 fullWidth
               >
-                Work
+                My Work
               </Button>
             </Col>
           </Row>
