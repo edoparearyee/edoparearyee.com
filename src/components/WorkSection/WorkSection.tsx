@@ -65,9 +65,14 @@ const WorkSection: React.FC<WorkSectionProps> = () => (
                   className={styles.work__card}
                   image={[
                     {
-                      breakpoint: 375,
+                      breakpoint: 1024,
                       '1x': 'https://picsum.photos/id/195/300/350',
                       '2x': 'https://picsum.photos/id/195/600/700',
+                    },
+                    {
+                      breakpoint: 375,
+                      '1x': 'https://picsum.photos/id/195/300/450',
+                      '2x': 'https://picsum.photos/id/195/600/900',
                     },
                   ]}
                   imageAlt="Lights at night"
