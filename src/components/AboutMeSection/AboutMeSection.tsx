@@ -45,6 +45,7 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = () => (
           </Col>
           <Col sm={12} md={6} className={styles['about-me__col']}>
             <Image
+              className={styles['about-me__img']}
               sources={[
                 {
                   breakpoint: 1200,

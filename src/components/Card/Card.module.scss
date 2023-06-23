@@ -1,5 +1,15 @@
 @import "../../styles/shared";
 
-.card__image {
-  margin-bottom: rem(30px);
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__body {
+  padding-bottom: rem(20px);
+  padding-top: rem(20px);
+}
+
+.card__blurb {
+  margin-bottom: 0;
 }

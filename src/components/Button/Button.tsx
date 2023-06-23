@@ -55,6 +55,7 @@ const Button: React.FC<ButtonProps> = ({
     <Element
       className={classNames(
         styles.button,
+        styles[`button--variant-${appearance}`],
         styles[`button--variant-${appearance}-${color}`],
         {
           [styles[`button--size-${size}`]]: appearance !== 'none',

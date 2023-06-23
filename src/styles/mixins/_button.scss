@@ -34,7 +34,7 @@
       color: theme-color($color);
     } @else if $appearance == "link" {
       background-color: transparent;
-      border: 2px solid transparent;
+      border: none;
       color: theme-color($color);
       position: relative;
 
@@ -109,12 +109,18 @@
 @mixin button-size($name, $font-size, $padding-x, $padding-y) {
   .button--size-#{$name} {
     font-size: $font-size;
-    padding: $padding-y $padding-x;
+    padding-bottom: $padding-y;
+    padding-top: $padding-y;
+
+    &:not(.button--variant-link) {
+      padding-left: $padding-x;
+      padding-right: $padding-x;
+    }
 
     &::after {
       bottom: $padding-y - rem(4px);
-      left: $padding-x;
-      right: $padding-x;
+      left: 0;
+      right: 0;
     }
   }
 }
