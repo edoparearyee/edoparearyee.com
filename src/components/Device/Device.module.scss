@@ -1,0 +1,36 @@
+@import "../../styles/shared";
+
+.device {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.device__frame {
+  position: relative;
+  z-index: 2;
+}
+
+.device__asset {
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+
+  .device--type-mobile & {
+    border-radius: 5%;
+    inset: 2% 4.5%;
+  }
+
+  .device--type-desktop & {
+    inset: 2.3% 10% 12.5%;
+  }
+}
+
+.device__video {
+  object-fit: cover;
+  width: 91%;
+
+  .device--type-desktop & {
+    width: 80%;
+  }
+}
