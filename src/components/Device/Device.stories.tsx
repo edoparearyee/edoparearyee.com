@@ -9,6 +9,7 @@ const meta: Meta<typeof Device> = {
     type: { control: 'select', defaultValue: 'mobile' },
     assetType: { control: 'select', defaultValue: 'image' },
     videoSrc: { if: { arg: 'assetType', eq: 'video' } },
+    videoPoster: { if: { arg: 'assetType', eq: 'video' } },
     imageSrc: { if: { arg: 'assetType', eq: 'image' } },
     imageAlt: { if: { arg: 'assetType', eq: 'image' } },
   },
@@ -70,6 +71,8 @@ export const MobileWithVideo: Story = {
     assetType: 'video',
     videoSrc:
       'https://res.cloudinary.com/edoparearyee/video/upload/c_fill,h_780,w_365/v1552765866/samples/sea-turtle.webm',
+    videoPoster:
+      'https://res.cloudinary.com/edoparearyee/video/upload/c_fill,h_780,w_365/v1552765866/samples/sea-turtle.jpg',
   },
   decorators: [
     (Story) => (
@@ -87,6 +90,8 @@ export const DesktopWithVideo: Story = {
     assetType: 'video',
     videoSrc:
       'https://res.cloudinary.com/edoparearyee/video/upload/c_fill,h_590,w_912/v1552765866/samples/sea-turtle.webm',
+    videoPoster:
+      'https://res.cloudinary.com/edoparearyee/video/upload/c_fill,h_590,w_912/v1552765866/samples/sea-turtle.jpg',
   },
   decorators: [
     (Story) => (

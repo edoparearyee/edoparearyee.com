@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import MobileDevice from '../MobileDevice/MobileDevice';
 import DesktopDevice from '../DesktopDevice/DesktopDevice';
 import Image from '../Image/Image';
+import Video from '../Video/Video';
 import { ResponsiveImages } from '@/models/image.model';
 
 import styles from './Device.module.scss';
@@ -14,6 +15,7 @@ export type DeviceProps = PropsWithChildren<{
   imageSrc?: ResponsiveImages;
   imageAlt?: string;
   videoSrc?: string;
+  videoPoster?: string;
 }>;
 
 const Device: React.FC<DeviceProps> = ({
@@ -21,6 +23,7 @@ const Device: React.FC<DeviceProps> = ({
   assetType = 'image',
   imageSrc,
   videoSrc,
+  videoPoster,
   imageAlt = '',
 }) => {
   const DeviceFrame = type === 'mobile' ? MobileDevice : DesktopDevice;
@@ -35,14 +38,17 @@ const Device: React.FC<DeviceProps> = ({
           alt={imageAlt}
         />
       ) : null}
-      <video
-        className={classNames(styles.device__asset, styles.device__video)}
-        src={videoSrc}
-        autoPlay
-        muted
-        playsInline
-        loop
-      />
+      {assetType === 'video' && videoSrc ? (
+        <Video
+          className={classNames(styles.device__asset, styles.device__video)}
+          src={videoSrc}
+          autoPlay
+          muted
+          playsInline
+          poster={videoPoster}
+          loop
+        />
+      ) : null}
       <DeviceFrame className={styles.device__frame} />
     </div>
   );
