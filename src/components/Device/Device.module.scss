@@ -1,0 +1,27 @@
+@import "../../styles/shared";
+
+.device {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.device__frame {
+  position: relative;
+  z-index: 2;
+}
+
+.device__image {
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+
+  .device--type-mobile & {
+    border-radius: rem(40px);
+    inset: 2% 4.55% 2% 4.5%;
+  }
+
+  .device--type-desktop & {
+    inset: 2% 10% 12.5%;
+  }
+}
