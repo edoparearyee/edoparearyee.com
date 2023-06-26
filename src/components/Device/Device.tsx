@@ -20,6 +20,7 @@ const Device: React.FC<DeviceProps> = ({
   type = 'mobile',
   assetType = 'image',
   imageSrc,
+  videoSrc,
   imageAlt = '',
 }) => {
   const DeviceFrame = type === 'mobile' ? MobileDevice : DesktopDevice;
@@ -29,11 +30,19 @@ const Device: React.FC<DeviceProps> = ({
     >
       {assetType === 'image' && imageSrc ? (
         <Image
-          className={styles.device__image}
+          className={styles.device__asset}
           sources={imageSrc || []}
           alt={imageAlt}
         />
       ) : null}
+      <video
+        className={classNames(styles.device__asset, styles.device__video)}
+        src={videoSrc}
+        autoPlay
+        muted
+        playsInline
+        loop
+      />
       <DeviceFrame className={styles.device__frame} />
     </div>
   );

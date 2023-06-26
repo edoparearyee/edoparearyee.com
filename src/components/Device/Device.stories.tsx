@@ -62,3 +62,37 @@ export const Desktop: Story = {
     ),
   ],
 };
+
+export const MobileWithVideo: Story = {
+  args: {
+    ...defaultArgs,
+    type: 'mobile',
+    assetType: 'video',
+    videoSrc:
+      'https://res.cloudinary.com/edoparearyee/video/upload/c_fill,h_780,w_365/v1552765866/samples/sea-turtle.webm',
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ maxWidth: '400px' }}>
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export const DesktopWithVideo: Story = {
+  args: {
+    ...defaultArgs,
+    type: 'desktop',
+    assetType: 'video',
+    videoSrc:
+      'https://res.cloudinary.com/edoparearyee/video/upload/c_fill,h_590,w_912/v1552765866/samples/sea-turtle.webm',
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ maxWidth: '1200px' }}>
+        <Story />
+      </div>
+    ),
+  ],
+};
