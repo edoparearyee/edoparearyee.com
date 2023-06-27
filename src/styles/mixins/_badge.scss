@@ -1,0 +1,37 @@
+@mixin badge-variant(
+  $color: "primary",
+  $name: $color,
+  $appearance: "solid",
+  $shape: "square"
+) {
+  .badge--variant-#{$appearance}-#{$name}-#{$shape} {
+    border: 2px solid theme-color($color);
+    display: inline-flex;
+    font-family: $font-family-sans-serif;
+    font-weight: $font-weight-bold;
+    justify-content: center;
+    line-height: $line-height-base;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+
+    @if $shape == "pill" {
+      border-radius: 100px;
+    }
+
+    @if $appearance == "solid" {
+      background-color: theme-color($color);
+      color: text-color-contrast(theme-color($color), $white, $black);
+    } @else if $appearance == "outline" {
+      background-color: transparent;
+      color: theme-color($color);
+    }
+  }
+}
+
+@mixin badge-size($name, $font-size, $padding-x, $padding-y) {
+  .badge--size-#{$name} {
+    font-size: $font-size;
+    padding: $padding-x $padding-y;
+  }
+}
