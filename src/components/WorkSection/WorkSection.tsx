@@ -35,7 +35,7 @@ const WorkSection: React.FC<WorkSectionProps> = ({
     innerClassName={styles['work__section--inner']}
   >
     <GridContainer>
-      <Container>
+      <Container fluid>
         <Row>
           <Col sm={12}>
             <Type
@@ -52,7 +52,7 @@ const WorkSection: React.FC<WorkSectionProps> = ({
 
     <div className={styles.work__cards}>
       <GridContainer>
-        <Container>
+        <Container fluid>
           <Row>
             {cards.map((card, i) => (
               <Col sm={12} md={4} key={card.slug}>
@@ -79,7 +79,7 @@ const WorkSection: React.FC<WorkSectionProps> = ({
     </div>
 
     <GridContainer>
-      <Container>
+      <Container fluid>
         <Row>
           <Col sm={12}>
             <Button
