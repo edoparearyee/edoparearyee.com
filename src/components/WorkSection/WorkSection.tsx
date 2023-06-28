@@ -1,18 +1,35 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-grid-system';
 
-import Type from '../Type/Type';
+import Button from '../Button/Button';
+import Card from '../Card/Card';
 import GridContainer from '../GridContainer/GridContainer';
 import Section from '../Section/Section';
+import Type from '../Type/Type';
+import { ResponsiveImage } from '@/models/image.model';
 
 import styles from './WorkSection.module.scss';
-import Card from '../Card/Card';
 import classNames from 'classnames';
-import Button from '../Button/Button';
 
-type WorkSectionProps = {};
+export interface WorkCard {
+  slug: string;
+  image: ResponsiveImage;
+  imageAlt: string;
+  title: string;
+  blurb: string;
+}
 
-const WorkSection: React.FC<WorkSectionProps> = () => (
+export interface WorkSectionProps {
+  cards: WorkCard[];
+  ctaText: string;
+  ctaLink: string;
+}
+
+const WorkSection: React.FC<WorkSectionProps> = ({
+  cards,
+  ctaLink,
+  ctaText,
+}) => (
   <Section
     className={styles['work']}
     innerClassName={styles['work__section--inner']}
@@ -37,75 +54,25 @@ const WorkSection: React.FC<WorkSectionProps> = () => (
       <GridContainer>
         <Container>
           <Row>
-            <Col sm={12} md={4}>
-              <Button appearance="none" renderAs="a" href="#">
-                <Card
-                  className={styles.work__card}
-                  image={[
-                    {
-                      breakpoint: 1024,
-                      '1x': 'https://picsum.photos/id/195/300/350',
-                      '2x': 'https://picsum.photos/id/195/600/700',
-                    },
-                    {
-                      breakpoint: 375,
-                      '1x': 'https://picsum.photos/id/195/300/450',
-                      '2x': 'https://picsum.photos/id/195/600/900',
-                    },
-                  ]}
-                  imageAlt="Lights at night"
-                  title="Card title"
-                  blurb="Labore est qui est non veniam irure culpa nulla ullamco incididunt Lorem sit."
-                />
-              </Button>
-            </Col>
-            <Col sm={12} md={4}>
-              <Button appearance="none" renderAs="a" href="#">
-                <Card
-                  className={styles.work__card}
-                  image={[
-                    {
-                      breakpoint: 1024,
-                      '1x': 'https://picsum.photos/id/195/300/350',
-                      '2x': 'https://picsum.photos/id/195/600/700',
-                    },
-                    {
-                      breakpoint: 375,
-                      '1x': 'https://picsum.photos/id/195/300/450',
-                      '2x': 'https://picsum.photos/id/195/600/900',
-                    },
-                  ]}
-                  imageAlt="Lights at night"
-                  title="Card title"
-                  blurb="Labore est qui est non veniam irure culpa nulla ullamco incididunt Lorem sit."
-                />
-              </Button>
-            </Col>
-            <Col sm={12} md={4}>
-              <Button appearance="none" renderAs="a" href="#">
-                <Card
-                  className={classNames(
-                    styles.work__card,
-                    styles['work__card--last'],
-                  )}
-                  image={[
-                    {
-                      breakpoint: 1024,
-                      '1x': 'https://picsum.photos/id/195/300/350',
-                      '2x': 'https://picsum.photos/id/195/600/700',
-                    },
-                    {
-                      breakpoint: 375,
-                      '1x': 'https://picsum.photos/id/195/300/450',
-                      '2x': 'https://picsum.photos/id/195/600/900',
-                    },
-                  ]}
-                  imageAlt="Lights at night"
-                  title="Card title"
-                  blurb="Labore est qui est non veniam irure culpa nulla ullamco incididunt Lorem sit."
-                />
-              </Button>
-            </Col>
+            {cards.map((card, i) => (
+              <Col sm={12} md={4} key={card.slug}>
+                <Button
+                  appearance="none"
+                  renderAs="a"
+                  href={`/work/${card.slug}`}
+                >
+                  <Card
+                    className={classNames(styles.work__card, {
+                      [styles['work__card--last']]: i === cards.length - 1,
+                    })}
+                    image={card.image}
+                    imageAlt={card.imageAlt}
+                    title={card.title}
+                    blurb={card.blurb}
+                  />
+                </Button>
+              </Col>
+            ))}
           </Row>
         </Container>
       </GridContainer>
@@ -120,9 +87,9 @@ const WorkSection: React.FC<WorkSectionProps> = () => (
               appearance="link"
               renderAs="a"
               size="large"
-              href="#"
+              href={ctaLink}
             >
-              See More
+              {ctaText}
             </Button>
           </Col>
         </Row>

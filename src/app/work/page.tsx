@@ -1,12 +1,10 @@
 'use client';
 
-import { setConfiguration } from 'react-grid-system';
 import { useState } from 'react';
+import { setConfiguration } from 'react-grid-system';
 
 import gridConfig from '@/components/GridContainer/gridConfig';
-import HomeSection from '@/components/HomeSection/HomeSection';
-import AboutMeSection from '@/components/AboutMeSection/AboutMeSection';
-import WorkSection from '@/components/WorkSection/WorkSection';
+import WorkSection, { WorkCard } from '@/components/WorkSection/WorkSection';
 
 import styles from './page.module.scss';
 
@@ -36,20 +34,27 @@ const workCard = {
     'Labore est qui est non veniam irure culpa nulla ullamco incididunt Lorem sit.',
 };
 
-const Home = () => {
+const Work = () => {
   const [cards, setCards] = useState<WorkCard[]>([
     { ...workCard, slug: '1' },
     { ...workCard, slug: '2' },
     { ...workCard, slug: '3' },
+    { ...workCard, slug: '4' },
+    { ...workCard, slug: '5' },
+    { ...workCard, slug: '6' },
+    { ...workCard, slug: '7' },
+    { ...workCard, slug: '8' },
+    { ...workCard, slug: '9' },
+    { ...workCard, slug: '10' },
+    { ...workCard, slug: '11' },
+    { ...workCard, slug: '12' },
   ]);
 
   return (
     <main className={styles.main}>
-      <HomeSection />
-      <AboutMeSection />
-      <WorkSection cards={cards} ctaText="See more" ctaLink="/work" />
+      <WorkSection cards={cards} ctaText="Go back" ctaLink="/" />
     </main>
   );
 };
 
-export default Home;
+export default Work;
