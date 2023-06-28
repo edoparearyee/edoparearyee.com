@@ -1,0 +1,27 @@
+@import "../../styles/shared";
+
+.carousel {
+  display: flex;
+  position: relative;
+}
+
+.carousel__image {
+  opacity: 1;
+  position: relative;
+  transition-duration: 0s;
+  transition-property: opacity;
+  transition-timing-function: ease-in-out;
+  z-index: 2;
+}
+
+.carousel__next-image {
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.carousel__image--fade-out {
+  opacity: 0;
+  transition-delay: 0.5s;
+  transition-duration: 0.3s;
+}

@@ -5,7 +5,11 @@ import AboutMeSection from './AboutMeSection';
 const meta: Meta<typeof AboutMeSection> = {
   title: 'Sections/AboutMe',
   component: AboutMeSection,
-  argTypes: {},
+  parameters: {
+    options: {
+      showPanel: false,
+    },
+  },
 };
 
 export default meta;

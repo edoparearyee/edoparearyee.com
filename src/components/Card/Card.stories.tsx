@@ -5,7 +5,13 @@ import Card from './Card';
 const meta: Meta<typeof Card> = {
   title: 'Card',
   component: Card,
-  argTypes: {},
+  argTypes: {
+    image: {
+      table: {
+        disable: true,
+      },
+    },
+  },
   decorators: [
     (Story) => (
       <div style={{ maxWidth: '300px' }}>

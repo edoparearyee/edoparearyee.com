@@ -15,20 +15,21 @@ const defaultArgs: ImageProps = {
   sources: [
     {
       breakpoint: 1024,
-      '1x': 'https://picsum.photos/id/195/1024/576',
-      '2x': 'https://picsum.photos/id/195/2048/1152',
+      '1x': 'https://picsum.photos/id/905/1024/576',
+      '2x': 'https://picsum.photos/id/905/2048/1152',
     },
     {
       breakpoint: 768,
-      '1x': 'https://picsum.photos/id/195/768/1365',
-      '2x': 'https://picsum.photos/id/195/1536/2730',
+      '1x': 'https://picsum.photos/id/905/768/1365',
+      '2x': 'https://picsum.photos/id/905/1536/2730',
     },
     {
       breakpoint: 375,
-      '1x': 'https://picsum.photos/id/195/375/666',
-      '2x': 'https://picsum.photos/id/195/750/1332',
+      '1x': 'https://picsum.photos/id/905/375/666',
+      '2x': 'https://picsum.photos/id/905/750/1332',
     },
   ],
+  alt: 'Pariatur est ut minim aute laboris reprehenderit ullamco id.',
 };
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args

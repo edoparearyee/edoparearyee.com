@@ -14,8 +14,18 @@ const meta: Meta<typeof Video> = {
     },
     autoPlay: { type: 'boolean', defaultValue: false },
     controls: { type: 'boolean', defaultValue: true },
-    onPlay: { action: 'onPlay' },
-    onPause: { action: 'onPause' },
+    onPlay: {
+      action: 'onPlay',
+      table: {
+        disable: true,
+      },
+    },
+    onPause: {
+      action: 'onPause',
+      table: {
+        disable: true,
+      },
+    },
   },
 };
 
