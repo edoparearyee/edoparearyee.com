@@ -25,7 +25,7 @@ const boxStyle = {
 
 type Story = StoryObj<typeof GridContainer>;
 
-const defaultArgs = { width: 64, height: 64 };
+const defaultArgs = {};
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const OneByOne: Story = {

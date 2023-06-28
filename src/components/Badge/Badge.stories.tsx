@@ -11,9 +11,6 @@ const meta: Meta<typeof Badge> = {
     color: { control: 'select' },
     size: { control: 'select' },
   },
-  parameters: {
-    controls: { exclude: ['className'] },
-  },
 };
 
 export default meta;

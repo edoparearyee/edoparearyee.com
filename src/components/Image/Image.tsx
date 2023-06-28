@@ -1,12 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { ResponsiveImages } from '../../models/image.model';
+import { ResponsiveImage } from '../../models/image.model';
 
 import styles from './Image.module.scss';
 
 export type ImageProps = {
-  sources: ResponsiveImages;
+  sources: ResponsiveImage;
   alt?: string;
   className?: string;
 };

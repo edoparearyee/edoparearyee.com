@@ -5,14 +5,14 @@ import MobileDevice from '../MobileDevice/MobileDevice';
 import DesktopDevice from '../DesktopDevice/DesktopDevice';
 import Image from '../Image/Image';
 import Video from '../Video/Video';
-import { ResponsiveImages } from '@/models/image.model';
+import { ResponsiveImage } from '@/models/image.model';
 
 import styles from './Device.module.scss';
 
 export type DeviceProps = PropsWithChildren<{
   type?: 'mobile' | 'desktop';
   assetType?: 'image' | 'video';
-  imageSrc?: ResponsiveImages;
+  imageSrc?: ResponsiveImage;
   imageAlt?: string;
   videoSrc?: string;
   videoPoster?: string;

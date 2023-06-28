@@ -5,7 +5,11 @@ import HomeSection from './HomeSection';
 const meta: Meta<typeof HomeSection> = {
   title: 'Sections/Home',
   component: HomeSection,
-  argTypes: {},
+  parameters: {
+    options: {
+      showPanel: false,
+    },
+  },
 };
 
 export default meta;

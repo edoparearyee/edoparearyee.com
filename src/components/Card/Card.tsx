@@ -3,12 +3,12 @@ import classNames from 'classnames';
 
 import Image from '../Image/Image';
 import Type from '../Type/Type';
-import { ResponsiveImages } from '@/models/image.model';
+import { ResponsiveImage } from '@/models/image.model';
 
 import styles from './Card.module.scss';
 
 type CardProps = PropsWithChildren<{
-  image: ResponsiveImages;
+  image: ResponsiveImage;
   imageAlt: string;
   title: string;
   blurb: string;

@@ -1,7 +1,7 @@
-export interface ResponsiveImage {
+export interface BreakpointImage {
   breakpoint: number;
   '1x': string;
   '2x': string;
 }
 
-export type ResponsiveImages = ResponsiveImage[];
+export type ResponsiveImage = BreakpointImage[];

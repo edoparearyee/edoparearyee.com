@@ -5,7 +5,11 @@ import WorkSection from './WorkSection';
 const meta: Meta<typeof WorkSection> = {
   title: 'Sections/Work',
   component: WorkSection,
-  argTypes: {},
+  parameters: {
+    options: {
+      showPanel: false,
+    },
+  },
 };
 
 export default meta;

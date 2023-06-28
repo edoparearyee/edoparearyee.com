@@ -20,6 +20,21 @@ const meta: Meta<typeof Button> = {
     },
     children: { control: 'text', defaultValue: '', name: 'text' },
   },
+  parameters: {
+    controls: {
+      exclude: [
+        'as',
+        'replace',
+        'scroll',
+        'shallow',
+        'passHref',
+        'prefetch',
+        'locale',
+        'legacyBehavior',
+        'className',
+      ],
+    },
+  },
 };
 
 export default meta;
@@ -31,8 +46,7 @@ const defaultArgs: ButtonProps = {
   size: 'medium',
   renderAs: 'button',
   children: 'Click here',
-  // external: false,
-  // href: 'https://www.example.com',
+  fullWidth: false,
 };
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
