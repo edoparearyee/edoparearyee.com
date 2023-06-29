@@ -10,8 +10,7 @@ const meta: Meta<typeof Device> = {
     assetType: { control: 'select', defaultValue: 'image' },
     videoSrc: { if: { arg: 'assetType', eq: 'video' } },
     videoPoster: { if: { arg: 'assetType', eq: 'video' } },
-    imageSrc: { if: { arg: 'assetType', eq: 'image' } },
-    imageAlt: { if: { arg: 'assetType', eq: 'image' } },
+    images: { if: { arg: 'assetType', eq: 'image' } },
   },
 };
 
@@ -26,11 +25,36 @@ const defaultArgs: DeviceProps = {
 export const Mobile: Story = {
   args: {
     ...defaultArgs,
-    imageSrc: [
+    images: [
       {
-        breakpoint: 375,
-        '1x': 'https://picsum.photos/id/215/365/780',
-        '2x': 'https://picsum.photos/id/215/730/1560',
+        image: [
+          {
+            breakpoint: 375,
+            '1x': 'https://picsum.photos/id/900/365/780',
+            '2x': 'https://picsum.photos/id/900/730/1560',
+          },
+        ],
+        alt: '',
+      },
+      {
+        image: [
+          {
+            breakpoint: 375,
+            '1x': 'https://picsum.photos/id/522/365/780',
+            '2x': 'https://picsum.photos/id/522/730/1560',
+          },
+        ],
+        alt: '',
+      },
+      {
+        image: [
+          {
+            breakpoint: 375,
+            '1x': 'https://picsum.photos/id/905/365/780',
+            '2x': 'https://picsum.photos/id/905/730/1560',
+          },
+        ],
+        alt: '',
       },
     ],
   },
@@ -47,11 +71,36 @@ export const Desktop: Story = {
   args: {
     ...defaultArgs,
     type: 'desktop',
-    imageSrc: [
+    images: [
       {
-        breakpoint: 375,
-        '1x': 'https://picsum.photos/id/215/912/590',
-        '2x': 'https://picsum.photos/id/215/1824/1180',
+        image: [
+          {
+            breakpoint: 375,
+            '1x': 'https://picsum.photos/id/900/912/590',
+            '2x': 'https://picsum.photos/id/900/1824/1180',
+          },
+        ],
+        alt: '',
+      },
+      {
+        image: [
+          {
+            breakpoint: 375,
+            '1x': 'https://picsum.photos/id/522/912/590',
+            '2x': 'https://picsum.photos/id/522/1824/1180',
+          },
+        ],
+        alt: '',
+      },
+      {
+        image: [
+          {
+            breakpoint: 375,
+            '1x': 'https://picsum.photos/id/905/912/590',
+            '2x': 'https://picsum.photos/id/905/1824/1180',
+          },
+        ],
+        alt: '',
       },
     ],
   },

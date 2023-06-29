@@ -1,5 +1,54 @@
 @import "../../../styles/shared";
 
-.main {
+.work-detail {
   display: block;
+}
+
+.work-detail__device {
+  max-width: rem(300px);
+}
+
+.work-detail__intro-section {
+  color: $white;
+  padding-bottom: rem(80px);
+  padding-top: rem(80px);
+  position: relative;
+
+  &::after {
+    background-color: rgba($black, 0.8);
+    inset: 0;
+    content: "";
+    position: absolute;
+    z-index: 2;
+  }
+}
+
+.work-detail__hero-image {
+  inset: 0;
+  position: absolute;
+}
+
+.work-detail__hero-image-img {
+  object-fit: cover;
+}
+
+.work-detail__hero-content {
+  position: relative;
+  z-index: 3;
+}
+
+.work-detail__blurb {
+  align-items: center;
+  display: flex;
+  height: 100%;
+}
+
+.work-detail__devices {
+  padding-bottom: rem(60px);
+  padding-top: rem(60px);
+
+  @include breakpoint(md) {
+    padding-bottom: rem(120px);
+    padding-top: rem(120px);
+  }
 }

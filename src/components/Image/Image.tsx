@@ -9,10 +9,12 @@ export type ImageProps = {
   sources: ResponsiveImage;
   alt?: string;
   className?: string;
+  imgClassName?: string;
 };
 
 const Image: React.FC<ImageProps> = ({
   className,
+  imgClassName,
   alt = '',
   sources = [],
   ...props
@@ -27,7 +29,7 @@ const Image: React.FC<ImageProps> = ({
         />
       ))}
       <img
-        className={classNames(styles.image)}
+        className={classNames(styles.image, imgClassName)}
         src={sources[sources.length - 1]['1x']}
         alt={alt}
       />
