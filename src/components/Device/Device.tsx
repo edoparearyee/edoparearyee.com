@@ -3,17 +3,16 @@ import classNames from 'classnames';
 
 import MobileDevice from '../MobileDevice/MobileDevice';
 import DesktopDevice from '../DesktopDevice/DesktopDevice';
-import Image from '../Image/Image';
+import Carousel from '../Carousel/Carousel';
 import Video from '../Video/Video';
-import { ResponsiveImage } from '@/models/image.model';
+import { ResponsiveImageWithAltText } from '@/models/image.model';
 
 import styles from './Device.module.scss';
 
 export type DeviceProps = PropsWithChildren<{
   type?: 'mobile' | 'desktop';
   assetType?: 'image' | 'video';
-  imageSrc?: ResponsiveImage;
-  imageAlt?: string;
+  images?: ResponsiveImageWithAltText[];
   videoSrc?: string;
   videoPoster?: string;
 }>;
@@ -21,22 +20,17 @@ export type DeviceProps = PropsWithChildren<{
 const Device: React.FC<DeviceProps> = ({
   type = 'mobile',
   assetType = 'image',
-  imageSrc,
+  images = [],
   videoSrc,
   videoPoster,
-  imageAlt = '',
 }) => {
   const DeviceFrame = type === 'mobile' ? MobileDevice : DesktopDevice;
   return (
     <div
       className={classNames(styles['device'], styles[`device--type-${type}`])}
     >
-      {assetType === 'image' && imageSrc ? (
-        <Image
-          className={styles.device__asset}
-          sources={imageSrc || []}
-          alt={imageAlt}
-        />
+      {assetType === 'image' && images?.length ? (
+        <Carousel className={styles.device__asset} images={images} />
       ) : null}
       {assetType === 'video' && videoSrc ? (
         <Video

@@ -2,17 +2,12 @@ import React, { PropsWithChildren, useEffect, useState } from 'react';
 import classNames from 'classnames';
 
 import Image from '../Image/Image';
-import { ResponsiveImage } from '@/models/image.model';
+import { ResponsiveImageWithAltText } from '@/models/image.model';
 
 import styles from './Carousel.module.scss';
 
-interface ImageWithAlt {
-  image: ResponsiveImage;
-  alt: string;
-}
-
 export type CarouselProps = PropsWithChildren<{
-  images: ImageWithAlt[];
+  images: ResponsiveImageWithAltText[];
   className?: string;
   duration?: number;
 }>;

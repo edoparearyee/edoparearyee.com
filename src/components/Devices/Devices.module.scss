@@ -1,0 +1,21 @@
+@import "../../styles/shared";
+
+.devices {
+  display: block;
+  margin-bottom: calc(6%);
+  position: relative;
+}
+
+.devices__desktop {
+  position: relative;
+  width: 90%;
+  z-index: 1;
+}
+
+.devices__mobile {
+  bottom: -10%;
+  position: absolute;
+  right: 0;
+  width: 25%;
+  z-index: 2;
+}

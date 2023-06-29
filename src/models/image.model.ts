@@ -5,3 +5,8 @@ export interface BreakpointImage {
 }
 
 export type ResponsiveImage = BreakpointImage[];
+
+export interface ResponsiveImageWithAltText {
+  image: ResponsiveImage;
+  alt: string;
+}

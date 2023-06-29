@@ -1,13 +1,14 @@
 @import "../../styles/shared";
 
 .device {
-  display: block;
+  display: flex;
   position: relative;
   width: 100%;
 }
 
 .device__frame {
   position: relative;
+  width: 100%;
   z-index: 2;
 }
 
@@ -22,7 +23,7 @@
   }
 
   .device--type-desktop & {
-    inset: 2.3% 10% 12.5%;
+    inset: 2.3% 10% 12%;
   }
 }
 
