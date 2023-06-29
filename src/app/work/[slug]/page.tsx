@@ -7,11 +7,13 @@ import gridConfig from '@/components/GridContainer/gridConfig';
 import GridContainer from '@/components/GridContainer/GridContainer';
 import Type from '@/components/Type/Type';
 import Section from '@/components/Section/Section';
+import Image from '@/components/Image/Image';
+import Devices from '@/components/Devices/Devices';
 import { CaseStudy } from '@/models/case-study.model';
 
 import styles from './page.module.scss';
-import Image from '@/components/Image/Image';
-import Devices from '@/components/Devices/Devices';
+import Button from '@/components/Button/Button';
+import classNames from 'classnames';
 
 setConfiguration(gridConfig);
 
@@ -84,7 +86,22 @@ const caseStudyData: CaseStudy = {
       alt: '',
     },
   ],
+  role: 'Technical Lead',
   tags: ['React', 'TypeScript'],
+  contributors: ['John Smith', 'Dan Owens', 'Sarah Richards'],
+  year: '2022',
+  awards: [
+    {
+      title: "People's Voice Winner",
+      url: 'https://winners.webbyawards.com/2015/websites-and-mobile-sites/general-websites-and-mobile-sites/associations/159821/doit',
+      year: '2015',
+    },
+    {
+      title: "People's Voice Winner",
+      url: 'https://winners.webbyawards.com/2015/websites-and-mobile-sites/general-websites-and-mobile-sites/associations/159821/doit',
+      year: '2015',
+    },
+  ],
 };
 
 const WorkDetail = () => {
@@ -114,11 +131,11 @@ const WorkDetail = () => {
           </GridContainer>
         </div>
       </Section>
-      <Section>
+      <Section className={styles['work-detail__information']}>
         <GridContainer>
           <Container fluid>
             <Row>
-              <Col sm={12} lg={12}>
+              <Col sm={12} xl={10} offset={{ xl: 1 }}>
                 <div className={styles['work-detail__devices']}>
                   <Devices
                     assetType="image"
@@ -126,6 +143,51 @@ const WorkDetail = () => {
                     imagesMobile={caseStudy.imagesMobile}
                   />
                 </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col md={6}>
+                <Type renderAs="h2" appearance="h2">
+                  Role
+                </Type>
+                <Type className={styles['work-detail__detail']}>
+                  {caseStudy.role}
+                </Type>
+
+                <Type renderAs="h2" appearance="h2">
+                  Awards
+                </Type>
+                <ul
+                  className={classNames(
+                    styles['work-detail__awards-list'],
+                    styles['work-detail__detail'],
+                  )}
+                >
+                  {caseStudy.awards?.map((award) => (
+                    <li
+                      key={award.title}
+                      className={styles['work-detail__awards-list-item']}
+                    >
+                      <Button appearance="link" renderAs="a" href={award.url}>
+                        {award.title}
+                      </Button>
+                    </li>
+                  ))}
+                </ul>
+              </Col>
+              <Col md={6}>
+                <Type renderAs="h2" appearance="h2">
+                  Year
+                </Type>
+                <Type className={styles['work-detail__detail']}>
+                  {caseStudy.year}
+                </Type>
+                <Type renderAs="h2" appearance="h2">
+                  Other contributors
+                </Type>
+                <Type className={styles['work-detail__detail']}>
+                  {caseStudy.contributors?.join(', ')}
+                </Type>
               </Col>
             </Row>
           </Container>
