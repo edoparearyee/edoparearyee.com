@@ -243,9 +243,11 @@ $grid-breakpoints: (
 $grid-container-max-width: 1440px + (120px * 2);
 
 $grid-gutter-width: 16px;
-$grid-container-padding-sm: 20px - math.div($grid-gutter-width, 2);
-$grid-container-padding-md: 60px - math.div($grid-gutter-width, 2);
-$grid-container-padding-lg: 120px - math.div($grid-gutter-width, 2);
+$grid-gutter-width--half: math.div($grid-gutter-width, 2);
+
+$grid-container-padding-sm: 20px - $grid-gutter-width--half;
+$grid-container-padding-md: 60px - $grid-gutter-width--half;
+$grid-container-padding-lg: 120px - $grid-gutter-width--half;
 
 // Transitions
 

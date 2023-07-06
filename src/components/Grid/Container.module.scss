@@ -2,7 +2,7 @@
 @import "../../styles/variables";
 @import "../../styles/mixins";
 
-.grid-container {
+.grid {
   margin: 0 auto;
   max-width: $grid-container-max-width;
   padding: 0 $grid-container-padding-sm;
@@ -15,4 +15,12 @@
   @include breakpoint(lg) {
     padding: 0 $grid-container-padding-lg;
   }
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $grid-gutter-width--half;
+  padding-right: $grid-gutter-width--half;
+  position: relative;
 }

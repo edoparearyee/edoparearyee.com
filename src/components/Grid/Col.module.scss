@@ -1,0 +1,38 @@
+@use "sass:map";
+@use "sass:math";
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.col {
+  left: auto;
+  margin-left: 0%;
+  min-height: 1px;
+  padding-left: $grid-gutter-width--half;
+  padding-right: $grid-gutter-width--half;
+  position: relative;
+  right: auto;
+}
+
+@each $breakpoint, $value in $grid-breakpoints {
+  @include breakpoint($breakpoint) {
+    @for $i from 1 through 12 {
+      $width: math.percentage(math.div(1, 12) * $i);
+      .col--#{$breakpoint}-#{$i} {
+        flex: 0 0 $width;
+        max-width: $width;
+        width: $width;
+      }
+    }
+  }
+}
+
+@each $breakpoint, $value in $grid-breakpoints {
+  @include breakpoint($breakpoint) {
+    @for $i from 1 through 12 {
+      $width: math.percentage(math.div(1, 12) * $i);
+      .col--offset-#{$breakpoint}-#{$i} {
+        margin-left: $width;
+      }
+    }
+  }
+}
