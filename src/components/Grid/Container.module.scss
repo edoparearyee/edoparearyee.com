@@ -1,6 +1,5 @@
 @use "sass:map";
-@import "../../styles/variables";
-@import "../../styles/mixins";
+@import "../../styles/shared";
 
 .grid {
   margin: 0 auto;
@@ -22,5 +21,4 @@
   margin-right: auto;
   padding-left: $grid-gutter-width--half;
   padding-right: $grid-gutter-width--half;
-  position: relative;
 }

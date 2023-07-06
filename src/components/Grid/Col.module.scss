@@ -1,7 +1,6 @@
 @use "sass:map";
 @use "sass:math";
-@import "../../styles/variables";
-@import "../../styles/mixins";
+@import "../../styles/shared";
 
 .col {
   left: auto;
@@ -9,7 +8,6 @@
   min-height: 1px;
   padding-left: $grid-gutter-width--half;
   padding-right: $grid-gutter-width--half;
-  position: relative;
   right: auto;
 }
 

@@ -39,11 +39,11 @@ const Col: React.FC<ColProps> = ({
       [styles[`col--lg-${lg}`]]: lg !== undefined,
       [styles[`col--xl-${xl}`]]: xl !== undefined,
       [styles[`col--xxl-${xxl}`]]: xxl !== undefined,
-      [styles[`col--offset-sm-${sm}`]]: offset?.sm !== undefined,
-      [styles[`col--offset-md-${md}`]]: offset?.md !== undefined,
-      [styles[`col--offset-lg-${lg}`]]: offset?.lg !== undefined,
-      [styles[`col--offset-xl-${xl}`]]: offset?.xl !== undefined,
-      [styles[`col--offset-xxl-${xxl}`]]: offset?.xxl !== undefined,
+      [styles[`col--offset-sm-${offset?.sm}`]]: offset?.sm !== undefined,
+      [styles[`col--offset-md-${offset?.md}`]]: offset?.md !== undefined,
+      [styles[`col--offset-lg-${offset?.lg}`]]: offset?.lg !== undefined,
+      [styles[`col--offset-xl-${offset?.xl}`]]: offset?.xl !== undefined,
+      [styles[`col--offset-xxl-${offset?.xxl}`]]: offset?.xxl !== undefined,
     })}
   >
     {children}

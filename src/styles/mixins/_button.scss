@@ -43,6 +43,7 @@
         content: "";
         height: 2px;
         position: absolute;
+        transition: $transition-base;
       }
     }
 
@@ -120,7 +121,15 @@
     &::after {
       bottom: $padding-y - rem(4px);
       left: 0;
-      right: 0;
+      right: 100%;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      &::after {
+        right: 0;
+      }
     }
   }
 }
