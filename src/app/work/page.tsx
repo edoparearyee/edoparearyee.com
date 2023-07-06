@@ -1,14 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { setConfiguration } from 'react-grid-system';
 
-import gridConfig from '@/components/GridContainer/gridConfig';
 import WorkSection, { WorkCard } from '@/components/WorkSection/WorkSection';
 
 import styles from './page.module.scss';
-
-setConfiguration(gridConfig);
 
 const workCard = {
   image: [
