@@ -11,10 +11,13 @@ import GitHubIcon from '../Icons/GitHubIcon/GitHubIcon';
 
 import styles from './HomeSection.module.scss';
 
-type HomeSectionProps = {};
+type HomeSectionProps = {
+  id?: string;
+};
 
-const HomeSection: React.FC<HomeSectionProps> = () => (
+const HomeSection: React.FC<HomeSectionProps> = ({ id }) => (
   <Section
+    id={id}
     className={styles.home}
     innerClassName={styles['home__section--inner']}
   >

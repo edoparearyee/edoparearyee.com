@@ -41,9 +41,9 @@ const Home = () => {
 
   return (
     <main className={styles.main}>
-      <HomeSection />
-      <AboutMeSection />
-      <WorkSection cards={cards} ctaText="See more" ctaLink="/work" />
+      <HomeSection id="home" />
+      <AboutMeSection id="about-me" />
+      <WorkSection id="work" cards={cards} ctaText="See more" ctaLink="/work" />
     </main>
   );
 };
