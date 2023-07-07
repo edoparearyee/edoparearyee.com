@@ -21,17 +21,20 @@ export interface WorkCard {
 }
 
 export interface WorkSectionProps {
+  id?: string;
   cards: WorkCard[];
   ctaText: string;
   ctaLink: string;
 }
 
 const WorkSection: React.FC<WorkSectionProps> = ({
+  id,
   cards,
   ctaLink,
   ctaText,
 }) => (
   <Section
+    id={id}
     className={styles['work']}
     innerClassName={styles['work__section--inner']}
   >

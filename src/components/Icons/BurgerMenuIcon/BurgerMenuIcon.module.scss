@@ -1,0 +1,52 @@
+@import "../../../styles/shared";
+
+.burger-menu-icon {
+  display: flex;
+  height: rem(20px);
+  position: relative;
+  width: rem(30px);
+}
+
+.burger-menu-icon__line {
+  background-color: $black;
+  border-radius: 5px;
+  display: block;
+  height: 20%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  transition: $transition-base;
+
+  &:nth-child(1) {
+    top: 0;
+  }
+
+  &:nth-child(2) {
+    top: 40%;
+  }
+
+  &:nth-child(3) {
+    top: calc(80%);
+  }
+
+  .burger-menu-icon--primary & {
+    background-color: theme-color(primary);
+  }
+
+  .burger-menu-icon--secondary & {
+    background-color: theme-color(secondary);
+  }
+
+  .burger-menu-icon--close & {
+    top: 40%;
+
+    &:nth-child(1),
+    &:nth-child(2) {
+      transform: rotate(45deg);
+    }
+
+    &:nth-child(3) {
+      transform: rotate(-45deg);
+    }
+  }
+}

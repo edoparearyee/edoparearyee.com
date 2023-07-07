@@ -4,11 +4,11 @@
   background-color: $grey-800;
   color: $white;
   padding-bottom: rem(80px);
-  padding-top: rem(80px);
+  padding-top: rem(130px);
 
   @include breakpoint(lg) {
     padding-bottom: rem(90px);
-    padding-top: rem(90px);
+    padding-top: rem(190px);
   }
 }
 

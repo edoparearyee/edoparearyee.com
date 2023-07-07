@@ -9,10 +9,13 @@ import Image from '../Image/Image';
 import Row from '../Grid/Row';
 import Col from '../Grid/Col';
 
-type AboutMeSectionProps = {};
+type AboutMeSectionProps = {
+  id?: string;
+};
 
-const AboutMeSection: React.FC<AboutMeSectionProps> = () => (
+const AboutMeSection: React.FC<AboutMeSectionProps> = ({ id }) => (
   <Section
+    id={id}
     className={styles['about-me']}
     innerClassName={styles['about-me__section--inner']}
   >
