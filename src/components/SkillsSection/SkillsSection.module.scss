@@ -1,0 +1,32 @@
+@import "../../styles/shared";
+
+.skills {
+  padding-bottom: rem(80px);
+  padding-top: rem(130px);
+
+  @include breakpoint(lg) {
+    padding-bottom: rem(90px);
+    padding-top: rem(190px);
+  }
+}
+
+.skills__heading {
+  margin-bottom: rem(40px);
+}
+
+.skills__group {
+  margin-bottom: rem(32px);
+}
+
+.skills__list {
+  list-style: none;
+}
+
+.skills__list-item {
+  display: inline-flex;
+  margin-bottom: 3px;
+
+  &:not(:last-child) {
+    margin-right: 3px;
+  }
+}

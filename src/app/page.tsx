@@ -5,6 +5,7 @@ import { useState } from 'react';
 import HomeSection from '@/components/HomeSection/HomeSection';
 import AboutMeSection from '@/components/AboutMeSection/AboutMeSection';
 import WorkSection, { WorkCard } from '@/components/WorkSection/WorkSection';
+import SkillsSection from '@/components/SkillsSection/SkillsSection';
 
 import styles from './page.module.scss';
 
@@ -44,6 +45,7 @@ const Home = () => {
       <HomeSection id="home" />
       <AboutMeSection id="about-me" />
       <WorkSection id="work" cards={cards} ctaText="See more" ctaLink="/work" />
+      <SkillsSection id="skills" />
     </main>
   );
 };

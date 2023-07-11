@@ -114,6 +114,19 @@ const Header: React.FC<HeaderProps> = () => {
                       color="secondary"
                       appearance="link"
                       renderAs="a"
+                      href="/#skills"
+                      onClick={($event) => {
+                        onNavItemClick($event, '#skills');
+                      }}
+                    >
+                      Skills
+                    </Button>
+                  </li>
+                  <li className={styles['header__nav-list-item']}>
+                    <Button
+                      color="secondary"
+                      appearance="link"
+                      renderAs="a"
                       href="/#contact"
                       onClick={($event) => {
                         onNavItemClick($event, '#contact');
