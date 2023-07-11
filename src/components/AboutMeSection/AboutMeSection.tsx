@@ -45,7 +45,12 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({ id }) => (
             </Type>
           </article>
         </Col>
-        <Col sm={12} md={6} className={styles['about-me__col']}>
+        <Col
+          sm={12}
+          md={5}
+          offset={{ md: 1 }}
+          className={styles['about-me__col']}
+        >
           <Image
             className={styles['about-me__img']}
             sources={[
@@ -71,7 +76,7 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({ id }) => (
               },
             ]}
             alt=""
-          ></Image>
+          />
         </Col>
       </Row>
     </Container>

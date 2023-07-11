@@ -6,6 +6,7 @@ import HomeSection from '@/components/HomeSection/HomeSection';
 import AboutMeSection from '@/components/AboutMeSection/AboutMeSection';
 import WorkSection, { WorkCard } from '@/components/WorkSection/WorkSection';
 import SkillsSection from '@/components/SkillsSection/SkillsSection';
+import ContactSection from '@/components/ContactSection/ContactSection';
 
 import styles from './page.module.scss';
 
@@ -46,6 +47,7 @@ const Home = () => {
       <AboutMeSection id="about-me" />
       <WorkSection id="work" cards={cards} ctaText="See more" ctaLink="/work" />
       <SkillsSection id="skills" />
+      <ContactSection id="contact" />
     </main>
   );
 };

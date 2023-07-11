@@ -37,7 +37,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ id }) => (
             <Col className={styles.skills__group}>
               <Type
                 renderAs="h3"
-                appearance="h3"
+                appearance="h4"
                 className={styles['skills__list-subheading']}
               >
                 AWS
@@ -128,7 +128,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ id }) => (
             <Col className={styles.skills__group}>
               <Type
                 renderAs="h3"
-                appearance="h3"
+                appearance="h4"
                 className={styles['skills__list-subheading']}
               >
                 Google Cloud
@@ -199,7 +199,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ id }) => (
             <Col className={styles.skills__group}>
               <Type
                 renderAs="h3"
-                appearance="h3"
+                appearance="h4"
                 className={styles['skills__list-subheading']}
               >
                 DevOps
@@ -259,7 +259,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ id }) => (
             <Col className={styles.skills__group}>
               <Type
                 renderAs="h3"
-                appearance="h3"
+                appearance="h4"
                 className={styles['skills__list-subheading']}
               >
                 Frontend
@@ -340,7 +340,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ id }) => (
             <Col className={styles.skills__group}>
               <Type
                 renderAs="h3"
-                appearance="h3"
+                appearance="h4"
                 className={styles['skills__list-subheading']}
               >
                 Backend
@@ -386,7 +386,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ id }) => (
             <Col className={styles.skills__group}>
               <Type
                 renderAs="h3"
-                appearance="h3"
+                appearance="h4"
                 className={styles['skills__list-subheading']}
               >
                 Testing & Tooling

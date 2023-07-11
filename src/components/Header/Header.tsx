@@ -28,6 +28,7 @@ const Header: React.FC<HeaderProps> = () => {
     if (pathname !== '/') return;
     event.preventDefault();
     document.querySelector(selector)?.scrollIntoView({ behavior: 'smooth' });
+    setMenuOpen(false);
   };
 
   return (
