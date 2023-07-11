@@ -14,10 +14,10 @@ type BadgeShape = 'square' | 'pill';
 type BadgeSize = 'small' | 'medium' | 'large';
 
 export type BadgeProps = PropsWithChildren<{
-  appearance: BadgeAppearance;
-  shape: BadgeShape;
-  color: BadgeColor;
-  size: BadgeSize;
+  appearance?: BadgeAppearance;
+  shape?: BadgeShape;
+  color?: BadgeColor;
+  size?: BadgeSize;
   className?: string;
 }>;
 
@@ -26,6 +26,7 @@ const Badge: React.FC<BadgeProps> = ({
   appearance = 'solid',
   shape = 'square',
   size = 'medium',
+  children,
   className,
 }) => (
   <div
@@ -36,7 +37,7 @@ const Badge: React.FC<BadgeProps> = ({
       className,
     )}
   >
-    Badge works!
+    {children}
   </div>
 );
 
