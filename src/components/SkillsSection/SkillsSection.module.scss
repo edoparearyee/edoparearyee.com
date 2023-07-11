@@ -12,6 +12,10 @@
 
 .skills__heading {
   margin-bottom: rem(40px);
+
+  @include breakpoint(lg) {
+    margin-bottom: rem(80px);
+  }
 }
 
 .skills__group {

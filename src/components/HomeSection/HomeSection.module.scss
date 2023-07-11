@@ -2,7 +2,7 @@
 
 .home {
   align-items: center;
-  animation: gradient 10s ease infinite;
+  animation: gradient 10s ease-in-out infinite;
   background-color: $grey-800;
   background-image: linear-gradient(-45deg, $black, $grey-500);
   background-size: 200% 200%;
@@ -56,7 +56,7 @@
   display: inline-flex;
 
   &:not(:last-child) {
-    margin-right: rem(6px);
+    margin-right: rem(10px);
   }
 }
 
