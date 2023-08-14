@@ -50,8 +50,9 @@ const caseStudyData: CaseStudy = {
     },
   ],
   title: 'Minim duis duis do est minim.',
-  blurb:
+  description:
     'Ad Lorem ullamco quis magna quis anim reprehenderit exercitation pariatur laborum enim officia. Proident labore et nostrud id exercitation ullamco ex eu ad quis deserunt. Sit incididunt id nostrud adipisicing labore ex proident exercitation aliquip. Magna duis mollit consequat exercitation tempor exercitation tempor commodo amet duis laborum commodo.',
+  clientName: 'Nike',
   imagesMobile: [
     {
       image: [
@@ -121,7 +122,7 @@ const WorkDetail = () => {
                 <Type appearance="h1" renderAs="h1">
                   {caseStudy.title}
                 </Type>
-                <Type>{caseStudy.blurb}</Type>
+                <Type>{caseStudy.description}</Type>
               </Col>
             </Row>
           </Container>

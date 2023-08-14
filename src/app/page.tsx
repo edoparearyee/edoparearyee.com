@@ -1,51 +1,37 @@
-'use client';
-
-import { useState } from 'react';
+import React from 'react';
 
 import HomeSection from '@/components/HomeSection/HomeSection';
 import AboutMeSection from '@/components/AboutMeSection/AboutMeSection';
-import WorkSection, { WorkCard } from '@/components/WorkSection/WorkSection';
+import WorkSection from '@/components/WorkSection/WorkSection';
 import SkillsSection from '@/components/SkillsSection/SkillsSection';
 import ContactSection from '@/components/ContactSection/ContactSection';
 
 import styles from './page.module.scss';
+import { getCaseStudies } from '@/services/contentful';
 
-const workCard = {
-  image: [
-    {
-      breakpoint: 1024,
-      '1x': 'https://picsum.photos/id/905/600/450',
-      '2x': 'https://picsum.photos/id/905/1200/900',
-    },
-    {
-      breakpoint: 768,
-      '1x': 'https://picsum.photos/id/905/400/350',
-      '2x': 'https://picsum.photos/id/905/800/700',
-    },
-    {
-      breakpoint: 375,
-      '1x': 'https://picsum.photos/id/905/300/450',
-      '2x': 'https://picsum.photos/id/905/600/900',
-    },
-  ],
-  imageAlt: 'Lights at night',
-  title: 'Card title',
-  blurb:
-    'Labore est qui est non veniam irure culpa nulla ullamco incididunt Lorem sit.',
+const getData = async () => {
+  return getCaseStudies();
 };
 
-const Home = () => {
-  const [cards, setCards] = useState<WorkCard[]>([
-    { ...workCard, slug: '1' },
-    { ...workCard, slug: '2' },
-    { ...workCard, slug: '3' },
-  ]);
+const Home = async () => {
+  const { items } = await getData();
 
   return (
     <main className={styles.main}>
       <HomeSection id="home" />
       <AboutMeSection id="about-me" />
-      <WorkSection id="work" cards={cards} ctaText="See more" ctaLink="/work" />
+      <WorkSection
+        id="work"
+        cards={items.map((item) => ({
+          slug: item.slug,
+          image: item.hero,
+          imageAlt: item.hero.alt,
+          title: item.title,
+          blurb: item.description,
+        }))}
+        ctaText="See more"
+        ctaLink="/work"
+      />
       <SkillsSection id="skills" />
       <ContactSection id="contact" />
     </main>

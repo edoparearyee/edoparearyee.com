@@ -8,14 +8,13 @@ import Container from '../Grid/Container';
 import Row from '../Grid/Row';
 import Col from '../Grid/Col';
 import Section from '../Section/Section';
-import { ResponsiveImage } from '@/models/image.model';
+import { ResponsiveImageWithAltText } from '@/models/image.model';
 
 import styles from './WorkSection.module.scss';
 
 export interface WorkCard {
   slug: string;
-  image: ResponsiveImage;
-  imageAlt: string;
+  image: ResponsiveImageWithAltText;
   title: string;
   blurb: string;
 }
@@ -62,8 +61,8 @@ const WorkSection: React.FC<WorkSectionProps> = ({
                   className={classNames(styles.work__card, {
                     [styles['work__card--last']]: i === cards.length - 1,
                   })}
-                  image={card.image}
-                  imageAlt={card.imageAlt}
+                  image={card.image.image}
+                  imageAlt={card.image.alt}
                   title={card.title}
                   blurb={card.blurb}
                 />
