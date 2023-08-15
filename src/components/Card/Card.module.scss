@@ -5,6 +5,14 @@
   flex-direction: column;
 }
 
+.card__image {
+  aspect-ratio: 1;
+}
+
+.card__image-img {
+  object-fit: cover;
+}
+
 .card__body {
   padding-bottom: rem(20px);
   padding-top: rem(20px);

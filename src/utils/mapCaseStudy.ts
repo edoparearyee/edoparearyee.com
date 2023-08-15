@@ -1,4 +1,4 @@
-import { Entry } from 'contentful';
+import { Asset, Entry } from 'contentful';
 
 import {
   TypeAwardSkeleton,
@@ -51,9 +51,14 @@ export const mapCaseStudy = (
   description: item.fields.description || '',
   role: item.fields.role,
   year: new Date(item.fields.year).getFullYear().toString(),
-  clientName: (
-    item.fields.client as Entry<TypeClientSkeleton, undefined, string>
-  ).fields.name,
+  client: {
+    name: (item.fields.client as Entry<TypeClientSkeleton, undefined, string>)
+      .fields.name,
+    logoUrl: (
+      (item.fields.client as Entry<TypeClientSkeleton, undefined, string>)
+        .fields.logo as Asset<undefined, string>
+    ).fields.file?.url as string,
+  },
   hero: {
     alt: (item.fields.hero as Entry<TypeImageSkeleton, undefined, string>)
       .fields.altText,
@@ -72,8 +77,14 @@ export const mapCaseStudy = (
   imagesDesktop: (
     item.fields.imagesDesktop as Entry<TypeImageSkeleton, undefined, string>[]
   ).map(mapResponsiveImageWithAltText),
-  videoUrl: (item.fields.video as Entry<TypeVideoSkeleton, undefined, string>)
-    .fields.url,
+  video: {
+    url: (item.fields.video as Entry<TypeVideoSkeleton, undefined, string>)
+      .fields.url,
+    poster: mapResponsiveImageWithAltText(
+      (item.fields.video as Entry<TypeVideoSkeleton, undefined, string>).fields
+        .poster as Entry<TypeImageSkeleton, undefined, string>,
+    ),
+  },
   tags: item.fields.tags,
   contributors: item.fields.contributors,
   awards: (

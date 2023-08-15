@@ -23,12 +23,17 @@ const Card: React.FC<CardProps> = ({
   className,
 }) => (
   <div className={classNames(styles.card, className)}>
-    <Image sources={image} alt={imageAlt} className={styles.card__image} />
+    <Image
+      sources={image}
+      alt={imageAlt}
+      className={styles.card__image}
+      imgClassName={styles['card__image-img']}
+    />
     <div className={styles.card__body}>
       <Type renderAs="h3" appearance="h3">
         {title}
       </Type>
-      <Type className={styles.card__blurb}>{blurb}</Type>
+      {/* <Type className={styles.card__blurb}>{blurb}</Type> */}
     </div>
   </div>
 );

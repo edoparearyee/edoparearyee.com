@@ -6,14 +6,24 @@ export interface CaseStudy {
   description: string;
   role: string;
   year: string;
-  clientName: string;
+  client: Client;
   hero: ResponsiveImageWithAltText;
   imagesMobile: ResponsiveImageWithAltText[];
   imagesDesktop: ResponsiveImageWithAltText[];
-  videoUrl?: string;
+  video?: Video;
   tags?: string[];
   contributors?: string[];
   awards?: Award[];
+}
+
+interface Client {
+  name: string;
+  logoUrl: string;
+}
+
+interface Video {
+  url: string;
+  poster: ResponsiveImageWithAltText;
 }
 
 interface Award {
