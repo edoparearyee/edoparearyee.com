@@ -18,7 +18,8 @@ export interface CaseStudy {
 
 interface Client {
   name: string;
-  logoUrl: string;
+  logoDarkUrl: string;
+  logoLightUrl: string;
 }
 
 interface Video {

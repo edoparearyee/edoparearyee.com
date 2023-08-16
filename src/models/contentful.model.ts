@@ -71,7 +71,8 @@ export type TypeCaseStudy<
 
 export interface TypeClientFields {
   name: EntryFieldTypes.Symbol;
-  logo: EntryFieldTypes.AssetLink;
+  logoDark: EntryFieldTypes.AssetLink;
+  logoLight: EntryFieldTypes.AssetLink;
 }
 
 export type TypeClientSkeleton = EntrySkeletonType<TypeClientFields, 'client'>;

@@ -54,9 +54,13 @@ export const mapCaseStudy = (
   client: {
     name: (item.fields.client as Entry<TypeClientSkeleton, undefined, string>)
       .fields.name,
-    logoUrl: (
+    logoDarkUrl: (
       (item.fields.client as Entry<TypeClientSkeleton, undefined, string>)
-        .fields.logo as Asset<undefined, string>
+        .fields.logoDark as Asset<undefined, string>
+    ).fields.file?.url as string,
+    logoLightUrl: (
+      (item.fields.client as Entry<TypeClientSkeleton, undefined, string>)
+        .fields.logoLight as Asset<undefined, string>
     ).fields.file?.url as string,
   },
   hero: {

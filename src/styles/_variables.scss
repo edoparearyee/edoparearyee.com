@@ -254,6 +254,11 @@ $grid-container-padding-lg: 120px - $grid-gutter-width--half;
 $transition-base: all 0.2s ease-in-out;
 $transition-fade: opacity 0.15s linear;
 
+// Box shadows
+
+$box-shadow-base: 0 10px 16px 0 rgba($black, 0.2),
+  0 6px 20px 0 rgba($black, 0.19);
+
 // Z-indexes
 
 $z-index-header: 1000;

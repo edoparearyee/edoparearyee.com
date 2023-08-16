@@ -8,10 +8,11 @@ import Type from '@/components/Type/Type';
 import Section from '@/components/Section/Section';
 import Image from '@/components/Image/Image';
 import Button from '@/components/Button/Button';
+import Video from '@/components/Video/Video';
+import Badge from '@/components/Badge/Badge';
 import { getCaseStudy } from '@/services/contentful';
 
 import styles from './page.module.scss';
-import Video from '@/components/Video/Video';
 
 const getData = async (slug: string) => {
   return getCaseStudy(slug);
@@ -49,10 +50,10 @@ const WorkDetail = async ({ params }: { params: { slug: string } }) => {
         </div>
       </Section>
       <Section className={styles['work-detail__information']}>
-        <div style={{ paddingBottom: '40px' }}>
+        <div className={styles['work-detail__details']}>
           <Container>
             <Row>
-              <Col md={6}>
+              <Col md={5} xxl={4}>
                 <Type
                   renderAs="h2"
                   appearance="h4"
@@ -61,17 +62,55 @@ const WorkDetail = async ({ params }: { params: { slug: string } }) => {
                   Client
                 </Type>
                 <Type className={styles['work-detail__detail']}>
-                  <Image
-                    imgClassName={styles['work-detail__client-logo']}
-                    sources={[
-                      {
-                        '1x': caseStudy.client.logoUrl,
-                        '2x': caseStudy.client.logoUrl,
-                        breakpoint: 375,
-                      },
-                    ]}
-                    alt={caseStudy.client.name}
-                  />
+                  {caseStudy.client.name}
+                </Type>
+
+                <Type
+                  renderAs="h2"
+                  appearance="h4"
+                  className={styles['work-detail__information-title']}
+                >
+                  Role
+                </Type>
+                <Type className={styles['work-detail__detail']}>
+                  {caseStudy.role}
+                </Type>
+
+                <Type
+                  renderAs="h2"
+                  appearance="h4"
+                  className={styles['work-detail__information-title']}
+                >
+                  Tech used
+                </Type>
+                <ul
+                  className={classNames(
+                    styles['work-detail__tag-list'],
+                    styles['work-detail__detail'],
+                  )}
+                >
+                  {caseStudy.tags?.map((tag) => (
+                    <li
+                      key={tag}
+                      className={styles['work-detail__tag-list-item']}
+                    >
+                      <Badge shape="pill" size="small" color="secondary">
+                        {tag}
+                      </Badge>
+                    </li>
+                  ))}
+                </ul>
+              </Col>
+              <Col md={5} xxl={4}>
+                <Type
+                  renderAs="h2"
+                  appearance="h4"
+                  className={styles['work-detail__information-title']}
+                >
+                  Other contributors
+                </Type>
+                <Type className={styles['work-detail__detail']}>
+                  {caseStudy.contributors?.join(', ')}
                 </Type>
 
                 <Type
@@ -98,29 +137,6 @@ const WorkDetail = async ({ params }: { params: { slug: string } }) => {
                     </li>
                   ))}
                 </ul>
-              </Col>
-              <Col md={6}>
-                <Type
-                  renderAs="h2"
-                  appearance="h4"
-                  className={styles['work-detail__information-title']}
-                >
-                  Role
-                </Type>
-                <Type className={styles['work-detail__detail']}>
-                  {caseStudy.role}
-                </Type>
-
-                <Type
-                  renderAs="h2"
-                  appearance="h4"
-                  className={styles['work-detail__information-title']}
-                >
-                  Other contributors
-                </Type>
-                <Type className={styles['work-detail__detail']}>
-                  {caseStudy.contributors?.join(', ')}
-                </Type>
 
                 <Type
                   renderAs="h2"

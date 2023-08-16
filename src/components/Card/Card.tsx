@@ -2,16 +2,16 @@ import React, { PropsWithChildren } from 'react';
 import classNames from 'classnames';
 
 import Image from '../Image/Image';
-import Type from '../Type/Type';
 import { ResponsiveImage } from '@/models/image.model';
 
 import styles from './Card.module.scss';
+import Type from '../Type/Type';
 
 type CardProps = PropsWithChildren<{
   image: ResponsiveImage;
   imageAlt: string;
   title: string;
-  blurb: string;
+  logoUrl: string;
   className?: string;
 }>;
 
@@ -19,7 +19,7 @@ const Card: React.FC<CardProps> = ({
   image,
   imageAlt,
   title,
-  blurb,
+  logoUrl,
   className,
 }) => (
   <div className={classNames(styles.card, className)}>
@@ -29,11 +29,24 @@ const Card: React.FC<CardProps> = ({
       className={styles.card__image}
       imgClassName={styles['card__image-img']}
     />
+    <div className={styles['card__logo-wrapper']}>
+      <Image
+        className={styles['card__client-logo']}
+        imgClassName={styles['card__client-logo-img']}
+        sources={[
+          {
+            '1x': logoUrl,
+            '2x': logoUrl,
+            breakpoint: 375,
+          },
+        ]}
+        alt={title}
+      />
+    </div>
     <div className={styles.card__body}>
-      <Type renderAs="h3" appearance="h3">
+      <Type renderAs="h3" appearance="h2">
         {title}
       </Type>
-      {/* <Type className={styles.card__blurb}>{blurb}</Type> */}
     </div>
   </div>
 );

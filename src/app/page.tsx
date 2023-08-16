@@ -27,7 +27,7 @@ const Home = async () => {
           image: item.hero,
           imageAlt: item.hero.alt,
           title: item.title,
-          blurb: item.description,
+          logoUrl: item.client.logoLightUrl,
         }))}
         ctaText="See more"
         ctaLink="/work"

@@ -56,17 +56,35 @@
 }
 
 .work-detail__awards-list {
-  list-style-position: inside;
+  list-style: none;
   margin-bottom: rem(16px);
 }
 
-.work-detail__client-logo {
+.work-detail .work-detail__client-logo {
   height: 50px;
   width: auto;
 }
 
+.work-detail__details {
+  margin-bottom: rem(60px);
+}
+
 .work-detail__information .work-detail__information-title {
   margin-bottom: rem(5px);
+}
+
+.work-detail__tag-list {
+  list-style: none;
+  margin-bottom: rem(16px);
+}
+
+.work-detail__tag-list-item {
+  display: inline-flex;
+
+  &:not(:last-child) {
+    margin-bottom: 5px;
+    margin-right: 5px;
+  }
 }
 
 .work-detail__information {

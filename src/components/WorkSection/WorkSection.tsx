@@ -16,7 +16,7 @@ export interface WorkCard {
   slug: string;
   image: ResponsiveImageWithAltText;
   title: string;
-  blurb: string;
+  logoUrl: string;
 }
 
 export interface WorkSectionProps {
@@ -34,7 +34,7 @@ const WorkSection: React.FC<WorkSectionProps> = ({
 }) => (
   <Section
     id={id}
-    className={styles['work']}
+    className={styles.work}
     innerClassName={styles['work__section--inner']}
   >
     <Container>
@@ -63,8 +63,8 @@ const WorkSection: React.FC<WorkSectionProps> = ({
                   })}
                   image={card.image.image}
                   imageAlt={card.image.alt}
+                  logoUrl={card.logoUrl}
                   title={card.title}
-                  blurb={card.blurb}
                 />
               </Button>
             </Col>
