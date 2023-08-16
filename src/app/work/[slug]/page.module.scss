@@ -70,7 +70,7 @@
 }
 
 .work-detail__information .work-detail__information-title {
-  margin-bottom: rem(5px);
+  margin-bottom: rem(10px);
 }
 
 .work-detail__tag-list {
@@ -100,4 +100,8 @@
 
 .work-detail__video {
   width: 100%;
+}
+
+.work-detail__awards-button {
+  padding-top: 0;
 }

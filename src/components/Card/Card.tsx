@@ -6,6 +6,7 @@ import { ResponsiveImage } from '@/models/image.model';
 
 import styles from './Card.module.scss';
 import Type from '../Type/Type';
+import Badge from '../Badge/Badge';
 
 type CardProps = PropsWithChildren<{
   image: ResponsiveImage;
@@ -47,6 +48,9 @@ const Card: React.FC<CardProps> = ({
       <Type renderAs="h3" appearance="h2">
         {title}
       </Type>
+      <Badge appearance="outline" shape="pill" size="small" color="secondary">
+        View project
+      </Badge>
     </div>
   </div>
 );

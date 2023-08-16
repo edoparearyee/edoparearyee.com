@@ -53,35 +53,126 @@ const WorkDetail = async ({ params }: { params: { slug: string } }) => {
         <div className={styles['work-detail__details']}>
           <Container>
             <Row>
-              <Col md={5} xxl={4}>
+              <Col md={5} xxl={5}>
                 <Type
                   renderAs="h2"
-                  appearance="h4"
+                  appearance="monospace-2"
                   className={styles['work-detail__information-title']}
                 >
                   Client
                 </Type>
-                <Type className={styles['work-detail__detail']}>
+                <Type
+                  className={styles['work-detail__detail']}
+                  appearance="small"
+                >
                   {caseStudy.client.name}
                 </Type>
+              </Col>
 
+              <Col md={5} xxl={5}>
+                {caseStudy.websiteUrl ? (
+                  <Button
+                    appearance="solid"
+                    external
+                    renderAs="a"
+                    size="small"
+                    href={caseStudy.websiteUrl}
+                  >
+                    View Website
+                  </Button>
+                ) : null}
+              </Col>
+              <Col md={5} xxl={5}>
                 <Type
                   renderAs="h2"
-                  appearance="h4"
+                  appearance="monospace-2"
                   className={styles['work-detail__information-title']}
                 >
                   Role
                 </Type>
-                <Type className={styles['work-detail__detail']}>
+                <Type
+                  className={styles['work-detail__detail']}
+                  appearance="small"
+                >
                   {caseStudy.role}
                 </Type>
+              </Col>
 
+              <Col md={5} xxl={5}>
                 <Type
                   renderAs="h2"
-                  appearance="h4"
+                  appearance="monospace-2"
                   className={styles['work-detail__information-title']}
                 >
-                  Tech used
+                  Other contributors
+                </Type>
+                <Type
+                  className={styles['work-detail__detail']}
+                  appearance="small"
+                >
+                  {caseStudy.contributors?.join(', ')}
+                </Type>
+              </Col>
+              <Col md={5} xxl={5}>
+                <Type
+                  renderAs="h2"
+                  appearance="monospace-2"
+                  className={styles['work-detail__information-title']}
+                >
+                  Year
+                </Type>
+                <Type
+                  className={styles['work-detail__detail']}
+                  appearance="small"
+                >
+                  {caseStudy.year}
+                </Type>
+              </Col>
+              <Col md={5} xxl={5}>
+                {caseStudy.awards?.length ? (
+                  <>
+                    <Type
+                      renderAs="h2"
+                      appearance="monospace-2"
+                      className={styles['work-detail__information-title']}
+                    >
+                      Awards
+                    </Type>
+                    <ul
+                      className={classNames(
+                        styles['work-detail__awards-list'],
+                        styles['work-detail__detail'],
+                      )}
+                    >
+                      {caseStudy.awards?.map(
+                        (award: { title: string; url: string }) => (
+                          <li
+                            key={award.title}
+                            className={styles['work-detail__awards-list-item']}
+                          >
+                            <Button
+                              className={styles['work-detail__awards-button']}
+                              appearance="link"
+                              renderAs="a"
+                              size="small"
+                              href={award.url}
+                            >
+                              {award.title}
+                            </Button>
+                          </li>
+                        ),
+                      )}
+                    </ul>
+                  </>
+                ) : null}
+              </Col>
+              <Col md={5} xxl={5}>
+                <Type
+                  renderAs="h2"
+                  appearance="monospace-2"
+                  className={styles['work-detail__information-title']}
+                >
+                  Technology used
                 </Type>
                 <ul
                   className={classNames(
@@ -89,65 +180,17 @@ const WorkDetail = async ({ params }: { params: { slug: string } }) => {
                     styles['work-detail__detail'],
                   )}
                 >
-                  {caseStudy.tags?.map((tag) => (
+                  {caseStudy.tags?.map((tag: string) => (
                     <li
                       key={tag}
                       className={styles['work-detail__tag-list-item']}
                     >
-                      <Badge shape="pill" size="small" color="secondary">
+                      <Badge shape="pill" size="x-small">
                         {tag}
                       </Badge>
                     </li>
                   ))}
                 </ul>
-              </Col>
-              <Col md={5} xxl={4}>
-                <Type
-                  renderAs="h2"
-                  appearance="h4"
-                  className={styles['work-detail__information-title']}
-                >
-                  Other contributors
-                </Type>
-                <Type className={styles['work-detail__detail']}>
-                  {caseStudy.contributors?.join(', ')}
-                </Type>
-
-                <Type
-                  renderAs="h2"
-                  appearance="h4"
-                  className={styles['work-detail__information-title']}
-                >
-                  Awards
-                </Type>
-                <ul
-                  className={classNames(
-                    styles['work-detail__awards-list'],
-                    styles['work-detail__detail'],
-                  )}
-                >
-                  {caseStudy.awards?.map((award) => (
-                    <li
-                      key={award.title}
-                      className={styles['work-detail__awards-list-item']}
-                    >
-                      <Button appearance="link" renderAs="a" href={award.url}>
-                        {award.title}
-                      </Button>
-                    </li>
-                  ))}
-                </ul>
-
-                <Type
-                  renderAs="h2"
-                  appearance="h4"
-                  className={styles['work-detail__information-title']}
-                >
-                  Year
-                </Type>
-                <Type className={styles['work-detail__detail']}>
-                  {caseStudy.year}
-                </Type>
               </Col>
             </Row>
           </Container>

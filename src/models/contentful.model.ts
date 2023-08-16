@@ -37,6 +37,7 @@ export type TypeBreakpointImage<
 export interface TypeCaseStudyFields {
   slug: EntryFieldTypes.Symbol;
   title: EntryFieldTypes.Symbol;
+  websiteUrl?: EntryFieldTypes.Symbol;
   description?: EntryFieldTypes.Text;
   hero: EntryFieldTypes.EntryLink<TypeImageSkeleton>;
   role: EntryFieldTypes.Symbol<

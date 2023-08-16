@@ -40,7 +40,7 @@ const WorkSection: React.FC<WorkSectionProps> = ({
     <Container>
       <Row>
         <Col sm={12}>
-          <Type renderAs="h2" appearance="h1" className={styles['work__title']}>
+          <Type renderAs="h2" appearance="h2" className={styles['work__title']}>
             My Work
           </Type>
         </Col>

@@ -12,7 +12,7 @@ import {
   BreakpointImage,
   ResponsiveImageWithAltText,
 } from '@/models/image.model';
-import { CaseStudy } from '@/models/case-study.model';
+import { CaseStudy } from '@/models/caseStudy.model';
 
 export const mapResponsiveImage = (
   breakpointImage: Entry<TypeBreakpointImageSkeleton, undefined, string>,
@@ -49,6 +49,7 @@ export const mapCaseStudy = (
   slug: item.fields.slug,
   title: item.fields.title,
   description: item.fields.description || '',
+  websiteUrl: item.fields.websiteUrl,
   role: item.fields.role,
   year: new Date(item.fields.year).getFullYear().toString(),
   client: {

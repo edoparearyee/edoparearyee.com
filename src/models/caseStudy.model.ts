@@ -14,6 +14,7 @@ export interface CaseStudy {
   tags?: string[];
   contributors?: string[];
   awards?: Award[];
+  websiteUrl?: string;
 }
 
 interface Client {

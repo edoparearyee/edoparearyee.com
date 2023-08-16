@@ -1,6 +1,6 @@
 import * as Contentful from 'contentful';
 
-import { CaseStudy } from '@/models/case-study.model';
+import { CaseStudy } from '@/models/caseStudy.model';
 import { TypeCaseStudySkeleton } from '@/models/contentful.model';
 import { mapCaseStudy } from '@/utils/mapCaseStudy';
 
@@ -30,7 +30,7 @@ export const getCaseStudies = async (limit = 12, skip = 0) => {
   };
 };
 
-export const getCaseStudy = async (slug: string) => {
+export const getCaseStudy = async (slug: string): Promise<CaseStudy | null> => {
   const client = Contentful.createClient({
     space: process.env.CONTENTFUL_SPACE || '',
     environment: process.env.CONTENTFUL_ENV || '',
