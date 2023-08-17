@@ -93,9 +93,11 @@ export const mapCaseStudy = (
   },
   tags: item.fields.tags,
   contributors: item.fields.contributors,
-  awards: (
-    item.fields.awards as Entry<TypeAwardSkeleton, undefined, string>[]
-  ).map(mapAwards),
+  awards: item.fields.awards
+    ? (item.fields.awards as Entry<TypeAwardSkeleton, undefined, string>[]).map(
+        mapAwards,
+      )
+    : [],
 });
 
 export const mapCaseStudyToCard = (item: CaseStudy): WorkCard => ({
