@@ -10,7 +10,7 @@ export interface GetCaseStudyOptions {
 }
 
 export const getCaseStudies = async ({
-  limit = 12,
+  limit = 6,
   skip = 0,
 }: GetCaseStudyOptions = {}) => {
   const client = Contentful.createClient({
