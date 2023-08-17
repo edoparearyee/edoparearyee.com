@@ -42,7 +42,7 @@ const WorkDetail = async ({ params }: { params: { slug: string } }) => {
                   {caseStudy.title}
                 </Type>
               </Col>
-              <Col sm={12} md={10} lg={8}>
+              <Col sm={12} md={10} lg={7}>
                 <Type>{caseStudy.description}</Type>
               </Col>
             </Row>

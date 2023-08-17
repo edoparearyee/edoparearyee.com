@@ -13,6 +13,7 @@ import {
   ResponsiveImageWithAltText,
 } from '@/models/image.model';
 import { CaseStudy } from '@/models/caseStudy.model';
+import { WorkCard } from '@/components/WorkSection/WorkSection';
 
 export const mapResponsiveImage = (
   breakpointImage: Entry<TypeBreakpointImageSkeleton, undefined, string>,
@@ -95,4 +96,11 @@ export const mapCaseStudy = (
   awards: (
     item.fields.awards as Entry<TypeAwardSkeleton, undefined, string>[]
   ).map(mapAwards),
+});
+
+export const mapCaseStudyToCard = (item: CaseStudy): WorkCard => ({
+  slug: item.slug,
+  image: item.hero,
+  title: item.title,
+  logoUrl: item.client.logoLightUrl,
 });

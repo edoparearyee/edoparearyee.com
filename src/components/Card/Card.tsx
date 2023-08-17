@@ -48,7 +48,7 @@ const Card: React.FC<CardProps> = ({
       <Type renderAs="h3" appearance="h2">
         {title}
       </Type>
-      <Badge appearance="outline" shape="pill" size="small" color="secondary">
+      <Badge appearance="outline" shape="pill" size="medium" color="secondary">
         View project
       </Badge>
     </div>

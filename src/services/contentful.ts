@@ -4,7 +4,15 @@ import { CaseStudy } from '@/models/caseStudy.model';
 import { TypeCaseStudySkeleton } from '@/models/contentful.model';
 import { mapCaseStudy } from '@/utils/mapCaseStudy';
 
-export const getCaseStudies = async (limit = 12, skip = 0) => {
+export interface GetCaseStudyOptions {
+  limit?: number;
+  skip?: number;
+}
+
+export const getCaseStudies = async ({
+  limit = 12,
+  skip = 0,
+}: GetCaseStudyOptions = {}) => {
   const client = Contentful.createClient({
     space: process.env.CONTENTFUL_SPACE || '',
     environment: process.env.CONTENTFUL_ENV || '',
@@ -15,7 +23,7 @@ export const getCaseStudies = async (limit = 12, skip = 0) => {
 
   const entries = await client.getEntries<TypeCaseStudySkeleton>({
     content_type: contentType,
-    limit,
+    limit: Math.min(limit, 12),
     skip,
     include: 3,
   });

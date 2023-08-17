@@ -16,11 +16,11 @@
   margin-bottom: rem(40px);
 
   @include breakpoint(md) {
-    margin-bottom: 0;
+    margin-bottom: rem(80px);
   }
 }
 
-.work__title {
+.work .work__title {
   margin-bottom: rem(60px);
 
   @include breakpoint(lg) {
