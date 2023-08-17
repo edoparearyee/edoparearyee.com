@@ -3,15 +3,29 @@ import { ResponsiveImageWithAltText } from './image.model';
 export interface CaseStudy {
   slug: string;
   title: string;
-  blurb: string;
+  description: string;
   role: string;
   year: string;
+  client: Client;
+  hero: ResponsiveImageWithAltText;
   imagesMobile: ResponsiveImageWithAltText[];
   imagesDesktop: ResponsiveImageWithAltText[];
-  videoUrl?: string;
+  video?: Video;
   tags?: string[];
   contributors?: string[];
   awards?: Award[];
+  websiteUrl?: string;
+}
+
+interface Client {
+  name: string;
+  logoDarkUrl: string;
+  logoLightUrl: string;
+}
+
+interface Video {
+  url: string;
+  poster: ResponsiveImageWithAltText;
 }
 
 interface Award {

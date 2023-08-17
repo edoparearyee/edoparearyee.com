@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 
 import Button from '../Button/Button';
@@ -8,88 +10,118 @@ import Container from '../Grid/Container';
 import Row from '../Grid/Row';
 import Col from '../Grid/Col';
 import Section from '../Section/Section';
-import { ResponsiveImage } from '@/models/image.model';
+import { ResponsiveImageWithAltText } from '@/models/image.model';
+import { CaseStudy } from '@/models/caseStudy.model';
+import { mapCaseStudyToCard } from '@/utils/mapCaseStudy';
 
 import styles from './WorkSection.module.scss';
 
 export interface WorkCard {
   slug: string;
-  image: ResponsiveImage;
-  imageAlt: string;
+  image: ResponsiveImageWithAltText;
   title: string;
-  blurb: string;
+  logoUrl: string;
 }
 
 export interface WorkSectionProps {
   id?: string;
-  cards: WorkCard[];
+  initialCards: WorkCard[];
+  total: number;
   ctaText: string;
-  ctaLink: string;
 }
 
 const WorkSection: React.FC<WorkSectionProps> = ({
   id,
-  cards,
-  ctaLink,
+  initialCards,
+  total,
   ctaText,
-}) => (
-  <Section
-    id={id}
-    className={styles['work']}
-    innerClassName={styles['work__section--inner']}
-  >
-    <Container>
-      <Row>
-        <Col sm={12}>
-          <Type renderAs="h2" appearance="h1" className={styles['work__title']}>
-            My Work
-          </Type>
-        </Col>
-      </Row>
-    </Container>
+}) => {
+  const [cards, setCards] = useState<WorkCard[]>([]);
 
-    <div className={styles.work__cards}>
+  const handleLoadMore = async () => {
+    const headers = new Headers({
+      'Content-Type': 'application/json',
+    });
+    const options: RequestInit = {
+      headers,
+    };
+    const response = await fetch(
+      `${process.env.API_URL}/case-studies?skip=${cards.length}`,
+      options,
+    );
+    const data: { items: CaseStudy[] } = await response.json();
+    setCards((c) => [...c, ...data.items.map(mapCaseStudyToCard)]);
+  };
+
+  useEffect(() => {
+    setCards(initialCards);
+  }, [initialCards]);
+
+  return (
+    <Section
+      id={id}
+      className={styles.work}
+      innerClassName={styles['work__section--inner']}
+    >
       <Container>
         <Row>
-          {cards.map((card, i) => (
-            <Col sm={12} md={4} key={card.slug}>
-              <Button
-                appearance="none"
-                renderAs="a"
-                href={`/work/${card.slug}`}
-              >
-                <Card
-                  className={classNames(styles.work__card, {
-                    [styles['work__card--last']]: i === cards.length - 1,
-                  })}
-                  image={card.image}
-                  imageAlt={card.imageAlt}
-                  title={card.title}
-                  blurb={card.blurb}
-                />
-              </Button>
-            </Col>
-          ))}
+          <Col sm={12}>
+            <Type
+              renderAs="h2"
+              appearance="h1"
+              className={styles['work__title']}
+            >
+              My Work
+            </Type>
+          </Col>
         </Row>
       </Container>
-    </div>
 
-    <Container>
-      <Row>
-        <Col sm={12}>
-          <Button
-            color="secondary"
-            appearance="link"
-            renderAs="a"
-            size="large"
-            href={ctaLink}
-          >
-            {ctaText}
-          </Button>
-        </Col>
-      </Row>
-    </Container>
-  </Section>
-);
+      <div className={styles.work__cards}>
+        <Container>
+          <Row>
+            {cards.map((card, i) => (
+              <Col sm={12} md={4} key={card.slug}>
+                <Button
+                  appearance="none"
+                  renderAs="a"
+                  href={`/work/${card.slug}`}
+                >
+                  <Card
+                    className={classNames(styles.work__card, {
+                      [styles['work__card--last']]: i === cards.length - 1,
+                    })}
+                    image={card.image.image}
+                    imageAlt={card.image.alt}
+                    logoUrl={card.logoUrl}
+                    title={card.title}
+                  />
+                </Button>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </div>
+
+      {cards.length < total ? (
+        <Container>
+          <Row>
+            <Col sm={12}>
+              <Button
+                color="secondary"
+                appearance="link"
+                renderAs="button"
+                size="large"
+                onClick={handleLoadMore}
+              >
+                {ctaText}
+              </Button>
+            </Col>
+          </Row>
+        </Container>
+      ) : null}
+    </Section>
+  );
+};
 
 export default WorkSection;

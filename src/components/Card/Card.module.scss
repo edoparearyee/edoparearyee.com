@@ -1,15 +1,59 @@
 @import "../../styles/shared";
 
 .card {
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.card__image {
+  aspect-ratio: 1.6;
+  transition: $transition-base;
+
+  &::after {
+    background-color: rgba($black, 0.6);
+    content: "";
+    inset: 0;
+    position: absolute;
+  }
+
+  .card:hover & {
+    transform: scale(1.1);
+  }
+}
+
+.card__image-img {
+  object-fit: cover;
+}
+
+.card__logo-wrapper {
+  inset: 0;
+  opacity: 1;
+  padding: 10%;
+  position: absolute;
+  transition: $transition-base;
+
+  .card:hover & {
+    opacity: 0;
+  }
 }
 
 .card__body {
-  padding-bottom: rem(20px);
-  padding-top: rem(20px);
-}
+  align-items: center;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  inset: 0;
+  justify-content: center;
+  opacity: 0;
+  padding: rem(20px);
+  position: absolute;
+  text-align: center;
+  transition: $transition-fade;
 
-.card__blurb {
-  margin-bottom: 0;
+  .card:hover & {
+    opacity: 1;
+  }
 }

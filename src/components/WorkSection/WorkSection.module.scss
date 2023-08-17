@@ -4,19 +4,23 @@
   background-color: $grey-800;
   color: $white;
   padding-bottom: rem(80px);
-  padding-top: rem(130px);
+  padding-top: rem(80px);
 
   @include breakpoint(lg) {
     padding-bottom: rem(90px);
-    padding-top: rem(190px);
+    padding-top: rem(90px);
   }
 }
 
 .work__cards {
   margin-bottom: rem(40px);
+
+  @include breakpoint(md) {
+    margin-bottom: rem(80px);
+  }
 }
 
-.work__title {
+.work .work__title {
   margin-bottom: rem(60px);
 
   @include breakpoint(lg) {
@@ -32,6 +36,6 @@
   }
 
   @include breakpoint(md) {
-    margin-bottom: rem(32px);
+    margin-bottom: rem(16px);
   }
 }

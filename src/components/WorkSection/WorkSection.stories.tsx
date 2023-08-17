@@ -11,24 +11,26 @@ export default meta;
 type Story = StoryObj<typeof WorkSection>;
 
 const workCard = {
-  image: [
-    {
-      breakpoint: 1024,
-      '1x': 'https://picsum.photos/id/905/600/450',
-      '2x': 'https://picsum.photos/id/905/1200/900',
-    },
-    {
-      breakpoint: 768,
-      '1x': 'https://picsum.photos/id/905/400/350',
-      '2x': 'https://picsum.photos/id/905/800/700',
-    },
-    {
-      breakpoint: 375,
-      '1x': 'https://picsum.photos/id/905/300/450',
-      '2x': 'https://picsum.photos/id/905/600/900',
-    },
-  ],
-  imageAlt: 'Lights at night',
+  image: {
+    image: [
+      {
+        breakpoint: 1024,
+        '1x': 'https://picsum.photos/id/905/600/450',
+        '2x': 'https://picsum.photos/id/905/1200/900',
+      },
+      {
+        breakpoint: 768,
+        '1x': 'https://picsum.photos/id/905/400/350',
+        '2x': 'https://picsum.photos/id/905/800/700',
+      },
+      {
+        breakpoint: 375,
+        '1x': 'https://picsum.photos/id/905/300/450',
+        '2x': 'https://picsum.photos/id/905/600/900',
+      },
+    ],
+    alt: 'Lights at night',
+  },
   title: 'Card title',
   blurb:
     'Labore est qui est non veniam irure culpa nulla ullamco incididunt Lorem sit.',

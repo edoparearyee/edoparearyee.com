@@ -15,7 +15,7 @@
   position: relative;
 
   &::after {
-    background-color: rgba($black, 0.8);
+    background-color: rgba($black, 0.6);
     content: "";
     inset: 0;
     position: absolute;
@@ -56,26 +56,52 @@
 }
 
 .work-detail__awards-list {
-  list-style-position: inside;
+  list-style: none;
   margin-bottom: rem(16px);
+}
+
+.work-detail .work-detail__client-logo {
+  height: 50px;
+  width: auto;
+}
+
+.work-detail__details {
+  margin-bottom: rem(60px);
+}
+
+.work-detail__information .work-detail__information-title {
+  margin-bottom: rem(10px);
+}
+
+.work-detail__tag-list {
+  list-style: none;
+  margin-bottom: rem(16px);
+}
+
+.work-detail__tag-list-item {
+  display: inline-flex;
+
+  &:not(:last-child) {
+    margin-bottom: 5px;
+    margin-right: 5px;
+  }
 }
 
 .work-detail__information {
   background-color: $grey-200;
   padding-bottom: rem(100px);
   padding-top: rem(100px);
-
-  @include breakpoint(md) {
-    padding-bottom: rem(150px);
-    padding-top: rem(150px);
-  }
-
-  @include breakpoint(lg) {
-    padding-bottom: rem(200px);
-    padding-top: rem(200px);
-  }
 }
 
-.work-detail__detail {
-  margin-bottom: rem(60px);
+.work-detail__screenshot {
+  box-shadow: 0 10px 16px 0 rgba($black, 0.2), 0 6px 20px 0 rgba($black, 0.19);
+  margin-bottom: rem(16px);
+}
+
+.work-detail__video {
+  width: 100%;
+}
+
+.work-detail__awards-button {
+  padding-top: 0;
 }

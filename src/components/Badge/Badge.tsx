@@ -11,7 +11,7 @@ type BadgeColor =
   | 'destructive';
 type BadgeAppearance = 'solid' | 'outline';
 type BadgeShape = 'square' | 'pill';
-type BadgeSize = 'small' | 'medium' | 'large';
+type BadgeSize = 'x-small' | 'small' | 'medium' | 'large';
 
 export type BadgeProps = PropsWithChildren<{
   appearance?: BadgeAppearance;
