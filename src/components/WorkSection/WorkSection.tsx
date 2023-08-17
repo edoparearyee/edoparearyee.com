@@ -46,7 +46,7 @@ const WorkSection: React.FC<WorkSectionProps> = ({
       headers,
     };
     const response = await fetch(
-      `${process.env.API_URL}/case-studies?skip=${cards.length}`,
+      `${process.env.NEXT_PUBLIC_API_URL}/case-studies?skip=${cards.length}`,
       options,
     );
     const data: { items: CaseStudy[] } = await response.json();
@@ -81,7 +81,7 @@ const WorkSection: React.FC<WorkSectionProps> = ({
         <Container>
           <Row>
             {cards.map((card, i) => (
-              <Col sm={12} md={4} key={card.slug}>
+              <Col sm={12} md={6} lg={4} key={card.slug}>
                 <Button
                   appearance="none"
                   renderAs="a"
