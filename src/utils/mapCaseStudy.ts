@@ -6,6 +6,7 @@ import {
   TypeCaseStudySkeleton,
   TypeClientSkeleton,
   TypeImageSkeleton,
+  TypeTeamMemberSkeleton,
   TypeVideoSkeleton,
 } from '@/models/contentful.model';
 import {
@@ -29,6 +30,13 @@ export const mapAwards = (
   title: award.fields.title,
   year: new Date(award.fields.year).getFullYear().toString(),
   url: award.fields.url,
+});
+
+export const mapTeamMember = (
+  member: Entry<TypeTeamMemberSkeleton, undefined, string>,
+) => ({
+  name: member.fields.name,
+  role: member.fields.role,
 });
 
 export const mapResponsiveImageWithAltText = (
@@ -83,15 +91,22 @@ export const mapCaseStudy = (
   imagesDesktop: (
     item.fields.imagesDesktop as Entry<TypeImageSkeleton, undefined, string>[]
   ).map(mapResponsiveImageWithAltText),
-  video: {
-    url: (item.fields.video as Entry<TypeVideoSkeleton, undefined, string>)
-      .fields.url,
-    poster: mapResponsiveImageWithAltText(
-      (item.fields.video as Entry<TypeVideoSkeleton, undefined, string>).fields
-        .poster as Entry<TypeImageSkeleton, undefined, string>,
-    ),
-  },
+  video: item.fields.video
+    ? {
+        url: (item.fields.video as Entry<TypeVideoSkeleton, undefined, string>)
+          .fields.url,
+        poster: mapResponsiveImageWithAltText(
+          (item.fields.video as Entry<TypeVideoSkeleton, undefined, string>)
+            .fields.poster as Entry<TypeImageSkeleton, undefined, string>,
+        ),
+      }
+    : undefined,
   tags: item.fields.tags,
+  team: item.fields.team
+    ? (
+        item.fields.team as Entry<TypeTeamMemberSkeleton, undefined, string>[]
+      ).map(mapTeamMember)
+    : [],
   contributors: item.fields.contributors,
   awards: item.fields.awards
     ? (item.fields.awards as Entry<TypeAwardSkeleton, undefined, string>[]).map(
