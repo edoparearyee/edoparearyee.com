@@ -27,7 +27,7 @@ const WorkDetail = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <main className={styles['work-detail']}>
-      <Section className={styles['work-detail__intro-section']}>
+      <div className={styles['work-detail__intro-section']}>
         <Image
           className={styles['work-detail__hero-image']}
           imgClassName={styles['work-detail__hero-image-img']}
@@ -37,23 +37,40 @@ const WorkDetail = async ({ params }: { params: { slug: string } }) => {
         <div className={styles['work-detail__hero-content']}>
           <Container>
             <Row>
-              <Col sm={12} md={9} lg={6}>
+              <Col sm={12} md={9} lg={8}>
                 <Type appearance="h1" renderAs="h1">
                   {caseStudy.title}
                 </Type>
               </Col>
-              <Col sm={12} md={10} lg={7}>
-                <Type>{caseStudy.description}</Type>
-              </Col>
             </Row>
           </Container>
         </div>
-      </Section>
+      </div>
       <Section className={styles['work-detail__information']}>
         <div className={styles['work-detail__details']}>
           <Container>
             <Row>
-              <Col md={5} xxl={5}>
+              <Col sm={12}>
+                <Type
+                  renderAs="h2"
+                  appearance="monospace-2"
+                  className={styles['work-detail__information-title']}
+                >
+                  Description
+                </Type>
+              </Col>
+              <Col sm={12} md={10} lg={8}>
+                <div className={styles['work-detail__description']}>
+                  {caseStudy.description.split('\n\n').map((p, i) => (
+                    <Type key={i} appearance="small">
+                      {p}
+                    </Type>
+                  ))}
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col md={6} lg={5} xxl={5}>
                 <Type
                   renderAs="h2"
                   appearance="monospace-2"
@@ -69,7 +86,7 @@ const WorkDetail = async ({ params }: { params: { slug: string } }) => {
                 </Type>
               </Col>
 
-              <Col md={5} xxl={5}>
+              <Col md={6} lg={5} xxl={5}>
                 {caseStudy.websiteUrl ? (
                   <Button
                     appearance="solid"
@@ -82,7 +99,7 @@ const WorkDetail = async ({ params }: { params: { slug: string } }) => {
                   </Button>
                 ) : null}
               </Col>
-              <Col md={5} xxl={5}>
+              <Col md={6} lg={5} xxl={5}>
                 <Type
                   renderAs="h2"
                   appearance="monospace-2"
@@ -97,23 +114,7 @@ const WorkDetail = async ({ params }: { params: { slug: string } }) => {
                   {caseStudy.role}
                 </Type>
               </Col>
-
-              <Col md={5} xxl={5}>
-                <Type
-                  renderAs="h2"
-                  appearance="monospace-2"
-                  className={styles['work-detail__information-title']}
-                >
-                  Other contributors
-                </Type>
-                <Type
-                  className={styles['work-detail__detail']}
-                  appearance="small"
-                >
-                  {caseStudy.contributors?.join(', ')}
-                </Type>
-              </Col>
-              <Col md={5} xxl={5}>
+              <Col md={6} lg={5} xxl={5}>
                 <Type
                   renderAs="h2"
                   appearance="monospace-2"
@@ -128,7 +129,59 @@ const WorkDetail = async ({ params }: { params: { slug: string } }) => {
                   {caseStudy.year}
                 </Type>
               </Col>
-              <Col md={5} xxl={5}>
+              <Col md={6} lg={5} xxl={5}>
+                <Type
+                  renderAs="h2"
+                  appearance="monospace-2"
+                  className={styles['work-detail__information-title']}
+                >
+                  Team
+                </Type>
+                <ul className={styles['work-detail__team-list']}>
+                  {caseStudy.team.map((member) => (
+                    <li key={member.name}>
+                      <Type
+                        className={classNames(
+                          styles['work-detail__detail'],
+                          styles['work-detail__team-member'],
+                        )}
+                        appearance="small"
+                      >
+                        <strong>{member.name}</strong> - {member.role}
+                      </Type>
+                    </li>
+                  ))}
+                </ul>
+              </Col>
+
+              <Col md={6} lg={5} xxl={5}>
+                <Type
+                  renderAs="h2"
+                  appearance="monospace-2"
+                  className={styles['work-detail__information-title']}
+                >
+                  Technology used
+                </Type>
+                <ul
+                  className={classNames(
+                    styles['work-detail__tag-list'],
+                    styles['work-detail__detail'],
+                  )}
+                >
+                  {caseStudy.tags?.map((tag: string) => (
+                    <li
+                      key={tag}
+                      className={styles['work-detail__tag-list-item']}
+                    >
+                      <Badge shape="pill" size="x-small">
+                        {tag}
+                      </Badge>
+                    </li>
+                  ))}
+                </ul>
+              </Col>
+
+              <Col md={6} lg={5} xxl={5}>
                 {caseStudy.awards?.length ? (
                   <>
                     <Type
@@ -166,32 +219,6 @@ const WorkDetail = async ({ params }: { params: { slug: string } }) => {
                   </>
                 ) : null}
               </Col>
-              <Col md={5} xxl={5}>
-                <Type
-                  renderAs="h2"
-                  appearance="monospace-2"
-                  className={styles['work-detail__information-title']}
-                >
-                  Technology used
-                </Type>
-                <ul
-                  className={classNames(
-                    styles['work-detail__tag-list'],
-                    styles['work-detail__detail'],
-                  )}
-                >
-                  {caseStudy.tags?.map((tag: string) => (
-                    <li
-                      key={tag}
-                      className={styles['work-detail__tag-list-item']}
-                    >
-                      <Badge shape="pill" size="x-small">
-                        {tag}
-                      </Badge>
-                    </li>
-                  ))}
-                </ul>
-              </Col>
             </Row>
           </Container>
         </div>
@@ -209,15 +236,17 @@ const WorkDetail = async ({ params }: { params: { slug: string } }) => {
                 </Col>
               ))}
             </Row>
-            <Row>
-              <Video
-                className={styles['work-detail__video']}
-                src={caseStudy.video?.url}
-                poster={caseStudy.video?.poster.image[0]['2x']}
-                controls
-                playsInline
-              />
-            </Row>
+            {caseStudy.video ? (
+              <Row>
+                <Video
+                  className={styles['work-detail__video']}
+                  src={caseStudy.video?.url}
+                  poster={caseStudy.video?.poster.image[0]['2x']}
+                  controls
+                  playsInline
+                />
+              </Row>
+            ) : null}
           </Container>
         </div>
       </Section>

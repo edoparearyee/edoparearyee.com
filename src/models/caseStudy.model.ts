@@ -15,6 +15,7 @@ export interface CaseStudy {
   contributors?: string[];
   awards?: Award[];
   websiteUrl?: string;
+  team: TeamMember[];
 }
 
 interface Client {
@@ -32,4 +33,9 @@ interface Award {
   title: string;
   year: string;
   url: string;
+}
+
+interface TeamMember {
+  name: string;
+  role: string;
 }

@@ -56,6 +56,9 @@ export interface TypeCaseStudyFields {
     EntryFieldTypes.EntryLink<TypeImageSkeleton>
   >;
   video?: EntryFieldTypes.EntryLink<TypeVideoSkeleton>;
+  team?: EntryFieldTypes.Array<
+    EntryFieldTypes.EntryLink<TypeTeamMemberSkeleton>
+  >;
   tags?: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
   contributors?: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
   awards?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeAwardSkeleton>>;
@@ -95,6 +98,20 @@ export type TypeImage<
   Modifiers extends ChainModifiers,
   Locales extends LocaleCode,
 > = Entry<TypeImageSkeleton, Modifiers, Locales>;
+
+export interface TypeTeamMemberFields {
+  name: EntryFieldTypes.Symbol;
+  role: EntryFieldTypes.Symbol;
+}
+
+export type TypeTeamMemberSkeleton = EntrySkeletonType<
+  TypeTeamMemberFields,
+  'teamMember'
+>;
+export type TypeTeamMember<
+  Modifiers extends ChainModifiers,
+  Locales extends LocaleCode,
+> = Entry<TypeTeamMemberSkeleton, Modifiers, Locales>;
 
 export interface TypeVideoFields {
   title: EntryFieldTypes.Symbol;

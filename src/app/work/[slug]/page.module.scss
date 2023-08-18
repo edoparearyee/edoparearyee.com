@@ -10,8 +10,8 @@
 
 .work-detail__intro-section {
   color: $white;
-  padding-bottom: rem(80px);
-  padding-top: rem(80px);
+  padding-bottom: rem(60px);
+  padding-top: rem(120px);
   position: relative;
 
   &::after {
@@ -20,6 +20,14 @@
     inset: 0;
     position: absolute;
     z-index: 2;
+  }
+
+  @include breakpoint(md) {
+    padding-top: rem(160px);
+  }
+
+  @include breakpoint(lg) {
+    padding-top: rem(180px);
   }
 }
 
@@ -104,4 +112,17 @@
 
 .work-detail__awards-button {
   padding-top: 0;
+}
+
+.work-detail__team-list {
+  list-style: none;
+  margin-bottom: rem(16px);
+}
+
+.work-detail .work-detail__team-member {
+  margin-bottom: rem(8px);
+}
+
+.work-detail__description {
+  margin-bottom: rem(40px);
 }
