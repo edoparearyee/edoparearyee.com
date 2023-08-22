@@ -62,6 +62,7 @@ export interface TypeCaseStudyFields {
   tags?: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
   contributors?: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
   awards?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeAwardSkeleton>>;
+  platform: EntryFieldTypes.Symbol<'Desktop App' | 'Mobile App' | 'Web'>;
 }
 
 export type TypeCaseStudySkeleton = EntrySkeletonType<
