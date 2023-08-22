@@ -16,6 +16,7 @@ export interface CaseStudy {
   awards?: Award[];
   websiteUrl?: string;
   team: TeamMember[];
+  platform: 'Desktop App' | 'Mobile App' | 'Web';
 }
 
 interface Client {

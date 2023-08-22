@@ -85,12 +85,24 @@ export const mapCaseStudy = (
       >[]
     ).map(mapResponsiveImage),
   },
-  imagesMobile: (
-    item.fields.imagesMobile as Entry<TypeImageSkeleton, undefined, string>[]
-  ).map(mapResponsiveImageWithAltText),
-  imagesDesktop: (
-    item.fields.imagesDesktop as Entry<TypeImageSkeleton, undefined, string>[]
-  ).map(mapResponsiveImageWithAltText),
+  imagesMobile: item.fields.imagesMobile?.length
+    ? (
+        item.fields.imagesMobile as Entry<
+          TypeImageSkeleton,
+          undefined,
+          string
+        >[]
+      ).map(mapResponsiveImageWithAltText)
+    : [],
+  imagesDesktop: item.fields.imagesDesktop?.length
+    ? (
+        item.fields.imagesDesktop as Entry<
+          TypeImageSkeleton,
+          undefined,
+          string
+        >[]
+      ).map(mapResponsiveImageWithAltText)
+    : [],
   video: item.fields.video
     ? {
         url: (item.fields.video as Entry<TypeVideoSkeleton, undefined, string>)
@@ -113,6 +125,7 @@ export const mapCaseStudy = (
         mapAwards,
       )
     : [],
+  platform: item.fields.platform,
 });
 
 export const mapCaseStudyToCard = (item: CaseStudy): WorkCard => ({

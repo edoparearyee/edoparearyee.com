@@ -106,6 +106,12 @@
   margin-bottom: rem(16px);
 }
 
+.work-detail .work-detail__screenshot-mobile {
+  display: flex;
+  margin: 0 auto rem(16px);
+  max-width: 375px;
+}
+
 .work-detail__video {
   width: 100%;
 }
@@ -125,4 +131,8 @@
 
 .work-detail__description {
   margin-bottom: rem(40px);
+}
+
+.work-detail__view-website-button {
+  margin-bottom: rem(16px);
 }

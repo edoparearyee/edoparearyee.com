@@ -89,6 +89,7 @@ const WorkDetail = async ({ params }: { params: { slug: string } }) => {
               <Col md={6} lg={5} xxl={5}>
                 {caseStudy.websiteUrl ? (
                   <Button
+                    className={styles['work-detail__view-website-button']}
                     appearance="solid"
                     external
                     renderAs="a"
@@ -226,10 +227,17 @@ const WorkDetail = async ({ params }: { params: { slug: string } }) => {
         <div>
           <Container>
             <Row>
-              {caseStudy.imagesDesktop.map((image, i) => (
+              {caseStudy[
+                caseStudy.platform === 'Mobile App'
+                  ? 'imagesMobile'
+                  : 'imagesDesktop'
+              ].map((image, i) => (
                 <Col sm={12} key={`image-${i}`}>
                   <Image
-                    className={styles['work-detail__screenshot']}
+                    className={classNames(styles['work-detail__screenshot'], {
+                      [styles['work-detail__screenshot-mobile']]:
+                        caseStudy.platform === 'Mobile App',
+                    })}
                     sources={image.image}
                     alt={image.alt}
                   />
