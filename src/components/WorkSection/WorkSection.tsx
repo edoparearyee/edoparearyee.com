@@ -10,9 +10,9 @@ import Container from '../Grid/Container';
 import Row from '../Grid/Row';
 import Col from '../Grid/Col';
 import Section from '../Section/Section';
-import { ResponsiveImageWithAltText } from '@/models/image.model';
-import { CaseStudy } from '@/models/caseStudy.model';
-import { mapCaseStudyToCard } from '@/utils/mapCaseStudy';
+import { ResponsiveImageWithAltText } from '../../models/image.model';
+import { CaseStudy } from '../../models/caseStudy.model';
+import { mapCaseStudyToCard } from '../../utils/mapCaseStudy';
 
 import styles from './WorkSection.module.scss';
 
@@ -68,10 +68,10 @@ const WorkSection: React.FC<WorkSectionProps> = ({
           <Col sm={12}>
             <Type
               renderAs="h2"
-              appearance="h1"
+              appearance="monospace-1"
               className={styles['work__title']}
             >
-              My Work
+              Latest Work
             </Type>
           </Col>
         </Row>
