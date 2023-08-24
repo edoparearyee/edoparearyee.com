@@ -3,9 +3,13 @@ import React from 'react';
 import HomeSection from '@/components/HomeSection/HomeSection';
 import AboutMeSection from '@/components/AboutMeSection/AboutMeSection';
 import WorkSection from '@/components/WorkSection/WorkSection';
-import SkillsSection from '@/components/SkillsSection/SkillsSection';
+import ClientsSection from '@/components/ClientsSection/ClientsSection';
 import ContactSection from '@/components/ContactSection/ContactSection';
-import { GetCaseStudyOptions, getCaseStudies } from '@/services/contentful';
+import {
+  GetCaseStudyOptions,
+  getCaseStudies,
+  getClients,
+} from '@/services/contentful';
 import { mapCaseStudyToCard } from '@/utils/mapCaseStudy';
 
 import styles from './page.module.scss';
@@ -14,8 +18,13 @@ const getData = async (options?: GetCaseStudyOptions) => {
   return getCaseStudies(options);
 };
 
+const getClientsData = async () => {
+  return getClients();
+};
+
 const Home = async () => {
-  const { items, total } = await getData();
+  const { items: caseStudies, total } = await getData();
+  const { items: clients } = await getClientsData();
 
   return (
     <main className={styles.main}>
@@ -23,11 +32,11 @@ const Home = async () => {
       <AboutMeSection id="about-me" />
       <WorkSection
         id="work"
-        initialCards={items.map(mapCaseStudyToCard)}
+        initialCards={caseStudies.map(mapCaseStudyToCard)}
         ctaText="See more"
         total={total}
       />
-      <SkillsSection id="skills" />
+      <ClientsSection clients={clients} id="clients" />
       <ContactSection id="contact" />
     </main>
   );

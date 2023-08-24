@@ -32,7 +32,7 @@ const ClientsSection: React.FC<ClientsSectionProps> = ({
             renderAs="h2"
             className={styles.skills__heading}
           >
-            {'Brands I have worked with'}
+            {'Clients I Have Worked With'}
           </Type>
         </Col>
       </Row>

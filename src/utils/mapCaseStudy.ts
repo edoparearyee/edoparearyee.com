@@ -39,6 +39,16 @@ export const mapTeamMember = (
   role: member.fields.role,
 });
 
+export const mapClient = (
+  client: Entry<TypeClientSkeleton, undefined, string>,
+) => ({
+  name: client.fields.name,
+  logoDarkUrl: (client.fields.logoDark as Asset<undefined, string>).fields.file
+    ?.url as string,
+  logoLightUrl: (client.fields.logoLight as Asset<undefined, string>).fields
+    .file?.url as string,
+});
+
 export const mapResponsiveImageWithAltText = (
   image: Entry<TypeImageSkeleton, undefined, string>,
 ): ResponsiveImageWithAltText => ({
@@ -61,18 +71,9 @@ export const mapCaseStudy = (
   websiteUrl: item.fields.websiteUrl,
   role: item.fields.role,
   year: new Date(item.fields.year).getFullYear().toString(),
-  client: {
-    name: (item.fields.client as Entry<TypeClientSkeleton, undefined, string>)
-      .fields.name,
-    logoDarkUrl: (
-      (item.fields.client as Entry<TypeClientSkeleton, undefined, string>)
-        .fields.logoDark as Asset<undefined, string>
-    ).fields.file?.url as string,
-    logoLightUrl: (
-      (item.fields.client as Entry<TypeClientSkeleton, undefined, string>)
-        .fields.logoLight as Asset<undefined, string>
-    ).fields.file?.url as string,
-  },
+  client: mapClient(
+    item.fields.client as Entry<TypeClientSkeleton, undefined, string>,
+  ),
   hero: {
     alt: (item.fields.hero as Entry<TypeImageSkeleton, undefined, string>)
       .fields.altText,

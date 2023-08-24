@@ -60,7 +60,7 @@ const Header: React.FC<HeaderProps> = () => {
                   appearance="h4"
                   renderAs="span"
                 >
-                  Edward Opare-Aryee
+                  Ed Opare-Aryee
                 </Type>
               </Button>
             </Col>
@@ -115,12 +115,12 @@ const Header: React.FC<HeaderProps> = () => {
                       color="secondary"
                       appearance="link"
                       renderAs="a"
-                      href="/#skills"
+                      href="/#clients"
                       onClick={($event) => {
-                        onNavItemClick($event, '#skills');
+                        onNavItemClick($event, '#clients');
                       }}
                     >
-                      Skills
+                      Clients
                     </Button>
                   </li>
                   <li className={styles['header__nav-list-item']}>
