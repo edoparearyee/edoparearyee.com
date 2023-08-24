@@ -21,6 +21,7 @@ const defaultArgs: BadgeProps = {
   color: 'primary',
   shape: 'square',
   size: 'small',
+  children: 'My Badge',
 };
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
