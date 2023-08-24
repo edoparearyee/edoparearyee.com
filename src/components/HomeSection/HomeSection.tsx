@@ -37,7 +37,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ id }) => {
           <Row>
             <Col>
               <Type renderAs="h1" appearance="h1">
-                Edward Opare-Aryee
+                Ed Opare-Aryee
               </Type>
               <Type
                 renderAs="p"

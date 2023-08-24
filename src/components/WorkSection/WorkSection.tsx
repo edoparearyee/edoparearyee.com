@@ -68,7 +68,7 @@ const WorkSection: React.FC<WorkSectionProps> = ({
           <Col sm={12}>
             <Type
               renderAs="h2"
-              appearance="monospace-1"
+              appearance="h1"
               className={styles['work__title']}
             >
               Latest Work

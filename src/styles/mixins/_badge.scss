@@ -21,7 +21,7 @@
 
     @if $appearance == "solid" {
       background-color: theme-color($color);
-      color: text-color-contrast(theme-color($color), $white, $black);
+      color: text-color-contrast(theme-color($color), $white, $body-color);
     } @else if $appearance == "outline" {
       background-color: transparent;
       color: theme-color($color);

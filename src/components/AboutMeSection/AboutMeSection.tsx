@@ -25,9 +25,13 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({ id }) => (
   >
     <Container>
       <Row>
-        <Col sm={12} md={10} xl={5} className={styles['about-me__col']}>
+        <Col sm={12} md={10} xl={5} xxl={4} className={styles['about-me__col']}>
           <article className={styles['about-me__article']}>
-            <Type renderAs="h1" appearance="monospace-1">
+            <Type
+              renderAs="h2"
+              appearance="h1"
+              className={styles['about-me__title']}
+            >
               About Me
             </Type>
             <Type>
@@ -42,12 +46,14 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({ id }) => (
           </article>
         </Col>
 
-        <Col sm={12} xl={7} className={styles['about-me__col']}>
-          <Devices
-            assetType="image"
-            imagesDesktop={aboutMeCarouselImagesDesktop}
-            imagesMobile={aboutMeCarouselImagesMobile}
-          />
+        <Col sm={12} xl={7} xxl={8} className={styles['about-me__col']}>
+          <div className={styles['about-me__device']}>
+            <Devices
+              assetType="image"
+              imagesDesktop={aboutMeCarouselImagesDesktop}
+              imagesMobile={aboutMeCarouselImagesMobile}
+            />
+          </div>
         </Col>
       </Row>
     </Container>

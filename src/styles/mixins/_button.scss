@@ -28,7 +28,7 @@
 
     @if $appearance == "solid" {
       background-color: theme-color($color);
-      color: text-color-contrast(theme-color($color), $white, $black);
+      color: text-color-contrast(theme-color($color), $white, $body-color);
     } @else if $appearance == "outline" {
       background-color: transparent;
       color: theme-color($color);
@@ -61,10 +61,14 @@
 
       @if $appearance == "solid" {
         background-color: theme-color($color, dark);
-        color: text-color-contrast(theme-color($color, dark), $white, $black);
+        color: text-color-contrast(
+          theme-color($color, dark),
+          $white,
+          $body-color
+        );
       } @else if $appearance == "outline" {
         background-color: theme-color($color);
-        color: text-color-contrast(theme-color($color), $white, $black);
+        color: text-color-contrast(theme-color($color), $white, $body-color);
       } @else if $appearance == "link" {
         color: theme-color($color, dark);
 
