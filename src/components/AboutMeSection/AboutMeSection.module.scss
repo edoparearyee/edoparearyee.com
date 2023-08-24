@@ -4,24 +4,28 @@
   background-color: $grey-300;
   padding-bottom: rem(100px);
   padding-top: rem(100px);
+
+  @include breakpoint(md) {
+    padding-bottom: rem(200px);
+    padding-top: rem(200px);
+  }
 }
 
 .about-me__article {
   margin-bottom: rem(64px);
 
   @include breakpoint(md) {
+    margin-bottom: rem(120px);
+  }
+
+  @include breakpoint(xl) {
     margin-bottom: 0;
   }
 }
 
 .about-me__col {
-  @include breakpoint(md) {
+  @include breakpoint(xl) {
     align-items: center;
     display: flex;
-    justify-content: flex-end;
   }
-}
-
-.about-me__img {
-  width: 100%;
 }

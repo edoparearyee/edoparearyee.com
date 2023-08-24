@@ -1,6 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import Devices, { DevicesProps } from './Devices';
+import {
+  aboutMeCarouselImagesDesktop,
+  aboutMeCarouselImagesMobile,
+} from '../AboutMeSection/carouselImages';
 
 const meta: Meta<typeof Devices> = {
   title: 'Devices',
@@ -33,69 +37,7 @@ const defaultArgs: DevicesProps = {
 export const Default: Story = {
   args: {
     ...defaultArgs,
-    imagesMobile: [
-      {
-        image: [
-          {
-            breakpoint: 375,
-            '1x': 'https://picsum.photos/id/900/365/780',
-            '2x': 'https://picsum.photos/id/900/730/1560',
-          },
-        ],
-        alt: '',
-      },
-      {
-        image: [
-          {
-            breakpoint: 375,
-            '1x': 'https://picsum.photos/id/522/365/780',
-            '2x': 'https://picsum.photos/id/522/730/1560',
-          },
-        ],
-        alt: '',
-      },
-      {
-        image: [
-          {
-            breakpoint: 375,
-            '1x': 'https://picsum.photos/id/905/365/780',
-            '2x': 'https://picsum.photos/id/905/730/1560',
-          },
-        ],
-        alt: '',
-      },
-    ],
-    imagesDesktop: [
-      {
-        image: [
-          {
-            breakpoint: 375,
-            '1x': 'https://picsum.photos/id/900/912/590',
-            '2x': 'https://picsum.photos/id/900/1824/1180',
-          },
-        ],
-        alt: '',
-      },
-      {
-        image: [
-          {
-            breakpoint: 375,
-            '1x': 'https://picsum.photos/id/522/912/590',
-            '2x': 'https://picsum.photos/id/522/1824/1180',
-          },
-        ],
-        alt: '',
-      },
-      {
-        image: [
-          {
-            breakpoint: 375,
-            '1x': 'https://picsum.photos/id/905/912/590',
-            '2x': 'https://picsum.photos/id/905/1824/1180',
-          },
-        ],
-        alt: '',
-      },
-    ],
+    imagesMobile: aboutMeCarouselImagesMobile,
+    imagesDesktop: aboutMeCarouselImagesDesktop,
   },
 };
