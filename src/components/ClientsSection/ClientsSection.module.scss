@@ -1,0 +1,19 @@
+@import "../../styles/shared";
+
+.clients {
+  padding-bottom: rem(80px);
+  padding-top: rem(130px);
+
+  @include breakpoint(lg) {
+    padding-bottom: rem(90px);
+    padding-top: rem(190px);
+  }
+}
+
+.clients__heading {
+  margin-bottom: rem(40px);
+
+  @include breakpoint(lg) {
+    margin-bottom: rem(80px);
+  }
+}

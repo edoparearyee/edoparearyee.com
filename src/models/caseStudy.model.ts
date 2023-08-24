@@ -19,7 +19,7 @@ export interface CaseStudy {
   platform: 'Desktop App' | 'Mobile App' | 'Web';
 }
 
-interface Client {
+export interface Client {
   name: string;
   logoDarkUrl: string;
   logoLightUrl: string;
