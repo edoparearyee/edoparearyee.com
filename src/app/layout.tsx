@@ -1,12 +1,14 @@
 import { Metadata } from 'next';
 
 import Header from '@/components/Header/Header';
+import Footer from '@/components/Footer/Footer';
+
 import '../styles/globals.scss';
 
 export const metadata: Metadata = {
-  title: 'Edward Opare-Aryee',
+  title: 'Ed Opare-Aryee',
   description:
-    'The Portfolio for Edward Opare-Aryee. Technical Lead, Technical Architect and Lead Full Stack Developer',
+    'Ed Opare-Aryee is a Technical Lead and Lead Full Stack Developer with over 11 years of commercial experience architecting and building web/mobile applications.',
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
@@ -15,6 +17,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
       <body>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

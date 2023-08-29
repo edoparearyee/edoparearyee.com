@@ -12,6 +12,7 @@ import LinkedInIcon from '../Icons/LinkedInIcon/LinkedInIcon';
 import GitHubIcon from '../Icons/GitHubIcon/GitHubIcon';
 
 import styles from './HomeSection.module.scss';
+import EmailIcon from '../Icons/EmailIcon/EmailIcon';
 
 type HomeSectionProps = {
   id?: string;
@@ -124,6 +125,18 @@ const HomeSection: React.FC<HomeSectionProps> = ({ id }) => {
         <Container>
           <Row>
             <Col sm={12}>
+              <Button
+                className={styles['home__social-link']}
+                renderAs="a"
+                href="mailto:hi@edoparearyee.com"
+                external
+                appearance="none"
+              >
+                <EmailIcon className={styles['home__social-icon']} />
+                <Type appearance="visually-hidden" renderAs="span">
+                  Email
+                </Type>
+              </Button>
               <Button
                 className={styles['home__social-link']}
                 renderAs="a"

@@ -54,12 +54,21 @@
 
 .home__social-link {
   display: inline-flex;
+  opacity: 0.8;
+  transition: $transition-base;
 
   &:not(:last-child) {
-    margin-right: rem(10px);
+    margin-right: rem(16px);
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    opacity: 1;
   }
 }
 
 .home__social-icon {
   height: rem(32px);
+  width: rem(32px);
 }

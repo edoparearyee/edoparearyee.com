@@ -45,7 +45,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id }) => (
             </Button>
 
             <Type appearance="h6">CONNECT WITH ME</Type>
-            <div className={styles.social__links}>
+            <div className={styles.contact__social}>
               <Button
                 className={styles['contact__social-link']}
                 renderAs="a"
