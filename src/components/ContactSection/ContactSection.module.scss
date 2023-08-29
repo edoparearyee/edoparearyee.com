@@ -1,7 +1,10 @@
 @import "../../styles/shared";
 
 .contact {
+  animation: gradient 10s ease-in-out infinite;
   background-color: $black;
+  background-image: linear-gradient(-45deg, $black, $grey-900);
+  background-size: 200% 200%;
   color: $white;
   padding-bottom: rem(100px);
   padding-top: rem(100px);
@@ -18,18 +21,6 @@
   display: flex;
 }
 
-.contact__col-info {
-  @include breakpoint(md) {
-    order: 2;
-  }
-}
-
-.contact__col-image {
-  @include breakpoint(md) {
-    order: 1;
-  }
-}
-
 .contact__heading {
   margin-bottom: rem(60px);
 }
@@ -39,21 +30,13 @@
 }
 
 .contact__email {
-  margin-bottom: rem(32px);
+  margin-bottom: rem(64px);
 }
 
 .contact__social {
   align-items: flex-end;
   display: flex;
   flex-grow: 1;
-}
-
-.social__links {
-  margin-bottom: rem(60px);
-
-  @include breakpoint(md) {
-    margin-bottom: 0;
-  }
 }
 
 .contact__social-link {

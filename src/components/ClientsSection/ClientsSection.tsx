@@ -26,13 +26,13 @@ const ClientsSection: React.FC<ClientsSectionProps> = ({
   >
     <Container>
       <Row>
-        <Col sm={8} lg={7}>
+        <Col sm={12}>
           <Type
-            appearance="h2"
+            appearance="h1"
             renderAs="h2"
             className={styles.skills__heading}
           >
-            {'Clients I Have Worked With'}
+            My Clients
           </Type>
         </Col>
       </Row>
