@@ -1,10 +1,9 @@
+@use "sass:color";
+
 @import "../../styles/shared";
 
 .contact {
-  animation: gradient 10s ease-in-out infinite;
-  background-color: $black;
-  background-image: linear-gradient(-45deg, $black, $grey-900);
-  background-size: 200% 200%;
+  background-color: color.adjust($black, $lightness: 2%);
   color: $white;
   padding-bottom: rem(100px);
   padding-top: rem(100px);
@@ -41,12 +40,21 @@
 
 .contact__social-link {
   display: inline-flex;
+  opacity: 0.8;
+  transition: $transition-base;
 
   &:not(:last-child) {
-    margin-right: rem(10px);
+    margin-right: rem(16px);
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    opacity: 1;
   }
 }
 
 .contact__social-icon {
   height: rem(32px);
+  width: rem(32px);
 }

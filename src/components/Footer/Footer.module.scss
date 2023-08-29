@@ -1,0 +1,57 @@
+@use "sass:color";
+
+@import "../../styles/shared";
+
+.footer {
+  background-color: color.adjust($black, $lightness: 2%);
+  color: $white;
+}
+
+.footer__inner {
+  padding: rem(24px) 0;
+  position: relative;
+}
+
+.footer .footer__copyright {
+  color: rgba($white, 0.8);
+  margin-bottom: 0;
+}
+
+.footer__col-right {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.footer__col-left {
+  align-items: center;
+  display: flex;
+}
+
+.footer__social {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.footer__social-link {
+  display: inline-flex;
+  opacity: 0.8;
+  transition: $transition-base;
+
+  &:not(:last-child) {
+    margin-right: rem(10px);
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    opacity: 1;
+  }
+}
+
+.footer__social-icon {
+  height: rem(20px);
+  width: rem(20px);
+}

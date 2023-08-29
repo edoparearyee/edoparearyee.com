@@ -29,19 +29,25 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({ id }) => (
           <article className={styles['about-me__article']}>
             <Type
               renderAs="h2"
-              appearance="h1"
+              appearance="h2"
               className={styles['about-me__title']}
             >
               About Me
             </Type>
-            <Type>
-              I am a Technical Lead and Technical Architect with over 11 years
-              of commercial experience architecting and building web and mobile
-              applications and well as backend services and api{"'"}s for
-              clients across a wide range of industries including Automotive,
-              Banking, E-Commerce, Public Sector and more. Some of the clients I
-              have worked for include Google, Meta, Fox, UK Home Office, Nike,
-              LEGO, HSBC, AstraZeneca, Ford, Shell, Klarna and many more.
+            <Type appearance="small">
+              I am a Technical Lead, Technical Architect and Lead Full Stack
+              Developer with over 11 years of commercial experience architecting
+              and building web/mobile applications and services for clients
+              across a wide range of industries.
+            </Type>
+            <Type appearance="small">
+              I lead the technical solution design as well as leading the
+              hands-on development of frontend and backend code and deployment
+              tasks across multiple projects simultaneously. I design and
+              develop performant and secure technical solutions built upon
+              industry leading cloud service solutions such as AWS and Google
+              Cloud and utilising tools such as Terraform and Docker to
+              implement microservice based solutions.
             </Type>
           </article>
         </Col>
