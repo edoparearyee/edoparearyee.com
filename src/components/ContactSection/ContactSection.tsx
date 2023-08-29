@@ -5,7 +5,6 @@ import Container from '../Grid/Container';
 import Section from '../Section/Section';
 import Row from '../Grid/Row';
 import Col from '../Grid/Col';
-import Image from '../Image/Image';
 import Button from '../Button/Button';
 import GitHubIcon from '../Icons/GitHubIcon/GitHubIcon';
 import LinkedInIcon from '../Icons/LinkedInIcon/LinkedInIcon';
@@ -20,12 +19,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id }) => (
   <Section id={id} className={styles.contact}>
     <Container>
       <Row>
-        <Col
-          md={5}
-          offset={{ md: 1 }}
-          lg={7}
-          className={styles['contact__col-info']}
-        >
+        <Col sm={10} lg={7} className={styles['contact__col-info']}>
           <article>
             <Type
               appearance="h2"
@@ -34,12 +28,9 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id }) => (
             >
               Get in touch
             </Type>
-            <Type
-              appearance="h3"
-              renderAs="h4"
-              className={styles.contact__name}
-            >
-              Edward Opare-Aryee
+            <Type appearance="body" renderAs="p">
+              If you are interested in working together feel free to get in
+              touch.
             </Type>
             <Button
               className={styles.contact__email}
@@ -47,13 +38,13 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id }) => (
               size="large"
               appearance="link"
               color="secondary"
-              href="mailto:hello@example.com"
+              href="mailto:hi@edoparearyee.com"
               external
             >
-              hello@example.com
+              hi@edoparearyee.com
             </Button>
 
-            <Type appearance="h5">CONNECT WITH ME</Type>
+            <Type appearance="h6">CONNECT WITH ME</Type>
             <div className={styles.social__links}>
               <Button
                 className={styles['contact__social-link']}
@@ -81,34 +72,6 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id }) => (
               </Button>
             </div>
           </article>
-        </Col>
-        <Col md={5} lg={4} className={styles['contact__col-image']}>
-          <Image
-            className={styles.contact__img}
-            sources={[
-              {
-                breakpoint: 1200,
-                '1x': 'https://picsum.photos/id/195/488/610',
-                '2x': 'https://picsum.photos/id/195/976/1220',
-              },
-              {
-                breakpoint: 1024,
-                '1x': 'https://picsum.photos/id/195/384/480',
-                '2x': 'https://picsum.photos/id/195/768/960',
-              },
-              {
-                breakpoint: 768,
-                '1x': 'https://picsum.photos/id/195/356/445',
-                '2x': 'https://picsum.photos/id/195/712/890',
-              },
-              {
-                breakpoint: 375,
-                '1x': 'https://picsum.photos/id/195/335/268',
-                '2x': 'https://picsum.photos/id/195/670/536',
-              },
-            ]}
-            alt=""
-          />
         </Col>
       </Row>
     </Container>

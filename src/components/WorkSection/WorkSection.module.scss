@@ -3,12 +3,17 @@
 .work {
   background-color: $grey-800;
   color: $white;
-  padding-bottom: rem(80px);
-  padding-top: rem(80px);
+  padding-bottom: rem(100px);
+  padding-top: rem(100px);
+
+  @include breakpoint(md) {
+    padding-bottom: rem(150px);
+    padding-top: rem(150px);
+  }
 
   @include breakpoint(lg) {
-    padding-bottom: rem(90px);
-    padding-top: rem(90px);
+    padding-bottom: rem(150px);
+    padding-top: rem(150px);
   }
 }
 

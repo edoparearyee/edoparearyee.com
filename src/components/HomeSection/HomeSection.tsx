@@ -92,13 +92,13 @@ const HomeSection: React.FC<HomeSectionProps> = ({ id }) => {
                 renderAs="a"
                 appearance="outline"
                 color="secondary"
-                href="#skills"
+                href="#clients"
                 onClick={($event) => {
-                  onNavItemClick($event, '#skills');
+                  onNavItemClick($event, '#clients');
                 }}
                 fullWidth
               >
-                Skills
+                Clients
               </Button>
             </Col>
             <Col sm={6} md={4} lg={3} xxl={2}>
