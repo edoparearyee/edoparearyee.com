@@ -1,0 +1,24 @@
+@import "../../styles/shared";
+
+.error {
+  padding-bottom: rem(100px);
+  padding-top: rem(100px);
+
+  @include breakpoint(md) {
+    padding-bottom: rem(150px);
+    padding-top: rem(150px);
+  }
+
+  @include breakpoint(lg) {
+    padding-bottom: rem(190px);
+    padding-top: rem(190px);
+  }
+}
+
+.error__heading {
+  margin-bottom: rem(40px);
+
+  @include breakpoint(lg) {
+    margin-bottom: rem(80px);
+  }
+}
