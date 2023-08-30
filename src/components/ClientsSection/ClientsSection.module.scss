@@ -16,6 +16,7 @@
 }
 
 .clients__heading {
+  color: theme-color(secondary);
   margin-bottom: rem(40px);
 
   @include breakpoint(lg) {

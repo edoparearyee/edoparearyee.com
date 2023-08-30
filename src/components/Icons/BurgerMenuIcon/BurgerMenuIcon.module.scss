@@ -37,6 +37,10 @@
     background-color: theme-color(secondary);
   }
 
+  .burger-menu-icon--light & {
+    background-color: theme-color(light);
+  }
+
   .burger-menu-icon--close & {
     top: 40%;
 

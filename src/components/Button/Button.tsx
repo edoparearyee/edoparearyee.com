@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import styles from './Button.module.scss';
 
-type ButtonColor = 'primary' | 'secondary';
+type ButtonColor = 'primary' | 'secondary' | 'light';
 type ButtonRenderAs = 'a' | 'button';
 type ButtonAppearance = 'solid' | 'outline' | 'link' | 'none';
 type ButtonSize = 'small' | 'medium' | 'large';

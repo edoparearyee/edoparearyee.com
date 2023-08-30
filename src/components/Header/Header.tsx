@@ -75,7 +75,7 @@ const Header: React.FC<HeaderProps> = () => {
                 className={styles['header__menu-button']}
               >
                 <BurgerMenuIcon
-                  color="secondary"
+                  color="primary"
                   state={menuOpen ? 'close' : 'menu'}
                 />
                 <Type appearance="visually-hidden">
@@ -86,7 +86,7 @@ const Header: React.FC<HeaderProps> = () => {
                 <ul className={styles['header__nav-list']}>
                   <li className={styles['header__nav-list-item']}>
                     <Button
-                      color="secondary"
+                      color="primary"
                       appearance="link"
                       renderAs="a"
                       href="/#about-me"
@@ -99,7 +99,7 @@ const Header: React.FC<HeaderProps> = () => {
                   </li>
                   <li className={styles['header__nav-list-item']}>
                     <Button
-                      color="secondary"
+                      color="primary"
                       appearance="link"
                       renderAs="a"
                       href="/#work"
@@ -112,7 +112,7 @@ const Header: React.FC<HeaderProps> = () => {
                   </li>
                   <li className={styles['header__nav-list-item']}>
                     <Button
-                      color="secondary"
+                      color="primary"
                       appearance="link"
                       renderAs="a"
                       href="/#clients"
@@ -125,7 +125,7 @@ const Header: React.FC<HeaderProps> = () => {
                   </li>
                   <li className={styles['header__nav-list-item']}>
                     <Button
-                      color="secondary"
+                      color="primary"
                       appearance="link"
                       renderAs="a"
                       href="/#contact"

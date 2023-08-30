@@ -9,24 +9,28 @@
 @include badge-variant(success, $appearance: "solid", $shape: "square");
 @include badge-variant(warning, $appearance: "solid", $shape: "square");
 @include badge-variant(destructive, $appearance: "solid", $shape: "square");
+@include badge-variant(light, $appearance: "solid", $shape: "square");
 
 @include badge-variant(primary, $appearance: "outline", $shape: "square");
 @include badge-variant(secondary, $appearance: "outline", $shape: "square");
 @include badge-variant(success, $appearance: "outline", $shape: "square");
 @include badge-variant(warning, $appearance: "outline", $shape: "square");
 @include badge-variant(destructive, $appearance: "outline", $shape: "square");
+@include badge-variant(light, $appearance: "outline", $shape: "square");
 
 @include badge-variant(primary, $appearance: "solid", $shape: "pill");
 @include badge-variant(secondary, $appearance: "solid", $shape: "pill");
 @include badge-variant(success, $appearance: "solid", $shape: "pill");
 @include badge-variant(warning, $appearance: "solid", $shape: "pill");
 @include badge-variant(destructive, $appearance: "solid", $shape: "pill");
+@include badge-variant(light, $appearance: "solid", $shape: "pill");
 
 @include badge-variant(primary, $appearance: "outline", $shape: "pill");
 @include badge-variant(secondary, $appearance: "outline", $shape: "pill");
 @include badge-variant(success, $appearance: "outline", $shape: "pill");
 @include badge-variant(warning, $appearance: "outline", $shape: "pill");
 @include badge-variant(destructive, $appearance: "outline", $shape: "pill");
+@include badge-variant(light, $appearance: "outline", $shape: "pill");
 
 @include badge-size(x-small, rem(12px), rem(5px), rem(10px));
 @include badge-size(small, rem(14px), rem(6px), rem(12px));

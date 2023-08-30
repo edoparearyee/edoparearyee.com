@@ -28,11 +28,11 @@ const ClientsSection: React.FC<ClientsSectionProps> = ({
       <Row>
         <Col sm={12}>
           <Type
-            appearance="h1"
+            appearance="h2"
             renderAs="h2"
-            className={styles.skills__heading}
+            className={styles.clients__heading}
           >
-            My Clients
+            {"Brands i've worked with"}
           </Type>
         </Col>
       </Row>

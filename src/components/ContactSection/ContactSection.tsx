@@ -10,6 +10,7 @@ import GitHubIcon from '../Icons/GitHubIcon/GitHubIcon';
 import LinkedInIcon from '../Icons/LinkedInIcon/LinkedInIcon';
 
 import styles from './ContactSection.module.scss';
+import EmailIcon from '../Icons/EmailIcon/EmailIcon';
 
 type ContactSectionProps = {
   id?: string;
@@ -35,17 +36,29 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id }) => (
             <Button
               className={styles.contact__email}
               renderAs="a"
-              size="large"
-              appearance="link"
-              color="secondary"
+              size="medium"
+              appearance="solid"
+              color="primary"
               href="mailto:hi@edoparearyee.com"
               external
             >
-              hi@edoparearyee.com
+              Say Hello
             </Button>
 
-            <Type appearance="h6">CONNECT WITH ME</Type>
+            <Type appearance="h4">Connect with me</Type>
             <div className={styles.contact__social}>
+              <Button
+                className={styles['contact__social-link']}
+                renderAs="a"
+                href="mailto:hi@edoparearyee.com"
+                external
+                appearance="none"
+              >
+                <EmailIcon className={styles['contact__social-icon']} />
+                <Type appearance="visually-hidden" renderAs="span">
+                  Email
+                </Type>
+              </Button>
               <Button
                 className={styles['contact__social-link']}
                 renderAs="a"

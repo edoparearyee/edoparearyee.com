@@ -5,7 +5,7 @@ import styles from './BurgerMenuIcon.module.scss';
 
 export type BurgerMenuIconProps = PropsWithChildren<{
   state?: 'menu' | 'close';
-  color?: 'primary' | 'secondary';
+  color?: 'primary' | 'secondary' | 'light';
   className?: string;
 }>;
 
