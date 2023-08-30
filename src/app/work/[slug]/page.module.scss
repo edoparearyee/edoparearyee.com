@@ -1,3 +1,4 @@
+@use "sass:color";
 @import "../../../styles/shared";
 
 .work-detail {
@@ -15,7 +16,7 @@
   position: relative;
 
   &::after {
-    background-color: rgba($black, 0.3);
+    background-color: color.adjust(theme-color(secondary), $alpha: -0.5);
     content: "";
     inset: 0;
     position: absolute;
@@ -33,10 +34,12 @@
 
 .work-detail__hero-image {
   inset: 0;
+  overflow: hidden;
   position: absolute;
 }
 
 .work-detail__hero-image-img {
+  filter: blur(5px);
   object-fit: cover;
 }
 
@@ -64,7 +67,7 @@
 }
 
 .work-detail__awards-list {
-  list-style: none;
+  list-style: circle inside;
   margin-bottom: rem(16px);
 }
 
@@ -75,6 +78,15 @@
 
 .work-detail__details {
   margin-bottom: rem(60px);
+}
+
+.work-detail__detail,
+.work-detail__team-list {
+  margin-bottom: rem(32px);
+}
+
+.work-detail__information-title {
+  color: theme-color(primary);
 }
 
 .work-detail__information .work-detail__information-title {
@@ -96,7 +108,6 @@
 }
 
 .work-detail__information {
-  background-color: $grey-200;
   padding-bottom: rem(100px);
   padding-top: rem(100px);
 }
@@ -118,11 +129,11 @@
 
 .work-detail__awards-button {
   padding-top: 0;
+  text-transform: capitalize;
 }
 
 .work-detail__team-list {
   list-style: none;
-  margin-bottom: rem(16px);
 }
 
 .work-detail .work-detail__team-member {

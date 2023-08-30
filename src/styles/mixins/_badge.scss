@@ -25,7 +25,11 @@
       @if $color == "primary" {
         color: theme-color(secondary);
       } @else {
-        color: text-color-contrast(theme-color($color), $white, $body-color);
+        color: text-color-contrast(
+          theme-color($color),
+          theme-color(light),
+          theme-color(dark)
+        );
       }
     } @else if $appearance == "outline" {
       background-color: transparent;

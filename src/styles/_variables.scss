@@ -41,8 +41,8 @@ $blur-hex: #d9d9d9;
 $blur: rgba($blur-hex, 0.2);
 $shadow: rgba($blur-hex, 0.2);
 
-$body-bg: $white;
-$body-color: $grey-800;
+$body-bg: $secondary-500;
+$body-color: $white;
 
 $debug-color: $primary-100;
 
@@ -79,7 +79,7 @@ $theme: (
   light: (
     light: $white,
     base: $white,
-    dark: $grey-500,
+    dark: $grey-200,
   ),
   dark: (
     light: $grey-600,

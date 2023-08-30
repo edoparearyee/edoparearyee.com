@@ -32,10 +32,10 @@ const Card: React.FC<CardProps> = ({
     />
 
     <div className={styles.card__body}>
-      <Type renderAs="h3" appearance="h3">
+      <Type renderAs="h3" appearance="h3" className={styles.card__title}>
         {title}
       </Type>
-      <Badge appearance="solid" shape="square" size="small" color="primary">
+      <Badge appearance="solid" shape="square" size="x-small" color="primary">
         View project
       </Badge>
     </div>

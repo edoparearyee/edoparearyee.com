@@ -57,6 +57,10 @@
   //   brightness(100%) contrast(86%);
 }
 
+.card__title {
+  margin-bottom: rem(24px);
+}
+
 .card__body {
   align-items: center;
   color: theme-color(primary);

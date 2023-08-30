@@ -32,7 +32,11 @@
       @if $color == "primary" {
         color: theme-color(secondary);
       } @else {
-        color: text-color-contrast(theme-color($color), $white, $body-color);
+        color: text-color-contrast(
+          theme-color($color),
+          theme-color(light),
+          theme-color(dark)
+        );
       }
     } @else if $appearance == "outline" {
       background-color: transparent;
@@ -71,8 +75,8 @@
         } @else {
           color: text-color-contrast(
             theme-color($color, dark),
-            $white,
-            $body-color
+            theme-color(light),
+            theme-color(dark)
           );
         }
       } @else if $appearance == "outline" {
@@ -81,7 +85,11 @@
         @if $color == "primary" {
           color: theme-color(secondary);
         } @else {
-          color: text-color-contrast(theme-color($color), $white, $body-color);
+          color: text-color-contrast(
+            theme-color($color),
+            theme-color(light),
+            theme-color(dark)
+          );
         }
       }
     }
@@ -92,16 +100,16 @@
         border-color: theme-color($color, light);
         color: text-color-contrast(
           theme-color($color, light),
-          $white,
-          theme-color($color, dark)
+          theme-color(light),
+          theme-color(dark)
         );
       } @else if $appearance == "outline" {
         background-color: theme-color($color, light);
         border-color: theme-color($color, dark);
         color: text-color-contrast(
           theme-color($color, light),
-          $white,
-          theme-color($color, dark)
+          theme-color(light),
+          theme-color(dark)
         );
       } @else if $appearance == "link" {
         color: theme-color($color);
