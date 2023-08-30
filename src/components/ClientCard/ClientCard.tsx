@@ -18,8 +18,8 @@ const ClientCard: React.FC<ClientCardProps> = ({
 }) => (
   <div className={classNames(styles['client-card'], className)}>
     <Image
-      className={styles['card__client-logo']}
-      imgClassName={styles['card__client-logo-img']}
+      className={styles['client-card__client-logo']}
+      imgClassName={styles['client-card__client-logo-img']}
       sources={[
         {
           '1x': logoUrl,

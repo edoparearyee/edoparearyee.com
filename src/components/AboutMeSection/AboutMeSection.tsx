@@ -34,13 +34,13 @@ const AboutMeSection: React.FC<AboutMeSectionProps> = ({ id }) => (
             >
               About Me
             </Type>
-            <Type appearance="small">
+            <Type>
               I am a Technical Lead, Technical Architect and Lead Full Stack
               Developer with over 11 years of commercial experience architecting
               and building web/mobile applications and services for clients
               across a wide range of industries.
             </Type>
-            <Type appearance="small">
+            <Type>
               I lead the technical solution design as well as leading the
               hands-on development of frontend and backend code and deployment
               tasks across multiple projects simultaneously. I design and

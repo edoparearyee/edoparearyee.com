@@ -7,12 +7,15 @@
 
 @include button-variant(primary);
 @include button-variant(secondary);
+@include button-variant(light);
 
 @include button-variant(primary, $appearance: "outline");
 @include button-variant(secondary, $appearance: "outline");
+@include button-variant(light, $appearance: "outline");
 
 @include button-variant(primary, $appearance: "link");
 @include button-variant(secondary, $appearance: "link");
+@include button-variant(light, $appearance: "link");
 
 @include button-variant($appearance: "none");
 

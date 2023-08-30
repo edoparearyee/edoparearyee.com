@@ -1,6 +1,8 @@
 @import "../../styles/shared";
 
 .clients {
+  background-color: theme-color(light);
+  color: theme-color(secondary);
   padding-bottom: rem(100px);
   padding-top: rem(100px);
 

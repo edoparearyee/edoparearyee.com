@@ -42,7 +42,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ id }) => {
               </Type>
               <Type
                 renderAs="p"
-                appearance="monospace-2"
+                appearance="body"
                 className={styles.home__title}
               >
                 Technical Lead | Technical Architect | Lead Full Stack Developer
@@ -60,7 +60,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ id }) => {
                 className={styles['home__navigation-link']}
                 renderAs="a"
                 appearance="outline"
-                color="secondary"
+                color="primary"
                 href="#about-me"
                 onClick={($event) => {
                   onNavItemClick($event, '#about-me');
@@ -75,7 +75,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ id }) => {
                 className={styles['home__navigation-link']}
                 renderAs="a"
                 appearance="outline"
-                color="secondary"
+                color="primary"
                 href="#work"
                 onClick={($event) => {
                   onNavItemClick($event, '#work');
@@ -92,7 +92,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ id }) => {
                 className={styles['home__navigation-link']}
                 renderAs="a"
                 appearance="outline"
-                color="secondary"
+                color="primary"
                 href="#clients"
                 onClick={($event) => {
                   onNavItemClick($event, '#clients');
@@ -107,7 +107,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ id }) => {
                 className={styles['home__navigation-link']}
                 renderAs="a"
                 appearance="outline"
-                color="secondary"
+                color="primary"
                 href="#contact"
                 onClick={($event) => {
                   onNavItemClick($event, '#contact');

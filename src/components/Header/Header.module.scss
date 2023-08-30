@@ -1,8 +1,9 @@
+@use "sass:color";
 @import "../../styles/shared";
 
 .header {
-  background-color: theme-color(primary);
-  color: $white;
+  background-color: theme-color(secondary);
+  color: theme-color(primary);
   display: block;
   left: 0;
   position: fixed;
@@ -14,7 +15,7 @@
 
   @supports (backdrop-filter: blur(10px)) {
     backdrop-filter: blur(10px);
-    background-color: rgba($black, 0.3);
+    background-color: color.adjust(theme-color(secondary), $alpha: -0.3);
   }
 
   &--is-scrolled {
@@ -28,7 +29,7 @@
 }
 
 .header__nav {
-  background-color: theme-color(primary);
+  background-color: theme-color(secondary);
   left: 0;
   overflow: hidden;
   position: absolute;
@@ -41,7 +42,7 @@
 
   @supports (backdrop-filter: blur(10px)) {
     backdrop-filter: blur(10px);
-    background-color: rgba($black, 0.3);
+    background-color: color.adjust(theme-color(secondary), $alpha: -0.3);
   }
 
   .header--menu-open & {

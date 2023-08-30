@@ -1,7 +1,9 @@
+@use "sass:color";
+
 @import "../../styles/shared";
 
 .card {
-  border-radius: 12px;
+  border-bottom: 5px solid theme-color(primary);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -13,10 +15,14 @@
   transition: $transition-base;
 
   &::after {
-    background-color: rgba($black, 0.3);
+    background-color: color.adjust(
+      $color: theme-color(secondary),
+      $alpha: -0.4
+    );
     content: "";
     inset: 0;
     position: absolute;
+    z-index: 1;
   }
 
   .card:hover & {
@@ -32,9 +38,10 @@
 .card__logo-wrapper {
   inset: 0;
   opacity: 1;
-  padding: 10%;
+  padding: 20%;
   position: absolute;
   transition: $transition-base;
+  z-index: 3;
 
   .card:hover & {
     opacity: 0;
@@ -45,20 +52,30 @@
   height: 100%;
 }
 
+.card__client-logo-img {
+  // filter: invert(30%) sepia(62%) saturate(3107%) hue-rotate(115deg)
+  //   brightness(100%) contrast(86%);
+}
+
+.card__title {
+  margin-bottom: rem(24px);
+}
+
 .card__body {
   align-items: center;
-  color: $white;
+  color: theme-color(primary);
   display: flex;
   flex-direction: column;
   inset: 0;
   justify-content: center;
   opacity: 0;
-  padding: rem(20px);
+  padding: 15%;
   position: absolute;
   text-align: center;
   transition: $transition-fade;
+  z-index: 1;
 
   .card:hover & {
-    opacity: 1;
+    opacity: 2;
   }
 }

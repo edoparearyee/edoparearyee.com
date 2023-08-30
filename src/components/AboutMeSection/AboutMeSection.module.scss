@@ -1,7 +1,8 @@
 @import "../../styles/shared";
 
 .about-me {
-  background-color: $grey-300;
+  background-color: theme-color(primary);
+  color: theme-color(secondary);
   padding-bottom: rem(100px);
   padding-top: rem(100px);
 
@@ -24,6 +25,7 @@
 }
 
 .about-me__title {
+  color: theme-color(secondary);
   margin-bottom: rem(32px);
 }
 

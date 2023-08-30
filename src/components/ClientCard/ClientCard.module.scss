@@ -1,9 +1,12 @@
+@use "sass:color";
+
 @import "../../styles/shared";
 
 .client-card {
   aspect-ratio: 1;
-  background-color: transparent;
+  background-color: color.adjust($color: theme-color(secondary), $alpha: -0.95);
   display: flex;
+  margin-bottom: rem(16px);
   opacity: 0.7;
   padding: 20%;
   transition: $transition-base;
@@ -11,7 +14,11 @@
   &:hover,
   &:focus,
   &:active {
-    background-color: rgba($grey-200, 0.4);
     opacity: 1;
   }
+}
+
+.client-card__client-logo-img {
+  filter: invert(8%) sepia(15%) saturate(4024%) hue-rotate(197deg)
+    brightness(95%) contrast(104%);
 }

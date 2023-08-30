@@ -8,7 +8,8 @@ type BadgeColor =
   | 'secondary'
   | 'warning'
   | 'success'
-  | 'destructive';
+  | 'destructive'
+  | 'light';
 type BadgeAppearance = 'solid' | 'outline';
 type BadgeShape = 'square' | 'pill';
 type BadgeSize = 'x-small' | 'small' | 'medium' | 'large';

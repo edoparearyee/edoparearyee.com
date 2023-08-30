@@ -30,6 +30,16 @@ const Card: React.FC<CardProps> = ({
       className={styles.card__image}
       imgClassName={styles['card__image-img']}
     />
+
+    <div className={styles.card__body}>
+      <Type renderAs="h3" appearance="h3" className={styles.card__title}>
+        {title}
+      </Type>
+      <Badge appearance="solid" shape="square" size="x-small" color="primary">
+        View project
+      </Badge>
+    </div>
+
     <div className={styles['card__logo-wrapper']}>
       <Image
         className={styles['card__client-logo']}
@@ -43,19 +53,6 @@ const Card: React.FC<CardProps> = ({
         ]}
         alt={title}
       />
-    </div>
-    <div className={styles.card__body}>
-      <Type renderAs="h3" appearance="h2">
-        {title}
-      </Type>
-      <Badge
-        appearance="outline"
-        shape="square"
-        size="medium"
-        color="secondary"
-      >
-        View project
-      </Badge>
     </div>
   </div>
 );

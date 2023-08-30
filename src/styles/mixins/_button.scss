@@ -9,6 +9,7 @@
       position: relative;
       text-align: center;
       text-decoration: none;
+      text-transform: uppercase;
       transition: $transition-base;
     }
 
@@ -28,7 +29,15 @@
 
     @if $appearance == "solid" {
       background-color: theme-color($color);
-      color: text-color-contrast(theme-color($color), $white, $body-color);
+      @if $color == "primary" {
+        color: theme-color(secondary);
+      } @else {
+        color: text-color-contrast(
+          theme-color($color),
+          theme-color(light),
+          theme-color(dark)
+        );
+      }
     } @else if $appearance == "outline" {
       background-color: transparent;
       color: theme-color($color);
@@ -55,25 +64,32 @@
 
     &:hover,
     &:focus {
-      @if $appearance == "solid" or $appearance == "outline" {
+      @if $appearance == "solid" {
         border-color: theme-color($color, dark);
       }
 
       @if $appearance == "solid" {
         background-color: theme-color($color, dark);
-        color: text-color-contrast(
-          theme-color($color, dark),
-          $white,
-          $body-color
-        );
+        @if $color == "primary" {
+          color: theme-color(secondary);
+        } @else {
+          color: text-color-contrast(
+            theme-color($color, dark),
+            theme-color(light),
+            theme-color(dark)
+          );
+        }
       } @else if $appearance == "outline" {
         background-color: theme-color($color);
-        color: text-color-contrast(theme-color($color), $white, $body-color);
-      } @else if $appearance == "link" {
-        color: theme-color($color, dark);
-
-        &::after {
-          background-color: theme-color($color, dark);
+        border-color: theme-color($color);
+        @if $color == "primary" {
+          color: theme-color(secondary);
+        } @else {
+          color: text-color-contrast(
+            theme-color($color),
+            theme-color(light),
+            theme-color(dark)
+          );
         }
       }
     }
@@ -84,16 +100,16 @@
         border-color: theme-color($color, light);
         color: text-color-contrast(
           theme-color($color, light),
-          $white,
-          theme-color($color, dark)
+          theme-color(light),
+          theme-color(dark)
         );
       } @else if $appearance == "outline" {
         background-color: theme-color($color, light);
         border-color: theme-color($color, dark);
         color: text-color-contrast(
           theme-color($color, light),
-          $white,
-          theme-color($color, dark)
+          theme-color(light),
+          theme-color(dark)
         );
       } @else if $appearance == "link" {
         color: theme-color($color);
