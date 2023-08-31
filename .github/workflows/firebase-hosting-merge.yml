@@ -17,6 +17,12 @@ jobs:
       FIREBASE_CLI_EXPERIMENTS: webframeworks
     steps:
       - uses: actions/checkout@v3
+      - name: 'Create env file'
+        run: |
+          touch .env
+          echo CONTENTFUL_SPACE=${{ secrets.CONTENTFUL_SPACE }} >> .env
+          echo CONTENTFUL_ACCESS_TOKEN=${{ secrets.CONTENTFUL_ACCESS_TOKEN }} >> .env
+          echo CONTENTFUL_ENV=${{ secrets.CONTENTFUL_ENV }} >> .env
       - run: yarn --frozen-lockfile && yarn build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:

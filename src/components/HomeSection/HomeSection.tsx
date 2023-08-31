@@ -128,7 +128,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ id }) => {
               <Button
                 className={styles['home__social-link']}
                 renderAs="a"
-                href="mailto:hi@edoparearyee.com"
+                href="mailto:hello@edoparearyee.com"
                 external
                 appearance="none"
               >

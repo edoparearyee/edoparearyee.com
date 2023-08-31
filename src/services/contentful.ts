@@ -16,53 +16,82 @@ export const getCaseStudies = async ({
   limit = 6,
   skip = 0,
 }: GetCaseStudyOptions = {}) => {
-  const client = Contentful.createClient({
-    space: process.env.CONTENTFUL_SPACE || '',
-    environment: process.env.CONTENTFUL_ENV || '',
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || '',
-  });
+  try {
+    const client = Contentful.createClient({
+      space: process.env.CONTENTFUL_SPACE || '',
+      environment: process.env.CONTENTFUL_ENV || '',
+      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || '',
+    });
 
-  const contentType = 'caseStudy';
+    const contentType = 'caseStudy';
 
-  const entries = await client.getEntries<TypeCaseStudySkeleton>({
-    content_type: contentType,
-    limit: Math.min(limit, 12),
-    skip,
-    include: 3,
-    order: ['-fields.year'],
-  });
+    const entries = await client.getEntries<TypeCaseStudySkeleton>({
+      content_type: contentType,
+      limit: Math.min(limit, 12),
+      skip,
+      include: 3,
+      order: ['-fields.year'],
+    });
 
-  const items = entries.items.map<CaseStudy>(mapCaseStudy);
+    const items = entries.items.map<CaseStudy>(mapCaseStudy);
 
-  return {
-    items,
-    total: entries.total,
-    skip: entries.skip,
-    limit: entries.limit,
-  };
+    return {
+      items,
+      total: entries.total,
+      skip: entries.skip,
+      limit: entries.limit,
+    };
+  } catch (e) {
+    console.error(
+      JSON.stringify({
+        function: 'getCaseStudies',
+        space: process.env.CONTENTFUL_SPACE || '',
+        environment: process.env.CONTENTFUL_ENV || '',
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || '',
+      }),
+    );
+    return {
+      items: [],
+      total: 0,
+      skip: 0,
+      limit: 0,
+    };
+  }
 };
 
 export const getCaseStudy = async (slug: string): Promise<CaseStudy | null> => {
-  const client = Contentful.createClient({
-    space: process.env.CONTENTFUL_SPACE || '',
-    environment: process.env.CONTENTFUL_ENV || '',
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || '',
-  });
+  try {
+    const client = Contentful.createClient({
+      space: process.env.CONTENTFUL_SPACE || '',
+      environment: process.env.CONTENTFUL_ENV || '',
+      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || '',
+    });
 
-  const contentType = 'caseStudy';
+    const contentType = 'caseStudy';
 
-  const entries = await client.getEntries<TypeCaseStudySkeleton>({
-    content_type: contentType,
-    limit: 1,
-    include: 3,
-    'fields.slug': slug,
-  });
+    const entries = await client.getEntries<TypeCaseStudySkeleton>({
+      content_type: contentType,
+      limit: 1,
+      include: 3,
+      'fields.slug': slug,
+    });
 
-  if (!entries.items.length) return null;
+    if (!entries.items.length) return null;
 
-  const [item] = entries.items.map<CaseStudy>(mapCaseStudy);
+    const [item] = entries.items.map<CaseStudy>(mapCaseStudy);
 
-  return item;
+    return item;
+  } catch (e) {
+    console.error(
+      JSON.stringify({
+        function: 'getCaseStudy',
+        space: process.env.CONTENTFUL_SPACE || '',
+        environment: process.env.CONTENTFUL_ENV || '',
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || '',
+      }),
+    );
+    return null;
+  }
 };
 
 export const getClients = async () => {
