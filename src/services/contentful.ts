@@ -42,14 +42,6 @@ export const getCaseStudies = async ({
       limit: entries.limit,
     };
   } catch (e) {
-    console.error(
-      JSON.stringify({
-        function: 'getCaseStudies',
-        space: process.env.CONTENTFUL_SPACE || '',
-        environment: process.env.CONTENTFUL_ENV || '',
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || '',
-      }),
-    );
     return {
       items: [],
       total: 0,
@@ -82,38 +74,39 @@ export const getCaseStudy = async (slug: string): Promise<CaseStudy | null> => {
 
     return item;
   } catch (e) {
-    console.error(
-      JSON.stringify({
-        function: 'getCaseStudy',
-        space: process.env.CONTENTFUL_SPACE || '',
-        environment: process.env.CONTENTFUL_ENV || '',
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || '',
-      }),
-    );
     return null;
   }
 };
 
 export const getClients = async () => {
-  const client = Contentful.createClient({
-    space: process.env.CONTENTFUL_SPACE || '',
-    environment: process.env.CONTENTFUL_ENV || '',
-    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || '',
-  });
+  try {
+    const client = Contentful.createClient({
+      space: process.env.CONTENTFUL_SPACE || '',
+      environment: process.env.CONTENTFUL_ENV || '',
+      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || '',
+    });
 
-  const contentType = 'client';
+    const contentType = 'client';
 
-  const entries = await client.getEntries<TypeClientSkeleton>({
-    content_type: contentType,
-    limit: 8,
-  });
+    const entries = await client.getEntries<TypeClientSkeleton>({
+      content_type: contentType,
+      limit: 8,
+    });
 
-  const items = entries.items.map<Client>(mapClient);
+    const items = entries.items.map<Client>(mapClient);
 
-  return {
-    items,
-    total: entries.total,
-    skip: entries.skip,
-    limit: entries.limit,
-  };
+    return {
+      items,
+      total: entries.total,
+      skip: entries.skip,
+      limit: entries.limit,
+    };
+  } catch (e) {
+    return {
+      items: [],
+      total: 0,
+      skip: 0,
+      limit: 0,
+    };
+  }
 };

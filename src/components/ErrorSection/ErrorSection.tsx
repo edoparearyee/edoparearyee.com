@@ -11,9 +11,19 @@ import styles from './ErrorSection.module.scss';
 
 type ErrorSectionProps = {
   id?: string;
+  title?: string;
+  text?: string;
+  ctaHref?: string;
+  ctaText?: string;
 };
 
-const ErrorSection: React.FC<ErrorSectionProps> = ({ id }) => (
+const ErrorSection: React.FC<ErrorSectionProps> = ({
+  id,
+  title = 'Sorry something went wrong!',
+  text = "I'm working on it but in the meantime please feel free to get in touch",
+  ctaHref = 'mailto:hello@edoparearyee.com',
+  ctaText = 'Get in touch',
+}) => (
   <Section
     id={id}
     className={styles.Error}
@@ -23,15 +33,15 @@ const ErrorSection: React.FC<ErrorSectionProps> = ({ id }) => (
       <Row>
         <Col sm={12}>
           <Type appearance="h2" renderAs="h1" className={styles.error__heading}>
-            Page not found
+            {title}
           </Type>
         </Col>
       </Row>
       <Row>
         <Col>
-          <Type>Could not find the requested page</Type>
-          <Button renderAs="a" href="/">
-            Return Home
+          <Type>{text}</Type>
+          <Button renderAs="a" href={ctaHref}>
+            {ctaText}
           </Button>
         </Col>
       </Row>
