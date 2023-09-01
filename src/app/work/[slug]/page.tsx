@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
 
 import Container from '@/components/Grid/Container';
 import Row from '@/components/Grid/Row';
@@ -14,11 +15,31 @@ import { getCaseStudy } from '@/services/contentful';
 
 import styles from './page.module.scss';
 
+type Props = {
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
 const getData = async (slug: string) => {
   return getCaseStudy(slug);
 };
 
-const WorkDetail = async ({ params }: { params: { slug: string } }) => {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const caseStudy = await getData(params.slug);
+
+  return {
+    title: `${caseStudy?.title} | Ed Opare-Aryee`,
+    description: caseStudy?.description,
+    twitter: {
+      images: caseStudy ? [caseStudy.hero.image[0]['1x']] : [],
+    },
+    openGraph: {
+      images: caseStudy ? [caseStudy.hero.image[0]['1x']] : [],
+    },
+  };
+}
+
+const WorkDetail = async ({ params }: Props) => {
   const caseStudy = await getData(params.slug);
 
   if (!caseStudy) {

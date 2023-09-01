@@ -7,9 +7,10 @@ import Footer from '@/components/Footer/Footer';
 import '../styles/globals.scss';
 
 export const metadata: Metadata = {
-  title: 'Ed Opare-Aryee',
+  title:
+    'Ed Opare-Aryee | Technical Lead, Technical Architect and Lead Full Stack Developer',
   description:
-    'Ed Opare-Aryee is a Technical Lead and Lead Full Stack Developer with over 11 years of commercial experience architecting and building web/mobile applications.',
+    'Ed Opare-Aryee is a Technical Lead, Technical Architect and Lead Full Stack Developer with over 11 years of commercial experience architecting and building web/mobile applications.',
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
