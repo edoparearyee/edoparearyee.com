@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import WorkSection from './WorkSection';
+import WorkSection, { WorkCard } from './WorkSection';
 
 const meta: Meta<typeof WorkSection> = {
   title: 'Sections/Work',
@@ -10,7 +10,7 @@ const meta: Meta<typeof WorkSection> = {
 export default meta;
 type Story = StoryObj<typeof WorkSection>;
 
-const workCard = {
+const workCard: WorkCard = {
   image: {
     image: [
       {
@@ -31,19 +31,20 @@ const workCard = {
     ],
     alt: 'Lights at night',
   },
+  slug: '1',
   title: 'Card title',
-  blurb:
-    'Labore est qui est non veniam irure culpa nulla ullamco incididunt Lorem sit.',
+  logoUrl: '',
 };
 
 const defaultArgs = {
-  cards: [
+  ctaText: 'See more',
+  initialCards: [
     { ...workCard, slug: '1' },
     { ...workCard, slug: '2' },
     { ...workCard, slug: '3' },
+    { ...workCard, slug: '4' },
   ],
-  ctaText: 'See more',
-  ctaLink: '/work',
+  total: 4,
 };
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
@@ -56,21 +57,5 @@ export const Default: Story = {
 export const ForWorkListPage: Story = {
   args: {
     ...defaultArgs,
-    cards: [
-      { ...workCard, slug: '1' },
-      { ...workCard, slug: '2' },
-      { ...workCard, slug: '3' },
-      { ...workCard, slug: '4' },
-      { ...workCard, slug: '5' },
-      { ...workCard, slug: '6' },
-      { ...workCard, slug: '7' },
-      { ...workCard, slug: '8' },
-      { ...workCard, slug: '9' },
-      { ...workCard, slug: '10' },
-      { ...workCard, slug: '11' },
-      { ...workCard, slug: '12' },
-    ],
-    ctaText: 'Go back',
-    ctaLink: '/',
   },
 };

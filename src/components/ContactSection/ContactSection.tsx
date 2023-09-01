@@ -39,7 +39,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id }) => (
               size="medium"
               appearance="solid"
               color="primary"
-              href="mailto:hi@edoparearyee.com"
+              href="mailto:hello@edoparearyee.com"
               external
             >
               Say Hello
@@ -50,7 +50,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id }) => (
               <Button
                 className={styles['contact__social-link']}
                 renderAs="a"
-                href="mailto:hi@edoparearyee.com"
+                href="mailto:hello@edoparearyee.com"
                 external
                 appearance="none"
               >

@@ -29,20 +29,22 @@ const Device: React.FC<DeviceProps> = ({
     <div
       className={classNames(styles['device'], styles[`device--type-${type}`])}
     >
-      {assetType === 'image' && images?.length ? (
-        <Carousel className={styles.device__asset} images={images} />
-      ) : null}
-      {assetType === 'video' && videoSrc ? (
-        <Video
-          className={classNames(styles.device__asset, styles.device__video)}
-          src={videoSrc}
-          autoPlay
-          muted
-          playsInline
-          poster={videoPoster}
-          loop
-        />
-      ) : null}
+      <div className={classNames(styles.device__asset)}>
+        {assetType === 'image' && images?.length ? (
+          <Carousel images={images} />
+        ) : null}
+        {assetType === 'video' && videoSrc ? (
+          <Video
+            className={styles.device__video}
+            src={videoSrc}
+            autoPlay
+            muted
+            playsInline
+            poster={videoPoster}
+            loop
+          />
+        ) : null}
+      </div>
       <DeviceFrame className={styles.device__frame} />
     </div>
   );

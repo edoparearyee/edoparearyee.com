@@ -10,35 +10,35 @@
     padding-bottom: rem(200px);
     padding-top: rem(200px);
   }
-}
 
-.about-me__article {
-  margin-bottom: rem(64px);
+  .about-me__article {
+    margin-bottom: rem(64px);
 
-  @include breakpoint(md) {
-    margin-bottom: rem(120px);
+    @include breakpoint(md) {
+      margin-bottom: rem(120px);
+    }
+
+    @include breakpoint(xl) {
+      margin-bottom: 0;
+    }
   }
 
-  @include breakpoint(xl) {
-    margin-bottom: 0;
+  .about-me__title {
+    color: theme-color(secondary);
+    margin-bottom: rem(32px);
   }
-}
 
-.about-me__title {
-  color: theme-color(secondary);
-  margin-bottom: rem(32px);
-}
-
-.about-me__device {
-  @include breakpoint(xl) {
-    padding-left: rem(64px);
-    width: 100%;
+  .about-me__device {
+    @include breakpoint(xl) {
+      padding-left: rem(64px);
+      width: 100%;
+    }
   }
-}
 
-.about-me__col {
-  @include breakpoint(xl) {
-    align-items: center;
-    display: flex;
+  .about-me__col {
+    @include breakpoint(xl) {
+      align-items: center;
+      display: flex;
+    }
   }
 }

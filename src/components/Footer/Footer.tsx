@@ -38,7 +38,7 @@ const Footer: React.FC<FooterProps> = () => {
                 <Button
                   className={styles['footer__social-link']}
                   renderAs="a"
-                  href="mailto:hi@edoparearyee.com"
+                  href="mailto:hello@edoparearyee.com"
                   external
                   appearance="none"
                 >
