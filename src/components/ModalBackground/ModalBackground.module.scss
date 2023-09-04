@@ -1,0 +1,16 @@
+@use "sass:color";
+@import "../../styles/shared";
+
+.modal-background {
+  align-items: center;
+  animation: fade-in ease 220ms;
+  background: color.adjust($black, $alpha: -0.2);
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: $spacer-12 0;
+  position: fixed;
+  z-index: $z-index-modal;
+}

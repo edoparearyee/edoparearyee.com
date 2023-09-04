@@ -1,0 +1,45 @@
+@import "../../styles/shared";
+
+.modal {
+  border-radius: 8px;
+  box-shadow: $box-shadow-base;
+  height: auto;
+  margin: auto 0;
+  padding: $spacer-6;
+  position: relative;
+  width: 90vw;
+}
+
+.modal__variant-text {
+  background-color: theme-color(light);
+  color: theme-color(dark);
+  max-width: 425px;
+  padding: $spacer-6 $spacer-4 $spacer-10 $spacer-4;
+  width: 93vw;
+
+  @include breakpoint(lg) {
+    padding-bottom: $spacer-10;
+    padding-left: $spacer-6;
+    padding-right: $spacer-6;
+  }
+}
+
+.modal__title-type {
+  padding-right: $spacer-10;
+}
+
+.modal__title-type--no-padding {
+  padding-right: 0;
+}
+
+.modal__close-icon {
+  color: theme-color(light);
+  display: flex;
+  position: fixed;
+  right: rem(20px);
+  top: rem(20px);
+
+  @include breakpoint(lg) {
+    right: $spacer-10;
+  }
+}

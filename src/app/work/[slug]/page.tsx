@@ -257,7 +257,7 @@ const WorkDetail = async ({ params }: Props) => {
                   appearance="h4"
                   className={styles['work-detail__information-title']}
                 >
-                  Screens
+                  Preview
                 </Type>
               </Col>
             </Row>
