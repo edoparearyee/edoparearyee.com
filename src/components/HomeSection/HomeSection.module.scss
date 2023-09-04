@@ -56,14 +56,16 @@
   flex-grow: 1;
 }
 
+.home__social-inner {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
 .home__social-link {
   display: inline-flex;
+  margin-right: rem(8px);
   opacity: 0.8;
   transition: $transition-base;
-
-  &:not(:last-child) {
-    margin-right: rem(16px);
-  }
 
   &:hover,
   &:focus,
