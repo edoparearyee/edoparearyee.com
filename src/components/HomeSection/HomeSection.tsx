@@ -10,9 +10,10 @@ import Col from '../Grid/Col';
 import Section from '../Section/Section';
 import LinkedInIcon from '../Icons/LinkedInIcon/LinkedInIcon';
 import GitHubIcon from '../Icons/GitHubIcon/GitHubIcon';
+import EmailIcon from '../Icons/EmailIcon/EmailIcon';
 
 import styles from './HomeSection.module.scss';
-import EmailIcon from '../Icons/EmailIcon/EmailIcon';
+import HomeBackground from '../HomeBackground/HomeBackground';
 
 type HomeSectionProps = {
   id?: string;
@@ -33,6 +34,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ id }) => {
       className={styles.home}
       innerClassName={styles['home__section--inner']}
     >
+      <HomeBackground />
       <header className={styles.home__header}>
         <Container>
           <Row>
