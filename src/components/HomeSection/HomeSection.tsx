@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 
 import Button from '../Button/Button';
 import Type from '../Type/Type';
@@ -12,7 +12,6 @@ import LinkedInIcon from '../Icons/LinkedInIcon/LinkedInIcon';
 import GitHubIcon from '../Icons/GitHubIcon/GitHubIcon';
 import EmailIcon from '../Icons/EmailIcon/EmailIcon';
 import HomeBackground from '../HomeBackground/HomeBackground';
-import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 import AnimatedElement from '../AnimatedElement/AnimatedElement';
 
 import styles from './HomeSection.module.scss';
@@ -22,12 +21,11 @@ type HomeSectionProps = {
 };
 
 const HomeSection: React.FC<HomeSectionProps> = ({ id }) => {
-  const ref = useRef<HTMLElement>(null);
-  const { isIntersecting } = useIntersectionObserver(ref, {
-    threshold: 0,
-    root: null,
-    rootMargin: '10%',
-  });
+  const [isIntersecting, setIsIntersecting] = useState(false);
+
+  const onIsIntersectingChange = (intersecting: boolean) => {
+    setIsIntersecting(intersecting);
+  };
 
   const onNavItemClick = (
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
@@ -42,7 +40,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ id }) => {
       id={id}
       className={styles.home}
       innerClassName={styles['home__section--inner']}
-      ref={ref}
+      onIsIntersectingChange={onIsIntersectingChange}
     >
       <HomeBackground />
       <header className={styles.home__header}>
@@ -57,7 +55,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ id }) => {
               <AnimatedElement
                 inView={isIntersecting}
                 variant="right"
-                delay={0.3}
+                delay={0.1}
               >
                 <Type
                   renderAs="p"
@@ -77,7 +75,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ id }) => {
         <Container>
           <Row>
             <Col sm={6} md={4} lg={3} xxl={2}>
-              <AnimatedElement inView={isIntersecting} variant="up" delay={0.6}>
+              <AnimatedElement inView={isIntersecting} variant="up" delay={0.2}>
                 <Button
                   className={styles['home__navigation-link']}
                   renderAs="a"
@@ -94,7 +92,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ id }) => {
               </AnimatedElement>
             </Col>
             <Col sm={6} md={4} lg={3} xxl={2}>
-              <AnimatedElement inView={isIntersecting} variant="up" delay={1}>
+              <AnimatedElement inView={isIntersecting} variant="up" delay={0.3}>
                 <Button
                   className={styles['home__navigation-link']}
                   renderAs="a"
@@ -113,7 +111,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ id }) => {
           </Row>
           <Row>
             <Col sm={6} md={4} lg={3} xxl={2}>
-              <AnimatedElement inView={isIntersecting} variant="up" delay={1.4}>
+              <AnimatedElement inView={isIntersecting} variant="up" delay={0.4}>
                 <Button
                   className={styles['home__navigation-link']}
                   renderAs="a"
@@ -130,7 +128,7 @@ const HomeSection: React.FC<HomeSectionProps> = ({ id }) => {
               </AnimatedElement>
             </Col>
             <Col sm={6} md={4} lg={3} xxl={2}>
-              <AnimatedElement inView={isIntersecting} variant="up" delay={1.8}>
+              <AnimatedElement inView={isIntersecting} variant="up" delay={0.5}>
                 <Button
                   className={styles['home__navigation-link']}
                   renderAs="a"
@@ -157,8 +155,8 @@ const HomeSection: React.FC<HomeSectionProps> = ({ id }) => {
               <div className={styles['home__social-inner']}>
                 <AnimatedElement
                   inView={isIntersecting}
-                  variant="right"
-                  delay={2.2}
+                  variant="up"
+                  delay={0.6}
                 >
                   <Button
                     className={styles['home__social-link']}
@@ -175,8 +173,8 @@ const HomeSection: React.FC<HomeSectionProps> = ({ id }) => {
                 </AnimatedElement>
                 <AnimatedElement
                   inView={isIntersecting}
-                  variant="right"
-                  delay={2.6}
+                  variant="up"
+                  delay={0.65}
                 >
                   <Button
                     className={styles['home__social-link']}
@@ -193,8 +191,8 @@ const HomeSection: React.FC<HomeSectionProps> = ({ id }) => {
                 </AnimatedElement>
                 <AnimatedElement
                   inView={isIntersecting}
-                  variant="right"
-                  delay={3}
+                  variant="up"
+                  delay={0.7}
                 >
                   <Button
                     className={styles['home__social-link']}

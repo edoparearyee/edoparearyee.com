@@ -10,13 +10,13 @@ interface AnimatedElementProps {
   className?: string;
 }
 
-const baseDelay = 0.15;
+const baseDelay = 0.5;
 
 const AnimatedElement: React.FC<AnimatedElementProps> = ({
   children,
   inView = false,
   variant = 'left',
-  delay,
+  delay = 0,
   className,
 }) => {
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -33,7 +33,7 @@ const AnimatedElement: React.FC<AnimatedElementProps> = ({
       ${variant === 'left' ? styles['animated-element--left'] : ''}
       ${inView || hasAnimated ? styles['animated-element--active'] : ''}
       ${className ? className : ''}`}
-      style={delay ? { transitionDelay: `${delay * baseDelay}s` } : {}}
+      style={{ transitionDelay: `${delay + baseDelay}s` }}
     >
       {children}
     </div>
