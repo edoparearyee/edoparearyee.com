@@ -10,6 +10,7 @@ import Container from '../Grid/Container';
 import Row from '../Grid/Row';
 import Col from '../Grid/Col';
 import Section from '../Section/Section';
+import AnimatedElement from '../AnimatedElement/AnimatedElement';
 import { ResponsiveImageWithAltText } from '../../models/image.model';
 import { CaseStudy } from '../../models/caseStudy.model';
 import { mapCaseStudyToCard } from '../../utils/mapCaseStudy';
@@ -37,6 +38,10 @@ const WorkSection: React.FC<WorkSectionProps> = ({
   ctaText,
 }) => {
   const [cards, setCards] = useState<WorkCard[]>([]);
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const onIsIntersectingChange = (intersecting: boolean) => {
+    setIsIntersecting(intersecting);
+  };
 
   const handleLoadMore = async () => {
     const headers = new Headers({
@@ -62,17 +67,20 @@ const WorkSection: React.FC<WorkSectionProps> = ({
       id={id}
       className={styles.work}
       innerClassName={styles['work__section--inner']}
+      onIsIntersectingChange={onIsIntersectingChange}
     >
       <Container>
         <Row>
           <Col sm={12}>
-            <Type
-              renderAs="h2"
-              appearance="h2"
-              className={styles['work__title']}
-            >
-              Latest Work
-            </Type>
+            <AnimatedElement inView={isIntersecting} variant="up">
+              <Type
+                renderAs="h2"
+                appearance="h2"
+                className={styles['work__title']}
+              >
+                Latest Work
+              </Type>
+            </AnimatedElement>
           </Col>
         </Row>
       </Container>
@@ -82,21 +90,27 @@ const WorkSection: React.FC<WorkSectionProps> = ({
           <Row>
             {cards.map((card, i) => (
               <Col sm={12} md={6} lg={4} key={card.slug}>
-                <Button
-                  appearance="none"
-                  renderAs="a"
-                  href={`/work/${card.slug}`}
+                <AnimatedElement
+                  inView={isIntersecting}
+                  variant="up"
+                  delay={(i + 1) * 0.15}
                 >
-                  <Card
-                    className={classNames(styles.work__card, {
-                      [styles['work__card--last']]: i === cards.length - 1,
-                    })}
-                    image={card.image.image}
-                    imageAlt={card.image.alt}
-                    logoUrl={card.logoUrl}
-                    title={card.title}
-                  />
-                </Button>
+                  <Button
+                    appearance="none"
+                    renderAs="a"
+                    href={`/work/${card.slug}`}
+                  >
+                    <Card
+                      className={classNames(styles.work__card, {
+                        [styles['work__card--last']]: i === cards.length - 1,
+                      })}
+                      image={card.image.image}
+                      imageAlt={card.image.alt}
+                      logoUrl={card.logoUrl}
+                      title={card.title}
+                    />
+                  </Button>
+                </AnimatedElement>
               </Col>
             ))}
           </Row>
@@ -107,15 +121,21 @@ const WorkSection: React.FC<WorkSectionProps> = ({
         <Container>
           <Row>
             <Col sm={12}>
-              <Button
-                color="secondary"
-                appearance="link"
-                renderAs="button"
-                size="large"
-                onClick={handleLoadMore}
+              <AnimatedElement
+                inView={isIntersecting}
+                variant="up"
+                delay={(initialCards.length + 1) * 0.15 + 0.1}
               >
-                {ctaText}
-              </Button>
+                <Button
+                  color="secondary"
+                  appearance="link"
+                  renderAs="button"
+                  size="large"
+                  onClick={handleLoadMore}
+                >
+                  {ctaText}
+                </Button>
+              </AnimatedElement>
             </Col>
           </Row>
         </Container>

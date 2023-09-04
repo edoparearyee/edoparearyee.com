@@ -1,0 +1,42 @@
+@import "../../styles/shared";
+
+.animated-element {
+  display: flex;
+  opacity: 0;
+  transition-duration: 1s;
+  transition-property: transform, opacity;
+  transition-timing-function: ease-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+  }
+}
+
+.animated-element--up {
+  transform: translateY(rem(20px));
+
+  @media (prefers-reduced-motion: reduce) {
+    transform: none;
+  }
+}
+
+.animated-element--right {
+  transform: translateX(rem(100px));
+
+  @media (prefers-reduced-motion: reduce) {
+    transform: none;
+  }
+}
+
+.animated-element--left {
+  transform: translateX(rem(-100px));
+
+  @media (prefers-reduced-motion: reduce) {
+    transform: none;
+  }
+}
+
+.animated-element--active {
+  opacity: 1;
+  transform: none;
+}

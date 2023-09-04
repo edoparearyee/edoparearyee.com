@@ -2,14 +2,7 @@
 
 .home {
   align-items: center;
-  animation: gradient 5s ease infinite;
   background-color: theme-color(secondary);
-  background-image: linear-gradient(
-    -45deg,
-    theme-color(secondary),
-    theme-color(secondary, dark)
-  );
-  background-size: 200% 200%;
   color: $white;
   padding-top: 15vh;
 }
@@ -27,6 +20,13 @@
   @media (height >= rem(900px)) {
     min-height: 600px;
   }
+}
+
+.home__header,
+.home__navigation,
+.home__social {
+  position: relative;
+  z-index: 1;
 }
 
 .home__header {
@@ -56,14 +56,16 @@
   flex-grow: 1;
 }
 
+.home__social-inner {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
 .home__social-link {
   display: inline-flex;
+  margin-right: rem(8px);
   opacity: 0.8;
   transition: $transition-base;
-
-  &:not(:last-child) {
-    margin-right: rem(16px);
-  }
 
   &:hover,
   &:focus,

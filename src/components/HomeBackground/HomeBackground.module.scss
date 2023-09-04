@@ -1,0 +1,64 @@
+@use "sass:color";
+@use "sass:math";
+@import "../../styles/shared";
+
+.home-background__circles {
+  filter: blur(10px);
+  height: 100%;
+  left: 0;
+  list-style: none;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.home-background__circle {
+  background-color: color.adjust(theme-color(primary), $alpha: 0.2);
+  bottom: -150px;
+  display: block;
+  list-style: none;
+  position: absolute;
+}
+
+$circles_amount: 20;
+
+@for $i from 1 through $circles_amount {
+  $y: math.random(2);
+  $y-start: 0;
+  $y-end: calc(-100vh + 150px);
+  @if $y == 1 {
+    $y-start: calc(-100vh - 150px);
+    $y-end: 150px;
+  }
+
+  @keyframes animate--#{$i} {
+    0% {
+      border-radius: 0;
+      opacity: 0.5;
+      transform: translateX(0) translateY($y-start) rotate(0deg);
+    }
+
+    100% {
+      border-radius: 50%;
+      opacity: 0;
+      transform: translateX(math.random(100) - 50vw) translateY($y-end)
+        rotate(math.random(360) + 360deg);
+    }
+  }
+}
+
+@for $i from 1 through $circles_amount {
+  .home-background__circle:nth-child(#{$i}) {
+    $size: math.random(130) + 20px;
+
+    animation: animate--#{$i} 15s linear infinite;
+    animation-delay: math.random(15) + s;
+    animation-duration: math.random(13) + 12s;
+    height: $size;
+    left: math.random(50) + 35%;
+    width: $size;
+  }
+}
