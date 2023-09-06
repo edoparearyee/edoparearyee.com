@@ -1,17 +1,16 @@
 @import "../../styles/shared";
 
 .modal {
-  border-radius: 8px;
-  box-shadow: $box-shadow-base;
   height: auto;
   margin: auto 0;
-  padding: $spacer-6;
   position: relative;
   width: 90vw;
 }
 
 .modal__variant-text {
   background-color: theme-color(light);
+  border-radius: 8px;
+  box-shadow: $box-shadow-base;
   color: theme-color(dark);
   max-width: 425px;
   padding: $spacer-6 $spacer-4 $spacer-10 $spacer-4;

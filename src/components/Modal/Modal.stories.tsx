@@ -91,6 +91,13 @@ export const VariantImage: Story = {
     ...defaultArgs,
     title: '',
     variant: 'image',
-    children: <Carousel images={aboutMeCarouselImagesDesktop} />,
+    children: (
+      <Carousel
+        images={aboutMeCarouselImagesDesktop}
+        autoPlay={false}
+        transition="slide"
+        controls
+      />
+    ),
   },
 };

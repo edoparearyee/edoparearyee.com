@@ -1,4 +1,6 @@
-import React, { PropsWithChildren, useState } from 'react';
+'use client';
+
+import React, { PropsWithChildren, useEffect, useState } from 'react';
 import classNames from 'classnames';
 
 import Modal, { ModalProps } from '../Modal/Modal';
@@ -43,6 +45,10 @@ export const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
     setModalOptions(undefined);
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    setBackgroundScroll(!isOpen);
+  }, [isOpen]);
 
   return (
     <ModalContext.Provider value={{ openModal, closeModal }}>

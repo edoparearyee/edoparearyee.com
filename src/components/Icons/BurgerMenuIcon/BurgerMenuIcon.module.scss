@@ -4,14 +4,13 @@
   display: flex;
   height: rem(20px);
   position: relative;
-  width: rem(30px);
+  width: rem(25px);
 }
 
 .burger-menu-icon__line {
   background-color: $black;
-  border-radius: 5px;
   display: block;
-  height: 20%;
+  height: 10%;
   left: 0;
   position: absolute;
   right: 0;
