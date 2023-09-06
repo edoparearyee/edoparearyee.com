@@ -1,10 +1,12 @@
 @keyframes fade-in {
   0% {
+    backdrop-filter: blur(0);
     opacity: 0;
   }
 
   100% {
-    opacity: 0.54;
+    backdrop-filter: blur(10px);
+    opacity: 1;
   }
 }
 

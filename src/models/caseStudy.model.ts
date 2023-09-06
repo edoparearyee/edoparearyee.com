@@ -25,7 +25,7 @@ export interface Client {
   logoLightUrl: string;
 }
 
-interface Video {
+export interface Video {
   url: string;
   poster: ResponsiveImageWithAltText;
 }

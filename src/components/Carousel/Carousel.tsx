@@ -13,11 +13,14 @@ import Type from '../Type/Type';
 import ChevronLeftIcon from '../Icons/ChevronLeftIcon/ChevronLeftIcon';
 import ChevronRightIcon from '../Icons/ChevronRightIcon/ChevronRightIcon';
 import { ResponsiveImageWithAltText } from '@/models/image.model';
+import Video from '../Video/Video';
+import { Video as CaseStudyVideo } from '../../models/caseStudy.model';
 
 import styles from './Carousel.module.scss';
 
 export type CarouselProps = PropsWithChildren<{
   images: ResponsiveImageWithAltText[];
+  video?: CaseStudyVideo;
   className?: string;
   duration?: number;
   autoPlay?: boolean;
@@ -32,6 +35,7 @@ type Direction = 'next' | 'previous';
 
 const Carousel: React.FC<CarouselProps> = ({
   images,
+  video,
   duration = 5000,
   autoPlay = true,
   controls = false,
@@ -41,6 +45,9 @@ const Carousel: React.FC<CarouselProps> = ({
   fullScreen = false,
   className,
 }) => {
+  const [assets, setAssets] = useState<
+    Array<ResponsiveImageWithAltText | CaseStudyVideo>
+  >([...images, ...(video ? [video] : [])]);
   const [currentImage, setCurrentImage] = useState(0);
   const [nextImage, setNextImage] = useState<number>();
   const [timeoutMain, setTimeoutMain] = useState<number>();
@@ -54,9 +61,9 @@ const Carousel: React.FC<CarouselProps> = ({
       setDirection(options.direction);
       let image: number;
       if (options.direction === 'next') {
-        image = currentImage >= images.length - 1 ? 0 : currentImage + 1;
+        image = currentImage >= assets.length - 1 ? 0 : currentImage + 1;
       } else {
-        image = currentImage === 0 ? images.length - 1 : currentImage - 1;
+        image = currentImage === 0 ? assets.length - 1 : currentImage - 1;
       }
       setNextImage(image);
 
@@ -80,7 +87,7 @@ const Carousel: React.FC<CarouselProps> = ({
         ),
       );
     },
-    [currentImage, images.length, transition],
+    [currentImage, assets.length, transition],
   );
 
   useEffect(() => {
@@ -107,6 +114,10 @@ const Carousel: React.FC<CarouselProps> = ({
     timeoutMain,
   ]);
 
+  useEffect(() => {
+    setAssets([...images, ...(video ? [video] : [])]);
+  }, [images, video]);
+
   return (
     <div
       className={classNames(
@@ -115,25 +126,12 @@ const Carousel: React.FC<CarouselProps> = ({
         className,
       )}
     >
-      <Image
-        sources={images[currentImage].image}
-        alt={images[currentImage].alt}
-        className={classNames(styles.carousel__image, {
-          [styles[`carousel__image--exit-${direction}`]]:
-            nextImage !== undefined,
-        })}
-        imgClassName={classNames(styles['carousel__image-img'], {
-          [styles['carousel__image--mobile']]: isMobile,
-          [styles['carousel__image--fullscreen']]: fullScreen,
-        })}
-      />
-
-      {nextImage !== undefined ? (
+      {(assets[currentImage] as ResponsiveImageWithAltText).image ? (
         <Image
-          sources={images[nextImage].image}
-          alt={images[nextImage].alt}
-          className={classNames(styles['carousel__next-image'], {
-            [styles[`carousel__image--entry-${direction}`]]:
+          sources={images[currentImage].image}
+          alt={images[currentImage].alt}
+          className={classNames(styles.carousel__image, {
+            [styles[`carousel__image--exit-${direction}`]]:
               nextImage !== undefined,
           })}
           imgClassName={classNames(styles['carousel__image-img'], {
@@ -141,6 +139,55 @@ const Carousel: React.FC<CarouselProps> = ({
             [styles['carousel__image--fullscreen']]: fullScreen,
           })}
         />
+      ) : (
+        <Video
+          className={classNames(
+            styles.carousel__image,
+            styles.carousel__video,
+            {
+              [styles[`carousel__image--exit-${direction}`]]:
+                nextImage !== undefined,
+            },
+          )}
+          src={(assets[currentImage] as CaseStudyVideo).url}
+          poster={
+            (assets[currentImage] as CaseStudyVideo).poster.image[0]['2x']
+          }
+          controls
+          playsInline
+        />
+      )}
+
+      {nextImage !== undefined ? (
+        (assets[nextImage] as ResponsiveImageWithAltText).image ? (
+          <Image
+            sources={images[nextImage].image}
+            alt={images[nextImage].alt}
+            className={classNames(styles['carousel__next-image'], {
+              [styles[`carousel__image--entry-${direction}`]]:
+                nextImage !== undefined,
+            })}
+            imgClassName={classNames(styles['carousel__image-img'], {
+              [styles['carousel__image--mobile']]: isMobile,
+              [styles['carousel__image--fullscreen']]: fullScreen,
+            })}
+          />
+        ) : (
+          <Video
+            className={classNames(
+              styles['carousel__next-image'],
+              styles.carousel__video,
+              {
+                [styles[`carousel__image--entry-${direction}`]]:
+                  nextImage !== undefined,
+              },
+            )}
+            src={(assets[nextImage] as CaseStudyVideo).url}
+            poster={(assets[nextImage] as CaseStudyVideo).poster.image[0]['2x']}
+            controls
+            playsInline
+          />
+        )
       ) : null}
 
       {controls ? (

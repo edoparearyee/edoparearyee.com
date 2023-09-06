@@ -65,7 +65,7 @@ const Modal: React.FC<ModalProps> = ({
         {...props}
         className={classNames(
           styles.modal,
-          styles[`modal__variant-${variant}`],
+          styles[`modal--variant-${variant}`],
           className,
         )}
       >

@@ -3,7 +3,6 @@
 import React, { useContext } from 'react';
 import classNames from 'classnames';
 
-import Type from '../Type/Type';
 import Container from '../Grid/Container';
 import Row from '../Grid/Row';
 import Col from '../Grid/Col';
@@ -14,6 +13,7 @@ import { ModalContext } from '../ModalProvider/ModalProvider';
 import { CaseStudy } from '../../models/caseStudy.model';
 
 import styles from './CaseStudyGallerySection.module.scss';
+import Badge from '../Badge/Badge';
 
 export type CaseStudyGallerySectionProps = {
   id?: string;
@@ -39,6 +39,7 @@ const CaseStudyGallerySection: React.FC<CaseStudyGallerySectionProps> = ({
                 : 'imagesDesktop'
             ]
           }
+          video={caseStudy.video}
           isMobile={caseStudy.platform === 'Mobile App'}
           autoPlay={false}
           transition="slide"
@@ -55,17 +56,6 @@ const CaseStudyGallerySection: React.FC<CaseStudyGallerySectionProps> = ({
     <div id={id} className={styles['case-study-gallery']}>
       <Container>
         <Row>
-          <Col>
-            <Type
-              renderAs="h2"
-              appearance="h4"
-              className={styles['case-study-gallery__information-title']}
-            >
-              Click To View Gallery
-            </Type>
-          </Col>
-        </Row>
-        <Row>
           <Col sm={12}>
             <div
               className={classNames({
@@ -73,7 +63,15 @@ const CaseStudyGallerySection: React.FC<CaseStudyGallerySectionProps> = ({
                   caseStudy.platform === 'Mobile App',
               })}
             >
-              <Button appearance="none" onClick={openGallery} fullWidth>
+              <Button
+                appearance="none"
+                onClick={openGallery}
+                fullWidth
+                className={styles['case-study-gallery__cta']}
+              >
+                <Badge className={styles['case-study-gallery__cta-text']}>
+                  View Gallery
+                </Badge>
                 <Image
                   className={classNames(
                     styles['case-study-gallery__screenshot'],
@@ -82,6 +80,7 @@ const CaseStudyGallerySection: React.FC<CaseStudyGallerySectionProps> = ({
                         caseStudy.platform === 'Mobile App',
                     },
                   )}
+                  imgClassName={styles['case-study-gallery__screenshot-img']}
                   sources={
                     caseStudy[
                       caseStudy.platform === 'Mobile App'

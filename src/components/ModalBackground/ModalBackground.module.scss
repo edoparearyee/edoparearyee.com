@@ -3,14 +3,14 @@
 
 .modal-background {
   align-items: center;
-  animation: fade-in ease 220ms;
+  animation: fade-in ease 0.5s forwards;
   background-color: color.adjust($black, $alpha: -0.2);
   display: flex;
   inset: 0;
   justify-content: center;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: $spacer-12 0;
+  padding: $spacer-20 0;
   position: fixed;
   z-index: $z-index-modal;
 

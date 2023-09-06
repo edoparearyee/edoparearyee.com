@@ -73,6 +73,10 @@
 
 .carousel__controls--position-fixed {
   position: fixed;
+  @include breakpoint(lg) {
+    left: rem(20px);
+    right: rem(20px);
+  }
 }
 
 .carousel__control-icon {
@@ -107,9 +111,18 @@
 }
 
 .carousel__image--fullscreen {
-  min-height: calc(100vh - #{$spacer-12 * 2});
+  min-height: calc(100vh - #{$spacer-20 * 2});
 }
 
 .carousel__image--mobile {
   max-width: 375px;
+}
+
+.carousel__video {
+  align-self: center;
+  width: 100%;
+
+  .carousel--transition-slide &.carousel__next-image {
+    inset: auto 0;
+  }
 }
