@@ -1,0 +1,63 @@
+@import "../../styles/shared";
+
+.case-study-information {
+  padding-bottom: rem(32px);
+  padding-top: rem(50px);
+
+  @include breakpoint(md) {
+    padding-bottom: rem(40px);
+    padding-top: rem(75px);
+  }
+
+  @include breakpoint(lg) {
+    padding-bottom: rem(40px);
+    padding-top: rem(95px);
+  }
+}
+
+.case-study-information__detail,
+.case-study-information__team-list,
+.case-study-information__view-website-button {
+  margin-bottom: rem(32px);
+}
+
+.case-study-information__description {
+  margin-bottom: rem(40px);
+}
+
+.case-study-information__information-title {
+  color: theme-color(primary);
+}
+
+.case-study-information__tag-list {
+  list-style: none;
+}
+
+.case-study-information__tag-list-item {
+  display: inline-flex;
+
+  &:not(:last-child) {
+    margin-bottom: rem(5px);
+    margin-right: rem(5px);
+  }
+}
+
+.case-study-information__awards-list {
+  list-style: circle inside;
+  list-style-type: "🏆 ";
+  margin-bottom: 0;
+}
+
+.case-study-information__awards-button {
+  font-weight: $font-weight-regular;
+  padding-top: 0;
+  text-transform: capitalize;
+}
+
+.case-study-information__team-list {
+  list-style: none;
+}
+
+.case-study-information .case-study-information__team-member {
+  margin-bottom: rem(8px);
+}

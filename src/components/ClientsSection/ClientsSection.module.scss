@@ -17,7 +17,7 @@
   }
 }
 
-.clients__heading {
+.clients .clients__heading {
   margin-bottom: rem(40px);
 
   @include breakpoint(lg) {

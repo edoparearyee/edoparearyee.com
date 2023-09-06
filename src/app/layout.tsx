@@ -5,6 +5,7 @@ import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 
 import '../styles/globals.scss';
+import { ModalProvider } from '@/components/ModalProvider/ModalProvider';
 
 export const metadata: Metadata = {
   title:
@@ -50,9 +51,11 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <meta name="theme-color" content="#ffffff" />
       </head>
       <body>
-        <Header />
-        {children}
-        <Footer />
+        <ModalProvider>
+          <Header />
+          {children}
+          <Footer />
+        </ModalProvider>
       </body>
     </html>
   );
