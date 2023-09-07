@@ -49,3 +49,17 @@
     transform: translateX(100%);
   }
 }
+
+@keyframes rotate {
+  0% {
+    transform: rotateX(-37.5deg) rotateY(45deg);
+  }
+
+  50% {
+    transform: rotateX(-37.5deg) rotateY(405deg);
+  }
+
+  100% {
+    transform: rotateX(-37.5deg) rotateY(405deg);
+  }
+}

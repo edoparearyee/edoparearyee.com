@@ -1,0 +1,36 @@
+@mixin cube-side-rotate($name, $rotate, $i) {
+  .#{$name} {
+    animation: #{$name}-animation 3s ease infinite;
+    animation-delay: $i * 100ms;
+    animation-fill-mode: forwards;
+    transform: #{$rotate} translateZ($size);
+    transform-origin: 50% 50%;
+  }
+
+  @keyframes #{$name}-animation {
+    0% {
+      opacity: 1;
+      transform: #{$rotate} translateZ($size);
+    }
+
+    20% {
+      opacity: 1;
+      transform: #{$rotate} translateZ($size / 2);
+    }
+
+    70% {
+      opacity: 1;
+      transform: #{$rotate} translateZ($size / 2);
+    }
+
+    90% {
+      opacity: 1;
+      transform: #{$rotate} translateZ($size);
+    }
+
+    100% {
+      opacity: 1;
+      transform: #{$rotate} translateZ($size);
+    }
+  }
+}

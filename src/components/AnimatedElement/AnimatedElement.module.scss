@@ -5,7 +5,7 @@
   opacity: 0;
   transition-duration: 1s;
   transition-property: transform, opacity;
-  transition-timing-function: ease-out;
+  transition-timing-function: ease-in-out;
 
   @media (prefers-reduced-motion: reduce) {
     opacity: 1;

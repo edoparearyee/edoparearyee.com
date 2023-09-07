@@ -2,11 +2,11 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 
 import { getCaseStudy } from '@/services/contentful';
-
-import styles from './page.module.scss';
 import CaseStudyInformationSection from '@/components/CaseStudyInformationSection/CaseStudyInformationSection';
 import CaseStudyGallerySection from '@/components/CaseStudyGallerySection/CaseStudyGallerySection';
 import CaseStudyHeroSection from '@/components/CaseStudyHeroSection/CaseStudyHeroSection';
+
+import styles from './page.module.scss';
 
 type Props = {
   params: { slug: string };

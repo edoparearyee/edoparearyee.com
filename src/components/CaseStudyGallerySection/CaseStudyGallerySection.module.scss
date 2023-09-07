@@ -46,17 +46,18 @@
   }
 }
 
-.case-study-gallery__cta-text {
+.case-study-gallery .case-study-gallery__cta-text {
   left: 50%;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
+  transition: $transition-base;
   z-index: 2;
+}
 
-  .case-study-gallery__cta:hover & {
-    background-color: theme-color(primary, dark);
-    border-color: theme-color(primary, dark);
-  }
+.case-study-gallery__cta:hover .case-study-gallery__cta-text {
+  background-color: theme-color(primary, dark);
+  border-color: theme-color(primary, dark);
 }
 
 .case-study-gallery__screenshot:not(.case-study-gallery__screenshot-mobile) {

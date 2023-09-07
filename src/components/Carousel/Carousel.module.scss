@@ -126,3 +126,14 @@
     inset: auto 0;
   }
 }
+
+.carousel__loading-image {
+  @include visually-hidden();
+}
+
+.carousel__loader {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
