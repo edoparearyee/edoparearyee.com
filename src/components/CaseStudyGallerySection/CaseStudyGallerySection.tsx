@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 
 import Container from '../Grid/Container';
@@ -11,9 +11,11 @@ import Image from '../Image/Image';
 import Carousel from '../Carousel/Carousel';
 import { ModalContext } from '../ModalProvider/ModalProvider';
 import { CaseStudy } from '../../models/caseStudy.model';
+import Badge from '../Badge/Badge';
+import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 
 import styles from './CaseStudyGallerySection.module.scss';
-import Badge from '../Badge/Badge';
+import AnimatedElement from '../AnimatedElement/AnimatedElement';
 
 export type CaseStudyGallerySectionProps = {
   id?: string;
@@ -25,6 +27,21 @@ const CaseStudyGallerySection: React.FC<CaseStudyGallerySectionProps> = ({
   caseStudy,
 }) => {
   const { openModal } = useContext(ModalContext);
+  const [imagesKey, setImagesKey] = useState<'imagesDesktop' | 'imagesMobile'>(
+    caseStudy.platform === 'Mobile App' ? 'imagesMobile' : 'imagesDesktop',
+  );
+  const ref = useRef<HTMLDivElement>(null);
+  const { isIntersecting } = useIntersectionObserver(ref, {
+    threshold: 0,
+    root: null,
+    rootMargin: '-10%',
+  });
+
+  useEffect(() => {
+    const key =
+      caseStudy.platform === 'Mobile App' ? 'imagesMobile' : 'imagesDesktop';
+    setImagesKey(key);
+  }, [caseStudy.platform]);
 
   const openGallery = () => {
     openModal({
@@ -32,13 +49,7 @@ const CaseStudyGallerySection: React.FC<CaseStudyGallerySectionProps> = ({
       variant: 'image',
       content: (
         <Carousel
-          images={
-            caseStudy[
-              caseStudy.platform === 'Mobile App'
-                ? 'imagesMobile'
-                : 'imagesDesktop'
-            ]
-          }
+          images={caseStudy[imagesKey]}
           video={caseStudy.video}
           isMobile={caseStudy.platform === 'Mobile App'}
           autoPlay={false}
@@ -53,16 +64,11 @@ const CaseStudyGallerySection: React.FC<CaseStudyGallerySectionProps> = ({
   };
 
   return (
-    <div id={id} className={styles['case-study-gallery']}>
+    <div id={id} className={styles['case-study-gallery']} ref={ref}>
       <Container>
         <Row>
           <Col sm={12}>
-            <div
-              className={classNames({
-                [styles['case-study-gallery__screenshot-mobile']]:
-                  caseStudy.platform === 'Mobile App',
-              })}
-            >
+            <AnimatedElement inView={isIntersecting} variant="up">
               <Button
                 appearance="none"
                 onClick={openGallery}
@@ -81,23 +87,11 @@ const CaseStudyGallerySection: React.FC<CaseStudyGallerySectionProps> = ({
                     },
                   )}
                   imgClassName={styles['case-study-gallery__screenshot-img']}
-                  sources={
-                    caseStudy[
-                      caseStudy.platform === 'Mobile App'
-                        ? 'imagesMobile'
-                        : 'imagesDesktop'
-                    ][0].image
-                  }
-                  alt={
-                    caseStudy[
-                      caseStudy.platform === 'Mobile App'
-                        ? 'imagesMobile'
-                        : 'imagesDesktop'
-                    ][0].alt
-                  }
+                  sources={caseStudy[imagesKey][0].image}
+                  alt={caseStudy[imagesKey][0].alt}
                 />
               </Button>
-            </div>
+            </AnimatedElement>
           </Col>
         </Row>
       </Container>

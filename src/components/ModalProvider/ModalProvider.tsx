@@ -1,12 +1,9 @@
 'use client';
 
 import React, { PropsWithChildren, useEffect, useState } from 'react';
-import classNames from 'classnames';
 
 import Modal, { ModalProps } from '../Modal/Modal';
 import setBackgroundScroll from '../../utils/backgroundScroll';
-
-import styles from './ModalProvider.module.scss';
 
 type OpenModalOptions = {
   content: React.ReactNode;
@@ -52,14 +49,7 @@ export const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
 
   return (
     <ModalContext.Provider value={{ openModal, closeModal }}>
-      <div
-        data-testid="user-select-div"
-        className={classNames({
-          [styles['modal-provider__select-lock']]: isOpen,
-        })}
-      >
-        {children}
-      </div>
+      {children}
       {isOpen && (
         <Modal {...modalOptions}>{modalOptions && modalOptions.content}</Modal>
       )}

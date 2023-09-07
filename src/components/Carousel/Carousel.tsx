@@ -15,6 +15,7 @@ import ChevronRightIcon from '../Icons/ChevronRightIcon/ChevronRightIcon';
 import { ResponsiveImageWithAltText } from '@/models/image.model';
 import Video from '../Video/Video';
 import { Video as CaseStudyVideo } from '../../models/caseStudy.model';
+import Loader from '../Loader/Loader';
 
 import styles from './Carousel.module.scss';
 
@@ -48,6 +49,8 @@ const Carousel: React.FC<CarouselProps> = ({
   const [assets, setAssets] = useState<
     Array<ResponsiveImageWithAltText | CaseStudyVideo>
   >([...images, ...(video ? [video] : [])]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [imagesLoaded, setImagesLoaded] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
   const [nextImage, setNextImage] = useState<number>();
   const [timeoutMain, setTimeoutMain] = useState<number>();
@@ -91,6 +94,12 @@ const Carousel: React.FC<CarouselProps> = ({
   );
 
   useEffect(() => {
+    if (imagesLoaded === images.length) {
+      setIsLoading(false);
+    }
+  }, [images.length, imagesLoaded]);
+
+  useEffect(() => {
     if (timeoutMain || timeoutAnimation1 || timeoutAnimation2 || !autoPlay)
       return;
 
@@ -126,113 +135,136 @@ const Carousel: React.FC<CarouselProps> = ({
         className,
       )}
     >
-      {(assets[currentImage] as ResponsiveImageWithAltText).image ? (
-        <Image
-          sources={images[currentImage].image}
-          alt={images[currentImage].alt}
-          className={classNames(styles.carousel__image, {
-            [styles[`carousel__image--exit-${direction}`]]:
-              nextImage !== undefined,
-          })}
-          imgClassName={classNames(styles['carousel__image-img'], {
-            [styles['carousel__image--mobile']]: isMobile,
-            [styles['carousel__image--fullscreen']]: fullScreen,
-          })}
-        />
+      {isLoading ? (
+        <>
+          <div className={styles.carousel__loader}>
+            <Loader />
+          </div>
+          {images.map((image, i) => (
+            <Image
+              className={styles['carousel__loading-image']}
+              key={i}
+              sources={image.image}
+              alt={image.alt}
+              onLoad={() => setImagesLoaded((loaded) => loaded + 1)}
+            />
+          ))}
+        </>
       ) : (
-        <Video
-          className={classNames(
-            styles.carousel__image,
-            styles.carousel__video,
-            {
-              [styles[`carousel__image--exit-${direction}`]]:
-                nextImage !== undefined,
-            },
-          )}
-          src={(assets[currentImage] as CaseStudyVideo).url}
-          poster={
-            (assets[currentImage] as CaseStudyVideo).poster.image[0]['2x']
-          }
-          controls
-          playsInline
-        />
-      )}
-
-      {nextImage !== undefined ? (
-        (assets[nextImage] as ResponsiveImageWithAltText).image ? (
-          <Image
-            sources={images[nextImage].image}
-            alt={images[nextImage].alt}
-            className={classNames(styles['carousel__next-image'], {
-              [styles[`carousel__image--entry-${direction}`]]:
-                nextImage !== undefined,
-            })}
-            imgClassName={classNames(styles['carousel__image-img'], {
-              [styles['carousel__image--mobile']]: isMobile,
-              [styles['carousel__image--fullscreen']]: fullScreen,
-            })}
-          />
-        ) : (
-          <Video
-            className={classNames(
-              styles['carousel__next-image'],
-              styles.carousel__video,
-              {
-                [styles[`carousel__image--entry-${direction}`]]:
+        <>
+          {(assets[currentImage] as ResponsiveImageWithAltText).image ? (
+            <Image
+              sources={images[currentImage].image}
+              alt={images[currentImage].alt}
+              className={classNames(styles.carousel__image, {
+                [styles[`carousel__image--exit-${direction}`]]:
                   nextImage !== undefined,
-              },
-            )}
-            src={(assets[nextImage] as CaseStudyVideo).url}
-            poster={(assets[nextImage] as CaseStudyVideo).poster.image[0]['2x']}
-            controls
-            playsInline
-          />
-        )
-      ) : null}
-
-      {controls ? (
-        <div
-          className={classNames(
-            styles.carousel__controls,
-            styles[`carousel__controls--position-${controlsPosition}`],
+              })}
+              imgClassName={classNames(styles['carousel__image-img'], {
+                [styles['carousel__image--mobile']]: isMobile,
+                [styles['carousel__image--fullscreen']]: fullScreen,
+              })}
+            />
+          ) : (
+            <Video
+              className={classNames(
+                styles.carousel__image,
+                styles.carousel__video,
+                {
+                  [styles[`carousel__image--exit-${direction}`]]:
+                    nextImage !== undefined,
+                },
+              )}
+              src={(assets[currentImage] as CaseStudyVideo).url}
+              poster={
+                (assets[currentImage] as CaseStudyVideo).poster.image[0]['2x']
+              }
+              controls
+              playsInline
+            />
           )}
-        >
-          <Button
-            className={classNames(
-              styles['carousel__control'],
-              styles['carousel__control-previous'],
-            )}
-            appearance="solid"
-            renderAs="button"
-            onClick={() => {
-              goToImage({ direction: 'previous' });
-            }}
-            disabled={nextImage !== undefined}
-          >
-            <ChevronLeftIcon className={styles['carousel__control-icon']} />
-            <Type appearance="visually-hidden" renderAs="span">
-              Go to previous image
-            </Type>
-          </Button>
-          <Button
-            className={classNames(
-              styles['carousel__control'],
-              styles['carousel__control-next'],
-            )}
-            appearance="solid"
-            renderAs="button"
-            onClick={() => {
-              goToImage({ direction: 'next' });
-            }}
-            disabled={nextImage !== undefined}
-          >
-            <ChevronRightIcon className={styles['carousel__control-icon']} />
-            <Type appearance="visually-hidden" renderAs="span">
-              Go to next image
-            </Type>
-          </Button>
-        </div>
-      ) : null}
+
+          {nextImage !== undefined ? (
+            (assets[nextImage] as ResponsiveImageWithAltText).image ? (
+              <Image
+                sources={images[nextImage].image}
+                alt={images[nextImage].alt}
+                className={classNames(styles['carousel__next-image'], {
+                  [styles[`carousel__image--entry-${direction}`]]:
+                    nextImage !== undefined,
+                })}
+                imgClassName={classNames(styles['carousel__image-img'], {
+                  [styles['carousel__image--mobile']]: isMobile,
+                  [styles['carousel__image--fullscreen']]: fullScreen,
+                })}
+              />
+            ) : (
+              <Video
+                className={classNames(
+                  styles['carousel__next-image'],
+                  styles.carousel__video,
+                  {
+                    [styles[`carousel__image--entry-${direction}`]]:
+                      nextImage !== undefined,
+                  },
+                )}
+                src={(assets[nextImage] as CaseStudyVideo).url}
+                poster={
+                  (assets[nextImage] as CaseStudyVideo).poster.image[0]['2x']
+                }
+                controls
+                playsInline
+              />
+            )
+          ) : null}
+
+          {controls ? (
+            <div
+              className={classNames(
+                styles.carousel__controls,
+                styles[`carousel__controls--position-${controlsPosition}`],
+              )}
+            >
+              <Button
+                className={classNames(
+                  styles['carousel__control'],
+                  styles['carousel__control-previous'],
+                )}
+                appearance="solid"
+                renderAs="button"
+                onClick={() => {
+                  goToImage({ direction: 'previous' });
+                }}
+                disabled={nextImage !== undefined}
+              >
+                <ChevronLeftIcon className={styles['carousel__control-icon']} />
+                <Type appearance="visually-hidden" renderAs="span">
+                  Go to previous image
+                </Type>
+              </Button>
+              <Button
+                className={classNames(
+                  styles['carousel__control'],
+                  styles['carousel__control-next'],
+                )}
+                appearance="solid"
+                renderAs="button"
+                onClick={() => {
+                  goToImage({ direction: 'next' });
+                }}
+                disabled={nextImage !== undefined}
+              >
+                <ChevronRightIcon
+                  className={styles['carousel__control-icon']}
+                />
+                <Type appearance="visually-hidden" renderAs="span">
+                  Go to next image
+                </Type>
+              </Button>
+            </div>
+          ) : null}
+        </>
+      )}
     </div>
   );
 };

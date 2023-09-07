@@ -10,7 +10,7 @@ export type ImageProps = {
   alt?: string;
   className?: string;
   imgClassName?: string;
-};
+} & React.VideoHTMLAttributes<HTMLVideoElement>;
 
 const Image: React.FC<ImageProps> = ({
   className,

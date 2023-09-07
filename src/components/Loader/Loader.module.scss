@@ -1,0 +1,54 @@
+@use "sass:color";
+@import "../../styles/shared";
+
+$size: 75px;
+
+.loader {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 200px;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  width: 200px;
+}
+
+.loader__cube,
+.loader__sides,
+.loader__side {
+  height: $size + 1;
+  position: absolute;
+  width: $size + 1;
+}
+
+.loader__sides {
+  animation: rotate 3s ease infinite;
+  animation-delay: 0.8s;
+  transform: rotateX(-37.5deg) rotateY(45deg);
+  transform-style: preserve-3d;
+}
+
+.loader__side {
+  background-color: theme-color(primary);
+  border: $size / 10 solid theme-color(secondary);
+}
+
+.loader__front {
+  background-image: url("./icon.svg");
+  background-size: contain;
+}
+
+.loader .loader__text {
+  bottom: 0;
+  color: theme-color(primary);
+  margin-bottom: 0;
+  position: absolute;
+}
+
+@include cube-side-rotate("loader__top", rotateX(90deg), 0);
+@include cube-side-rotate("loader__bottom", rotateX(-90deg), 0);
+@include cube-side-rotate("loader__front", rotateY(0deg), 0);
+@include cube-side-rotate("loader__back", rotateY(-180deg), 0);
+@include cube-side-rotate("loader__left", rotateY(-90deg), 0);
+@include cube-side-rotate("loader__right", rotateY(90deg), 0);
