@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import classNames from 'classnames';
 
@@ -10,7 +12,7 @@ export type ImageProps = {
   alt?: string;
   className?: string;
   imgClassName?: string;
-} & React.VideoHTMLAttributes<HTMLVideoElement>;
+} & React.ImgHTMLAttributes<HTMLImageElement>;
 
 const Image: React.FC<ImageProps> = ({
   className,
@@ -20,7 +22,7 @@ const Image: React.FC<ImageProps> = ({
   ...props
 }) => {
   return (
-    <picture className={classNames(styles.picture, className)} {...props}>
+    <picture className={classNames(styles.picture, className)}>
       {sources
         .sort((a, b) => b.breakpoint - a.breakpoint)
         .map((source) => (
@@ -38,6 +40,7 @@ const Image: React.FC<ImageProps> = ({
           ]['1x']
         }
         alt={alt}
+        {...props}
       />
     </picture>
   );

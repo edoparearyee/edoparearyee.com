@@ -135,7 +135,7 @@ const Carousel: React.FC<CarouselProps> = ({
         className,
       )}
     >
-      {isLoading ? (
+      {isLoading && !autoPlay ? (
         <>
           <div className={styles.carousel__loader}>
             <Loader />
@@ -146,7 +146,9 @@ const Carousel: React.FC<CarouselProps> = ({
               key={i}
               sources={image.image}
               alt={image.alt}
-              onLoad={() => setImagesLoaded((loaded) => loaded + 1)}
+              onLoad={() => {
+                setImagesLoaded((loaded) => loaded + 1);
+              }}
             />
           ))}
         </>
