@@ -28,22 +28,22 @@ export interface WorkSectionProps {
   id?: string;
   initialCards: WorkCard[];
   total: number;
-  ctaText: string;
 }
 
 const WorkSection: React.FC<WorkSectionProps> = ({
   id,
   initialCards,
   total,
-  ctaText,
 }) => {
   const [cards, setCards] = useState<WorkCard[]>([]);
   const [isIntersecting, setIsIntersecting] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const onIsIntersectingChange = (intersecting: boolean) => {
     setIsIntersecting(intersecting);
   };
 
   const handleLoadMore = async () => {
+    setIsLoading(true);
     const headers = new Headers({
       'Content-Type': 'application/json',
     });
@@ -56,6 +56,7 @@ const WorkSection: React.FC<WorkSectionProps> = ({
     );
     const data: { items: CaseStudy[] } = await response.json();
     setCards((c) => [...c, ...data.items.map(mapCaseStudyToCard)]);
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -127,13 +128,14 @@ const WorkSection: React.FC<WorkSectionProps> = ({
                 delay={(initialCards.length + 1) * 0.15 + 0.1}
               >
                 <Button
-                  color="secondary"
-                  appearance="link"
+                  color="primary"
+                  appearance="solid"
                   renderAs="button"
-                  size="large"
+                  size="medium"
                   onClick={handleLoadMore}
+                  disabled={isLoading}
                 >
-                  {ctaText}
+                  {isLoading ? 'Loading…' : 'Load more'}
                 </Button>
               </AnimatedElement>
             </Col>

@@ -33,7 +33,6 @@ const Home = async () => {
       <WorkSection
         id="work"
         initialCards={caseStudies.map(mapCaseStudyToCard)}
-        ctaText="See more"
         total={total}
       />
       <ClientsSection clients={clients} id="clients" />

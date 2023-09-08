@@ -37,7 +37,6 @@ const workCard: WorkCard = {
 };
 
 const defaultArgs = {
-  ctaText: 'See more',
   initialCards: [
     { ...workCard, slug: '1' },
     { ...workCard, slug: '2' },
