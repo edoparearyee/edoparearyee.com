@@ -17,6 +17,7 @@ export interface CaseStudy {
   websiteUrl?: string;
   team: TeamMember[];
   platform: 'Desktop App' | 'Mobile App' | 'Web';
+  order: number;
 }
 
 export interface Client {
