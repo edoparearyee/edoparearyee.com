@@ -79,7 +79,7 @@ const WorkSection: React.FC<WorkSectionProps> = ({
                 appearance="h2"
                 className={styles['work__title']}
               >
-                Latest Work
+                Featured Work
               </Type>
             </AnimatedElement>
           </Col>
