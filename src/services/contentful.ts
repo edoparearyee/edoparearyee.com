@@ -30,7 +30,7 @@ export const getCaseStudies = async ({
       limit: Math.min(limit, 12),
       skip,
       include: 3,
-      order: ['-fields.year'],
+      order: ['fields.order'],
     });
 
     const items = entries.items.map<CaseStudy>(mapCaseStudy);

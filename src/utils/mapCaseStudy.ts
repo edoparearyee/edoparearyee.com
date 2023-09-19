@@ -120,13 +120,13 @@ export const mapCaseStudy = (
         item.fields.team as Entry<TypeTeamMemberSkeleton, undefined, string>[]
       ).map(mapTeamMember)
     : [],
-  contributors: item.fields.contributors,
   awards: item.fields.awards
     ? (item.fields.awards as Entry<TypeAwardSkeleton, undefined, string>[]).map(
         mapAwards,
       )
     : [],
   platform: item.fields.platform,
+  order: item.fields.order,
 });
 
 export const mapCaseStudyToCard = (item: CaseStudy): WorkCard => ({

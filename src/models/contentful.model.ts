@@ -60,9 +60,9 @@ export interface TypeCaseStudyFields {
     EntryFieldTypes.EntryLink<TypeTeamMemberSkeleton>
   >;
   tags?: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
-  contributors?: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
   awards?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeAwardSkeleton>>;
   platform: EntryFieldTypes.Symbol<'Desktop App' | 'Mobile App' | 'Web'>;
+  order: EntryFieldTypes.Integer;
 }
 
 export type TypeCaseStudySkeleton = EntrySkeletonType<
