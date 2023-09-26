@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-page-custom-font */
 import { Metadata } from 'next';
+import Script from 'next/script';
 
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
@@ -51,6 +52,20 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <meta name="theme-color" content="#ffffff" />
       </head>
       <body>
+        {/* <!-- Google tag (gtag.js) --> */}
+        <Script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
+        />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');
+          `}
+        </Script>
         <ModalProvider>
           <Header />
           {children}
