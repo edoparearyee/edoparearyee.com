@@ -1,7 +1,8 @@
+@use "sass:color";
 @import "../../styles/shared";
 
 .work {
-  background-color: theme-color(dark);
+  background-color: color.adjust(theme-color(secondary), $lightness: -5%);
   color: theme-color(primary);
   padding-bottom: rem(100px);
   padding-top: rem(100px);
