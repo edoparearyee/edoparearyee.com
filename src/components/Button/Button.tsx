@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import Link, { LinkProps } from 'next/link';
 import classNames from 'classnames';
 
 import styles from './Button.module.scss';
@@ -27,7 +26,7 @@ type ButtonPropsButton = ButtonPropsBase & {
 type ButtonPropsLink = ButtonPropsBase & {
   renderAs?: 'a';
   external?: boolean;
-} & LinkProps;
+} & React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export type ButtonProps = ButtonPropsButton | ButtonPropsLink;
 
@@ -43,7 +42,7 @@ const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const Element: any = renderAs === 'a' ? Link : renderAs;
+  const Element: any = renderAs;
   const externalLinkProps =
     renderAs === 'a' && external
       ? {
