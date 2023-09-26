@@ -26,5 +26,5 @@ export default async function sitemap() {
       changeFrequency: 'monthly',
       priority: 0.8,
     })),
-  ] as MetadataRoute.Sitemap;
+  ] as unknown as MetadataRoute.Sitemap;
 }
