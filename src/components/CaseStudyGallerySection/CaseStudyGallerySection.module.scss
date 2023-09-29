@@ -31,7 +31,11 @@
 }
 
 .case-study-gallery__carousel {
-  min-height: calc(100vh - #{$spacer-20 * 2});
+  min-height: calc(100vh - #{rem(144px)});
+
+  @include breakpoint(md) {
+    min-height: calc(100vh - #{rem(208px)});
+  }
 }
 
 .case-study-gallery__cta {

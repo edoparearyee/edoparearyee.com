@@ -61,18 +61,26 @@
 }
 
 .carousel__controls {
+  align-items: center;
+  bottom: rem(20px);
   display: flex;
   justify-content: space-between;
-  left: 0;
+  left: rem(20px);
   position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  right: rem(20px);
   z-index: 3;
+
+  @include breakpoint(md) {
+    left: rem(20px);
+    margin: auto auto 0;
+    max-width: 400px;
+    right: rem(20px);
+  }
 }
 
 .carousel__controls--position-fixed {
   position: fixed;
+
   @include breakpoint(lg) {
     left: rem(20px);
     right: rem(20px);
@@ -111,7 +119,11 @@
 }
 
 .carousel__image--fullscreen {
-  min-height: calc(100vh - #{$spacer-20 * 2});
+  min-height: calc(100vh - #{rem(144px)});
+
+  @include breakpoint(md) {
+    min-height: calc(100vh - #{rem(208px)});
+  }
 }
 
 .carousel__image--mobile {
@@ -120,11 +132,19 @@
 
 .carousel__video {
   align-self: center;
+  display: flex;
+  justify-content: center;
   width: 100%;
 
   .carousel--transition-slide &.carousel__next-image {
     inset: auto 0;
   }
+}
+
+.carousel__video-el {
+  margin: auto;
+  max-width: 1200px;
+  width: 100%;
 }
 
 .carousel__loading-image {
@@ -136,4 +156,8 @@
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.carousel__control-indicator {
+  margin-bottom: 0;
 }

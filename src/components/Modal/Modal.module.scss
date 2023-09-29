@@ -7,9 +7,13 @@
 }
 
 .modal--variant-image {
+  height: calc(100vh - #{rem(144px)});
+  margin: auto 0;
+  overflow: auto;
   width: calc(100% - 40px);
 
   @include breakpoint(md) {
+    height: calc(100vh - #{rem(208px)});
     width: calc(100% - 140px);
   }
 
