@@ -119,10 +119,10 @@
 }
 
 .carousel__image--fullscreen {
-  min-height: calc(100vh - #{rem(144px)});
+  min-height: calc(100dvh - #{rem(144px)});
 
   @include breakpoint(md) {
-    min-height: calc(100vh - #{rem(208px)});
+    min-height: calc(100dvh - #{rem(208px)});
   }
 }
 
