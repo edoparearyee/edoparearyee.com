@@ -91,6 +91,7 @@ export const getClients = async () => {
     const entries = await client.getEntries<TypeClientSkeleton>({
       content_type: contentType,
       limit: 8,
+      order: ['fields.order'],
     });
 
     const items = entries.items.map<Client>(mapClient);

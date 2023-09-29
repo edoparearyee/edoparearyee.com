@@ -78,6 +78,7 @@ export interface TypeClientFields {
   name: EntryFieldTypes.Symbol;
   logoDark: EntryFieldTypes.AssetLink;
   logoLight: EntryFieldTypes.AssetLink;
+  order: EntryFieldTypes.Integer;
 }
 
 export type TypeClientSkeleton = EntrySkeletonType<TypeClientFields, 'client'>;

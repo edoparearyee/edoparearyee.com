@@ -28,6 +28,7 @@ export const Default: Story = {
         logoDarkUrl:
           'https://images.ctfassets.net/6jfmcr2hylt7/14c4DoTgQhdbkb0SNLSHGk/1a2381aafbab288be880ab4774d5eb71/WWE_Logo_Vector.svg',
         name: 'WWE',
+        order: 1,
       },
       {
         logoLightUrl:
@@ -35,6 +36,7 @@ export const Default: Story = {
         logoDarkUrl:
           'https://images.ctfassets.net/6jfmcr2hylt7/7xbfByrXdySz4F6iXE4ZSW/cd2f1a7baa79c7f3aa0778d8d38f5598/nike-4-logo-svg-vector.svg',
         name: 'Nike',
+        order: 2,
       },
       {
         logoLightUrl:
@@ -42,6 +44,7 @@ export const Default: Story = {
         logoDarkUrl:
           'https://images.ctfassets.net/6jfmcr2hylt7/14c4DoTgQhdbkb0SNLSHGk/1a2381aafbab288be880ab4774d5eb71/WWE_Logo_Vector.svg',
         name: 'WWE',
+        order: 3,
       },
       {
         logoLightUrl:
@@ -49,6 +52,7 @@ export const Default: Story = {
         logoDarkUrl:
           'https://images.ctfassets.net/6jfmcr2hylt7/7xbfByrXdySz4F6iXE4ZSW/cd2f1a7baa79c7f3aa0778d8d38f5598/nike-4-logo-svg-vector.svg',
         name: 'Nike',
+        order: 4,
       },
       {
         logoLightUrl:
@@ -56,6 +60,7 @@ export const Default: Story = {
         logoDarkUrl:
           'https://images.ctfassets.net/6jfmcr2hylt7/14c4DoTgQhdbkb0SNLSHGk/1a2381aafbab288be880ab4774d5eb71/WWE_Logo_Vector.svg',
         name: 'WWE',
+        order: 5,
       },
       {
         logoLightUrl:
@@ -63,6 +68,7 @@ export const Default: Story = {
         logoDarkUrl:
           'https://images.ctfassets.net/6jfmcr2hylt7/7xbfByrXdySz4F6iXE4ZSW/cd2f1a7baa79c7f3aa0778d8d38f5598/nike-4-logo-svg-vector.svg',
         name: 'Nike',
+        order: 6,
       },
     ],
   },
