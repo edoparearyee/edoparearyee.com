@@ -5,6 +5,7 @@ import { getCaseStudy } from '@/services/contentful';
 import CaseStudyInformationSection from '@/components/CaseStudyInformationSection/CaseStudyInformationSection';
 import CaseStudyGallerySection from '@/components/CaseStudyGallerySection/CaseStudyGallerySection';
 import CaseStudyHeroSection from '@/components/CaseStudyHeroSection/CaseStudyHeroSection';
+import { metadata } from '@/app/layout';
 
 import styles from './page.module.scss';
 
@@ -19,15 +20,27 @@ const getData = async (slug: string) => {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const caseStudy = await getData(params.slug);
+  const title = `${caseStudy?.title} | Work | Ed Opare-Aryee`;
+  const description = caseStudy?.description.split('\n\n')[0];
+  const images = caseStudy ? [caseStudy.hero.image[0]['1x']] : [];
+  const url = `https://edoparearyee.com/work/${caseStudy?.slug}`;
 
   return {
-    title: `${caseStudy?.title} | Ed Opare-Aryee`,
-    description: caseStudy?.description,
-    twitter: {
-      images: caseStudy ? [caseStudy.hero.image[0]['1x']] : [],
-    },
+    title,
+    description,
     openGraph: {
-      images: caseStudy ? [caseStudy.hero.image[0]['1x']] : [],
+      ...metadata.openGraph,
+      type: 'article',
+      title,
+      description,
+      url,
+      images,
+    },
+    twitter: {
+      ...metadata.twitter,
+      title,
+      description,
+      images,
     },
   };
 }
