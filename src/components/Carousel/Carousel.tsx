@@ -168,7 +168,7 @@ const Carousel: React.FC<CarouselProps> = ({
               })}
             />
           ) : (
-            <Video
+            <div
               className={classNames(
                 styles.carousel__image,
                 styles.carousel__video,
@@ -177,13 +177,17 @@ const Carousel: React.FC<CarouselProps> = ({
                     nextImage !== undefined,
                 },
               )}
-              src={(assets[currentImage] as CaseStudyVideo).url}
-              poster={
-                (assets[currentImage] as CaseStudyVideo).poster.image[0]['2x']
-              }
-              controls
-              playsInline
-            />
+            >
+              <Video
+                className={styles['carousel__video-el']}
+                src={(assets[currentImage] as CaseStudyVideo).url}
+                poster={
+                  (assets[currentImage] as CaseStudyVideo).poster.image[0]['2x']
+                }
+                controls
+                playsInline
+              />
+            </div>
           )}
 
           {nextImage !== undefined ? (
@@ -201,7 +205,7 @@ const Carousel: React.FC<CarouselProps> = ({
                 })}
               />
             ) : (
-              <Video
+              <div
                 className={classNames(
                   styles['carousel__next-image'],
                   styles.carousel__video,
@@ -210,13 +214,17 @@ const Carousel: React.FC<CarouselProps> = ({
                       nextImage !== undefined,
                   },
                 )}
-                src={(assets[nextImage] as CaseStudyVideo).url}
-                poster={
-                  (assets[nextImage] as CaseStudyVideo).poster.image[0]['2x']
-                }
-                controls
-                playsInline
-              />
+              >
+                <Video
+                  className={styles['carousel__video-el']}
+                  src={(assets[nextImage] as CaseStudyVideo).url}
+                  poster={
+                    (assets[nextImage] as CaseStudyVideo).poster.image[0]['2x']
+                  }
+                  controls
+                  playsInline
+                />
+              </div>
             )
           ) : null}
 
@@ -244,6 +252,9 @@ const Carousel: React.FC<CarouselProps> = ({
                   Go to previous image
                 </Type>
               </Button>
+              <Type className={styles['carousel__control-indicator']}>
+                {currentImage + 1} / {assets.length}
+              </Type>
               <Button
                 className={classNames(
                   styles['carousel__control'],

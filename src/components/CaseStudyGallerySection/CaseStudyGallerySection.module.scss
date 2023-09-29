@@ -31,7 +31,11 @@
 }
 
 .case-study-gallery__carousel {
-  min-height: calc(100vh - #{$spacer-20 * 2});
+  min-height: calc(100dvh - #{rem(144px)});
+
+  @include breakpoint(md) {
+    min-height: calc(100dvh - #{rem(208px)});
+  }
 }
 
 .case-study-gallery__cta {
@@ -64,6 +68,7 @@
   aspect-ratio: 1.778;
 
   .case-study-gallery__screenshot-img {
+    aspect-ratio: 1.778;
     object-fit: cover;
     object-position: top;
   }

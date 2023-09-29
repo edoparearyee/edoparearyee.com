@@ -8,14 +8,17 @@
   display: flex;
   inset: 0;
   justify-content: center;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding: $spacer-20 0;
+  overflow: hidden;
+  padding: $spacer-16 0 $spacer-20;
   position: fixed;
   z-index: $z-index-modal;
 
   @supports (backdrop-filter: blur(10px)) {
     backdrop-filter: blur(10px);
     background-color: color.adjust($black, $alpha: -0.5);
+  }
+
+  @include breakpoint(md) {
+    padding: $spacer-20 0 $spacer-32;
   }
 }
