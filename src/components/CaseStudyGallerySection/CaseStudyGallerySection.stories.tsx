@@ -32,6 +32,7 @@ const defaultArgs: CaseStudyGallerySectionProps = {
       name: 'Client name',
       logoDarkUrl: '',
       logoLightUrl: '',
+      order: 1,
     },
     order: 1,
     description:

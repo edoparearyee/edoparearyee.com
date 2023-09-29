@@ -47,6 +47,7 @@ export const mapClient = (
     ?.url as string,
   logoLightUrl: (client.fields.logoLight as Asset<undefined, string>).fields
     .file?.url as string,
+  order: client.fields.order,
 });
 
 export const mapResponsiveImageWithAltText = (

@@ -24,6 +24,7 @@ export interface Client {
   name: string;
   logoDarkUrl: string;
   logoLightUrl: string;
+  order: number;
 }
 
 export interface Video {
