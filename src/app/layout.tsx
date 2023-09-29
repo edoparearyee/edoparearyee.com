@@ -4,15 +4,34 @@ import Script from 'next/script';
 
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
-
-import '../styles/globals.scss';
 import { ModalProvider } from '@/components/ModalProvider/ModalProvider';
 
+import '../styles/globals.scss';
+
+const description =
+  'Ed Opare-Aryee is a Technical Lead, Technical Architect and Lead Full Stack Developer with over 11 years of commercial experience architecting and building web and mobile applications.';
+const siteName = 'Ed Opare-Aryee';
+const title = 'Ed Opare-Aryee';
+const twitterHandle = '@edoparearyee';
+const url = 'https://edoparearyee.com';
+
 export const metadata: Metadata = {
-  title:
-    'Ed Opare-Aryee | Technical Lead, Technical Architect and Lead Full Stack Developer',
-  description:
-    'Ed Opare-Aryee is a Technical Lead, Technical Architect and Lead Full Stack Developer with over 11 years of commercial experience architecting and building web/mobile applications.',
+  title,
+  description: description,
+  openGraph: {
+    title,
+    type: 'website',
+    url,
+    description,
+    siteName,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    site: twitterHandle,
+    description,
+    creator: twitterHandle,
+  },
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
