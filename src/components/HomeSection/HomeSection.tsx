@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { animateScroll } from 'react-scroll';
 
 import Button from '../Button/Button';
 import Type from '../Type/Type';
@@ -31,8 +32,13 @@ const HomeSection: React.FC<HomeSectionProps> = ({ id }) => {
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
     selector: string,
   ) => {
-    event.preventDefault();
-    document.querySelector(selector)?.scrollIntoView({ behavior: 'smooth' });
+    const rect = document.querySelector(selector)?.getBoundingClientRect();
+    animateScroll.scrollTo(window.scrollY + (rect?.y || 0), {
+      smooth: 'easeInOutCubic',
+      duration: (scrollDistance: number) => {
+        scrollDistance;
+      },
+    });
   };
 
   return (

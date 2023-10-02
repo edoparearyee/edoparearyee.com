@@ -3,7 +3,7 @@
 .animated-element {
   display: flex;
   opacity: 0;
-  transition-duration: 1s;
+  transition-duration: 0.8s;
   transition-property: transform, opacity;
   transition-timing-function: ease-in-out;
 
@@ -13,7 +13,7 @@
 }
 
 .animated-element--up {
-  transform: translateY(rem(20px));
+  transform: translate3d(0, rem(20px), 0);
 
   @media (prefers-reduced-motion: reduce) {
     transform: none;
@@ -21,7 +21,7 @@
 }
 
 .animated-element--right {
-  transform: translateX(rem(100px));
+  transform: translate3d(rem(100px), 0, 0);
 
   @media (prefers-reduced-motion: reduce) {
     transform: none;
@@ -29,7 +29,7 @@
 }
 
 .animated-element--left {
-  transform: translateX(rem(-100px));
+  transform: translate3d(rem(-100px), 0, 0);
 
   @media (prefers-reduced-motion: reduce) {
     transform: none;
