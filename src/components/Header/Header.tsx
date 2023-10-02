@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import classNames from 'classnames';
+import { animateScroll } from 'react-scroll';
 
 import Container from '../Grid/Container';
 import Row from '../Grid/Row';
@@ -26,8 +27,13 @@ const Header: React.FC<HeaderProps> = () => {
     selector: string,
   ) => {
     if (pathname !== '/') return;
-    event.preventDefault();
-    document.querySelector(selector)?.scrollIntoView({ behavior: 'smooth' });
+    const rect = document.querySelector(selector)?.getBoundingClientRect();
+    animateScroll.scrollTo(window.scrollY + (rect?.y || 0), {
+      smooth: 'easeInOutCubic',
+      duration: (scrollDistance: number) => {
+        scrollDistance;
+      },
+    });
     setMenuOpen(false);
   };
 
@@ -50,7 +56,7 @@ const Header: React.FC<HeaderProps> = () => {
               <Button
                 appearance="none"
                 renderAs="a"
-                href="/"
+                href={pathname === '/' ? '/#home' : '/'}
                 onClick={($event) => {
                   onNavItemClick($event, '#home');
                 }}
